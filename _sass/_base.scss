@@ -1,0 +1,189 @@
+
+/* ********************************************************************** */
+
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, hr, dl, dd, ol, ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+/* ********************************************************************** */
+
+/**
+ * Basic styling
+ */
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    font-weight: 300;
+    color: $text-color;
+    background-color: $background-color;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* ********************************************************************** */
+
+// // SMH, adds extra space to everything, do not uncomment!
+// /**
+//  * Set `margin-bottom` to maintain vertical rhythm
+//  */
+// h1, h2, h3, h4, h5, h6, p, blockquote, pre, ul, ol, dl, figure, %vertical-rhythm {
+//     /*margin-bottom: $spacing-unit / 2;*/
+// }
+
+/* ********************************************************************** */
+
+/**
+ * Images
+ */
+img {
+    padding: 0.1rem 0.1rem 0.1rem 0.1rem;
+    max-width: 100%;
+    vertical-align: middle;
+    border: 1px solid $color-img-border;
+}
+
+/* ********************************************************************** */
+
+/**
+ * Figures
+ */
+figure > img {
+    display: block;
+}
+
+figcaption {
+    font-size: $small-font-size;
+}
+
+/* ********************************************************************** */
+
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: $spacing-unit;
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
+
+/* ********************************************************************** */
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 300;
+    margin: 0.5rem 0.1rem 0.5rem 0.1rem;
+    padding: 0rem 0rem 0rem 0rem;
+    color: $grey-color-dark;
+}
+
+/* ********************************************************************** */
+
+/**
+ * Blockquotes
+ */
+blockquote {
+    color: $color-blockquote;
+    border: 1px solid $color-blockquote-border;
+    font-size: $small-font-size;
+    letter-spacing: -1px; /* Defines an extra space between characters (negative values are allowed) */
+    /* font-style: italic; */
+    word-wrap: break-word;  /* use <code> for blockquotes (easier than using ">"), use <pre> for actual code */
+    display: block; /* display as a block */
+
+    margin: 1rem 0.1rem 1rem 0.1rem; /* top right bottom left */
+    padding: 1px 1px 1px 1px;
+
+    // > :last-child {
+    //     margin-bottom: 0;
+    // }
+
+    /* blockquote inside blockquote */
+    > blockquote {
+        margin: 0.1rem 0.1rem 0.1rem 0.1rem; /* top right bottom left */
+    }
+}
+
+/* ********************************************************************** */
+
+/**
+ * Code formatting
+ */
+pre, code {
+    font-size: $small-font-size;
+    border: 1px solid red;
+    // white-space: pre; /* preserve whitespace */
+    // word-wrap: break-word;  /* Allows unbreakable words to be broken */
+    white-space: pre-wrap; /* Whitespace is preserved by the browser. Text will wrap when necessary, and on line breaks */
+}
+
+/* inline code `foo` */
+code {
+    background-color: $color-code;
+    display: inline;
+    padding: 1px 1px 1px 1px; /* top right bottom left */
+}
+
+/* codeblock
+```
+foo
+``` */
+pre {
+    // margin from regular text to codeblocks
+    margin: 1rem 1rem 1rem 1rem; /* top right bottom left */
+    // padding from border to text inside codeblock
+    padding: 0.1rem 0.1rem 0.1rem 0.1rem; /* top right bottom left */
+    background-color: $color-pre;
+
+    // code INSIDE pre
+    > code {
+        border: 0;
+        display: block; /* display as a block */ // important! override "display: inline"
+        background-color: $color-pre;
+    }
+}
+
+/* ********************************************************************** */
+
+/**
+ * Clearfix
+ */
+%clearfix {
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/* ********************************************************************** */
+
+/**
+ * Icons
+ */
+.icon {
+
+    > svg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+
+        path {
+            fill: $grey-color;
+        }
+    }
+}
+
+/* ********************************************************************** */

@@ -1,0 +1,42 @@
+/* ********************************************************************** */
+
+/*
+ * Sidebar
+ *
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
+ */
+
+.sidebar {
+  text-align: center; /* Set the text alignment for <h1>, <h2>, and <h3> elements */
+  padding: 0.1rem 0.25rem 0.1rem 0.25rem; /* stuff inside the sidebar */
+
+  /*color: rgba(255,255,255,.5);*/
+
+  /*background-color: rgb(20%, 20%, 20%);*/
+
+  $gradient-start: rgb(16%, 16%, 16%);
+  $gradient-end:   rgb(32%,32%,32%);
+
+  background: -webkit-linear-gradient(120deg, $gradient-start, $gradient-end); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(120deg, $gradient-start, $gradient-end); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  word-wrap: break-word;
+}
+
+.sidebar-content {
+  font-size: $small-font-size85;
+}
+
+@media (min-width: 48em) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 10rem; /* width of the sidebar!!! */
+    text-align: left;
+  }
+}
+
+/* ********************************************************************** */

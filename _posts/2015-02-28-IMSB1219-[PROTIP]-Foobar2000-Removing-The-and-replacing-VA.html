@@ -1,0 +1,63 @@
+---
+layout: post
+title: '[PROTIP] Foobar2000: Removing "The" and replacing "Various Artists" with "VA"'
+date: '2015-02-28T01:14:00.000Z'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-PROTIP
+modified_time: '2015-04-15T01:44:11.888+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-8757782630146016346
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/04/protip-foobar2000-removing-and.html
+---
+
+DO NOT USE THIS. SEE:&nbsp;<a href="http://insurgencymod.blogspot.com/2015/04/protip-foobar2000-filters-config.html">http://insurgencymod.blogspot.com/2015/04/protip-foobar2000-filters-config.html</a><br />
+<br />
+<strike>"The" is removed.</strike><br />
+<strike>"Various Artists" is replaced with "VA"</strike><br />
+<strike><br /></strike>
+<strike>###</strike><br />
+<strike><br /></strike>
+<strike>R1</strike><br />
+<strike><br /></strike>
+<blockquote class="tr_bq">
+<strike>$if(%album artist%,%album artist%,NO ALBUM ARTIST) - $if(%album%,%album%,NO ALBUM) $if($year(%date%),'('$year(%date%)')','('NO YEAR')') ['['%codec%']']</strike></blockquote>
+<strike><br /></strike>
+<strike>R2 removes "the" in %album artist%</strike><br />
+<strike><br /></strike>
+<blockquote class="tr_bq">
+<strike>$if($stricmp($left(%album artist%,4),'The '),$right(%album artist%,$sub($len(%album artist%),4)),[%album artist%])</strike></blockquote>
+<strike><br /></strike>
+<strike>Removes "the" and replaces "various artists" with "va" in %album artist%</strike><br />
+<strike><br /></strike>
+<blockquote class="tr_bq">
+<strike>$if(%album artist%,$if($stricmp($left(%album artist%,4),'The '),$right(%album artist%,$sub($len(%album artist%),4)),$if($stricmp($left(%album artist%,7),'Various'),$replace(%album artist%,'Various Artists','VA'),%album artist%)),NO ALBUM ARTIST) - $if(%album%,%album%,NO ALBUM) $if($year(%date%),'('$year(%date%)')','('NO YEAR')') ['['%codec%']']</strike></blockquote>
+<strike><br /></strike>
+<strike>###</strike><br />
+<strike><br /></strike>
+<strike>R1 original</strike><br />
+<strike><br /></strike>
+<blockquote class="tr_bq">
+<strike>$if($meta(album artist),$meta(album artist),NO ALBUM ARTIST)</strike></blockquote>
+<strike><br /></strike>
+<strike>R2 removes "the" and replaces "various artists" with "va"</strike><br />
+<strike><br /></strike>
+<blockquote class="tr_bq">
+<strike>$if($meta(album artist),$if($stricmp($left($meta(album artist),4),'The '),$right($meta(album artist),$sub($len($meta(album artist)),4)),$if($stricmp($left($meta(album artist),7),'Various'),$replace($meta(album artist),'Various Artists','VA'),$meta(album artist))),NO ALBUM ARTIST)</strike></blockquote>
+<strike><br /></strike>
+<strike>###</strike><br />
+<strike><br /></strike>
+<strike>R1 original</strike><br />
+<strike><br /></strike>
+<blockquote class="tr_bq">
+<strike>$if(%album artist%,%album artist%,%artist%)</strike></blockquote>
+<strike><br /></strike>
+<strike>R2 removes "the", replaces "various artists" with "va"</strike><br />
+<strike><br /></strike>
+<blockquote class="tr_bq">
+<strike>$if($meta(album artist),$if($stricmp($left($meta(album artist),4),'The '),$right($meta(album artist),$sub($len($meta(album artist)),4)),$if($stricmp($left($meta(album artist),7),'Various'),$replace($meta(album artist),'Various Artists','VA'),$meta(album artist))),$if(%album artist%,$if($stricmp($left(%album artist%,4),'The '),$right(%album artist%,$sub($len(%album artist%),4)),$if($stricmp($left(%album artist%,7),'Various'),$replace(%album artist%,'Various Artists','VA'),%album artist%)),NO ALBUM ARTIST))</strike></blockquote>
+ 
+<br> 
+<br> 
+IMSIDB3B432AE331AF05850D4A63E7E66DA25CF423869 

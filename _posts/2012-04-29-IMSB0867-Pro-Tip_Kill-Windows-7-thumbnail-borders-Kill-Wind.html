@@ -1,0 +1,78 @@
+---
+layout: post
+title: 'Pro Tip: Kill Windows 7 thumbnail borders / Kill Windows 7 "Action Center"/
+  Fix Start Menu'
+date: '2012-04-29T04:43:00.006+01:00'
+author: insmodscum
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+modified_time: '2013-05-02T21:10:58.394+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-283506297748079689
+blogger_orig_url: http://insurgencymod.blogspot.com/2012/04/pro-tips-kill-windows-7-thumbnail.html
+---
+
+<a href="http://www.askvg.com/how-to-customize-thumbnail-preview-border-in-windows-vista-and-7-explorer/">http://www.askvg.com/how-to-customize-thumbnail-preview-border-in-windows-vista-and-7-explorer/</a><br />
+<br />
+<blockquote>
+Type regedit in RUN or startmenu search box and press Enter. It'll open Registry Editor.<br />
+<br />
+2. Now go to:<br />
+<br />
+HKEY_CLASSES_ROOT\SystemFileAssociations\image (to customize border for images)<br />
+HKEY_CLASSES_ROOT\SystemFileAssociations\video (to customize border for videos)<br />
+<br />
+3. In right-side pane, look for a DWORD value "Treatment". It would be set to 2 for images and 3 for videos by default. Double-click on it and set its value to any of following:<br />
+<br />
+0 - To remove the border (Makes thumbnail preview a little bit faster)<br />
+1 - To add drop-shadow effect<br />
+2 - To add photo-shadow effect<br />
+3 - To add video reel like effect</blockquote>
+<br />
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<br />
+<a href="http://blogs.catapultsystems.com/cnackers/archive/2011/06/14/disable-windows-7-action-center.aspx">http://blogs.catapultsystems.com/cnackers/archive/2011/06/14/disable-windows-7-action-center.aspx</a><br />
+<br />
+<blockquote>
+HKLM\SOFTWARE\MICROSOFT\WINDOWS\CURRENTVERSION\POLICIES\EXPLORER<br />
+<br />
+HIDESCAHEALTH=DWORD:00000001</blockquote>
+<br />
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<br />
+"Show the Classic “All Programs” Menu in the Start Menu in Windows 7"<br />
+<a href="http://www.howtogeek.com/howto/21992/show-the-classic-all-programs-menu-in-the-start-menu-in-windows-7/">http://www.howtogeek.com/howto/21992/show-the-classic-all-programs-menu-in-the-start-menu-in-windows-7/</a><br />
+<br />
+<blockquote>
+First click on the Start Menu and type regedit into the Search box and hit Enter.<br />
+<br />
+<br />
+Now we need to navigate to HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders. Double-click on Favorites on the right side…<br />
+<br />
+<br />
+Now change the Value data to the following and click OK:<br />
+<br />
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs<br />
+<br />
+<br />
+Next scroll down a bit further to HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders. Double-click on the Favorites entry.<br />
+<br />
+<br />
+Again we need to edit the Value data to:<br />
+<br />
+C:\ProgramData\Microsoft\Windows\Start Menu\Programs<br />
+<br />
+<br />
+After making the changes close out of the Registry Editor and right-click on the Start Menu and select Properties.<br />
+<br />
+<br />
+In the Taskbar and Start Menu Properties Window click on the Start Menu tab then click on the Customize button.<br />
+<br />
+<br />
+Scroll down and click the box next to Favorites menu, click OK, and reboot your system.</blockquote>
+<br />
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+ 
+<br> 
+<br> 
+IMSID014F53CB7873EFCAA221A1C0ACB123C40A8B60C7 

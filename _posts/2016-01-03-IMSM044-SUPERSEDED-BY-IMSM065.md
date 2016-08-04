@@ -1,0 +1,21 @@
+---
+layout: post
+title: '[SUPERSEDED] Delete Remote GitHub Tags'
+date: 2016-01-03
+author: InsModScum
+tags:
+- IMS
+- 2016
+- IMSTOOLS
+- IMSTOOLSGIT
+- IMSNOTED
+- Superseded
+---
+
+# Superseded by: #
+
+IMSM065_A3E34C440111C2CEE526B5B194B72AB65D2088F3
+
+---
+
+IMSM044_5953D896198C21BC7AB8A6FB730414F838BF5035

@@ -1,0 +1,290 @@
+---
+layout: post
+title: Walking in a Tor wonderland! (Tor & Linux SOPs & OPSEC)
+date: '2011-12-05T00:45:00.012Z'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-OPSEC / Anonymity
+- OT-Tools
+modified_time: '2013-03-24T10:09:50.982Z'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-2119356748190434540
+blogger_orig_url: http://insurgencymod.blogspot.com/2011/12/walking-in-tor-wonderland-tor-linux.html
+---
+
+<blockquote><blockquote class="tr_bq"><b>"First, I want to use TOR to download .pdf files"</b></blockquote><div style="background-color: white;"><br />
+First, how have you setup Tor? (it's not TOR btw, it's Tor)<br />
+<br />
+Have you installed the Tor Browser Bundle? (TBB) It contains a (limited) preconfigured Tor environment (you need to reconfigure the included Noscript properly as by default it is set to allow everything, which is bad) and includes Vidalia, a Tor GUI front-end. If you have, you can right click on most .PDF file download links and select your local destination for the PDF to download to and it runs through Tor without leaping outside of the Tor client. Some PDF file downloads are caught by Tor button for unknown reasons, it thinks you're trying to load it directly and not download it when you're trying to download it. This may be a bug which appears at random. TBB's preconfigued Tor environment does not modify files like wgetrc (more on this later) or other application's files outside of the applications it provides.<br />
+<br />
+My preferred method of handing PDF files when using Tor is to load them remotely via this free web service:&nbsp;<a eudora="autourl" href="http://view.samurajdata.se/" rel="noreferrer">http://view.samurajdata.se/</a></div><div style="background-color: white;"><br />
+</div><div style="background-color: white;">I don't see that website as having any ads, but I block ads anyway, nor are there any posts begging for money, nor do they push an application to download in order to view the PDFs. It's the most simplistic layout I've seen for loading PDFs remotely and safely so they don't touch your system (your web cache should be disabled and is disabled if you use TBB, your swap and home partitions, if not your whole system should be encrypted). But does the admin track PDFs and IPs? Simple, always use Tor with that site with nothing personal.<br />
+<br />
+It should be noted the moment you begin using your real name and playing about on Facebook with your friends or acquaintances via Tor, you've lost the plot. Do not mingle your personal Internet use with your Tor Internet use. Do not use Tor while at the same time accessing your personal e-mail outside of Tor (you shouldn't load it inside Tor, for that matter, either). Don't boast through Tor to one of your chums that you're using Tor.<br />
+<br />
+The PDF files (at view.samurajdata.se) are transformed into single paged graphics which you may navigate through easily. 99% of the time it works, some PDFs it chooses not to load and spits out an error. It doesn't<br />
+require Flash and works without cookies or javascript enabled. I don't know who runs the site or their privacy and data retention habits, but I recommend it above all other sites offering to convert PDFs on-line. I have not tested uploading local PDF files to that service so I cannot suggest others do so, I don't know whether or not there would be any privacy leaks in doing so, so just copy/paste urls into that service.<br />
+<br />
+In using that free PDF converter website, I can preview the document to determine beforehand whether it is worth the time, space, and effort in manually downloading the PDF and storing it for future access. Should you access PDF files on your system, I would recommend burning them to a CD or DVD, a read only medium, and accessing them from a non-networked environment such as a Linux LiveCD with the network cable unplugged, using an open source PDF reader, never use the proprietary PDF reader from Adobe, unless you're reading off-line from read only media, in addition to pulling the network cable prior to booting from a fresh and verified LiveCD and pulling the cable and power plugs from any hard drives (before you turn your system ON), to eliminate any possible contamination. Remember, you're downloading PDF files through Tor, and unless you verify each file through checksum verification (like MD5 or GPG) there's a chance they could've been trojaned by a rogue exit node, or contain phoning home instructions or any other type of malicious "feature". No amount of open or closed source virus/trojan scanners can convince me a file is entirely free of malware.<br />
+<br />
+If you're booting from a LiveCD to use Tor, I heavily recommend pulling the plug/power cord from any hard drives just in case, before you start your LiveCD session and before you've powered the system ON, so no data is transferred/shared through the use of the LiveCD sessions. I strongly recommend against using a preconfigured Tor LiveCD, not limited to but including the recent, "Tails LiveCD". You have no method to inform you on whether or not the binaries have been modified to whatever end. While not pointing the finger at any one such project, I can imagine the temptation would be great for a malicious user or project team to poison the well, so to speak, with compromised binaries naive users would trust their security/privacy to.<br />
+<br />
+If you're running a system with sufficient memory, you should be able to download a Linux LiveCD of your choosing, verify it with MD5 or GPG, verify it with the bootable option to, "Verify This CD", extract the previously downloaded TBB into the home directory, disable all extra network services, configure a few files like hosts.deny and others as well as changing the password on the LiveCD user account. Since the LiveCD user runs with elevated privileges, you should consider creating your own LiveCD for TBB use, stripping it down to only the basics to minimize bugs in some packages in the repositories which could compromise your Tor operational security/privacy.<br />
+<br />
+There are free tools like remastersys which allow you to put together a LiveCD with packages of your choosing. You may configure a proper limited user account beforehand and use this with TBB from your customized LiveCD. I'm not recommending remastersys or any other LiveCD creation tool as I have not audited their source<br />
+code nor do I blindly trust binaries, but it's an option.<br />
+<br />
+It would be wise to consider all binary transfers via Tor as potentially trojaned by a rogue exit node, modifications to data by a rogue exit node AND sniffing of plain text traffic occurs and is well documented. Some good preventative methods for browsing in Tor:<br />
+<br />
+<blockquote class="tr_bq">1.&nbsp;<a eudora="autourl" href="https://www.ixquick.com/" rel="noreferrer">https://www.ixquick.com/</a>&nbsp;offers encrypted searches AND proxying of web content, you may surf in Tor<br />
+through Ixquick's web proxy for excellent SSL protection.<br />
+2.&nbsp;<a eudora="autourl" href="https://ssl.scroogle.org/" rel="noreferrer">https://ssl.scroogle.org/</a>&nbsp;offers encrypted searches but offers no secure web proxy. Using Scroogle or Ixquick over Google or Yahoo among others is encouraged as you don't hit a brick wall with an error message (Yahoo) or a message saying you have to verify you're a human (Google). By default Torbutton will redirect you to one of a few alternative search engines. Ixquick may require javascript to yield more search results than the first page presented to you, so I suggest Scroogle for web searches and Ixquick's free SSL web proxy for browsing. Do not, under any circumstances, enable the use of Javascript without Noscript loaded and configured properly. There are many ways to decloak and otherwise poison Tor traffic with javascript enabled and no Noscript plugin.</blockquote></div><div style="background-color: white;"><br />
+Flash: Don't install the plugin, don't try alternatives, they won't be torrified. Some have claimed, on Tor's or-talk mailing list discussions, to have enabled YouTube's HTML5 option and, without the use of a Flash plugin, enabling the&nbsp; content to be shot through Tor but I haven't tried it. There are methods of downloading flash videos through Tor, such as through a third party website or by using clive or youtube-dl, both are listed in the Ubuntu repositories but each must be configured to use a proxy with Tor like Polipo or Privoxy.<br />
+<br />
+Second, if you haven't installed Tor via the TBB, you've opted to install and configure Tor with a proxy like Polipo or Privoxy. If this is so, it's easier to download PDFs as you don't need to accomplish this through the browser, instead you modify your /etc/wgetrc file with a proxy configuration matching the proxy port you're using with Tor.<br />
+<br />
+<blockquote class="tr_bq">$cat /etc/wgetrc | grep proxy<br />
+(default wgetrc displays as follows):<br />
+#https_proxy =&nbsp;<a eudora="autourl" href="http://proxy.yoyodyne.com:18023/" rel="noreferrer">http://proxy.yoyodyne.com:18023/</a>#http_proxy =&nbsp;<a eudora="autourl" href="http://proxy.yoyodyne.com:18023/" rel="noreferrer">http://proxy.yoyodyne.com:18023/</a>#ftp_proxy =&nbsp;<a eudora="autourl" href="http://proxy.yoyodyne.com:18023/" rel="noreferrer">http://proxy.yoyodyne.com:18023/</a>#If you do not want to use proxy at all, set this to off.<br />
+#use_proxy = on<br />
+sudo nano /etc/wgetrc<br />
+or<br />
+gksudo gedit /etc/wgetrc</blockquote><br />
+You would specify the proxy as http://127.0.0.1:proxy port number here.&nbsp;If you're using a proxy port of 12345, for example, it would be&nbsp;<a eudora="autourl" href="http://127.0.0.1:12345/" rel="noreferrer">http://127.0.0.1:12345</a>.&nbsp;I don't know what port Polipo and Privoxy use, but use whatever value they specify.</div><div style="background-color: white;"><br />
+With wgetrc configured properly and proxy lines uncommented, you can test it by using wget in a Terminal to manually download the PDF files, copy/paste the url into the Terminal following the wget command, and I recommend using the -c option in case the download fails somewhere during your download:<br />
+<br />
+<blockquote class="tr_bq">wget -c&nbsp;<a eudora="autourl" href="https://www.torproject.org/dist/torbrowser/linux/tor-browser-gnu-linux-i686-2.2.34-3-dev-en-US.tar.gz" rel="noreferrer">https://www.torproject.org/dist/torbrowser/linux/tor-browser-gnu-linux-i686-2.2.34-3-dev-en-US.tar.gz</a></blockquote></div><div style="background-color: white;"><br />
+This would download the TBB for Linux (current as of 12/12/2011). While on the subject, please verify every Tor package you download using GPG, instructions are on their site, as well as instructions to torrify your gpg key fetching if you don't wish to grab gpg keys in the clear.<br />
+<br />
+I haven't tested wget while using the TBB, I don't know what would be required here, installing Polipo or Privoxy and appending the proper local address with port within Vidalia and giving it a go or by some other method. All this rests on the belief you're downloading legal PDFs.</div><hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" /><blockquote class="tr_bq"><b>[I want to use TOR to download&nbsp;.torrent files]</b></blockquote><br />
+I can't help you with that and it's considered bad etiquette to run torrent traffic through Tor.<br />
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" /><blockquote class="tr_bq"><b>"An external application is needed to handle:&nbsp;file.pdf"</b></blockquote><br />
+<div style="background-color: white;"></div><div style="background-color: white;">NOTE: External applications are NOT Tor safe by default and can unmask you! If this file is untrusted, you should either save it to view while offline or in a VM, or consider using a transparent Tor proxy like Tails LiveCD or torsocks.</div><hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" /><blockquote class="tr_bq"><b>"Am I OK? Can I proceed safely and anonymously?"</b></blockquote><br />
+No, not when it pops up with that warning. Don't click on the PDF url, right click on the url and save it locally and the transfer will traverse through the Tor network. As above, I mentioned Tor button randomly pops up with this warning even though I've right clicked on the PDF url, probably a bug but it thinks you're trying to view it<br />
+directly. You should see that Tor button warning most of the time for when you're trying to access non-torrifyed content directly. Always click CANCEL when this warning appears.<br />
+<br />
+My best suggestion would be to use wget with a properly modified wgetrc file, this likely means you'll have to download and configure Polipo or Privoxy. If you're using the TBB, you're on your own, I haven't explored it.<br />
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" /><blockquote><b>"Also, I want to use a web-based email service via TOR so as to have anonymous email capabilities. Gmail worked for a while, but just asked me what city I usually log in from, cause it thought my account was hijacked. Know any web-based email providers that will work with TOR?"</b></blockquote><br />
+There are several options, you may google for a result or post to Tor's or-talk mailing list, see the Documentation page on Tor's official website for instructions on signing up and posting to the public&nbsp;list, which consists of Tor developers and users. I cannot advise you here as some TOS for free web-mail&nbsp;may stipulate you may not mask your origin of transit with their services, which is just what one would be doing by using their service. G-mail is not recommended, you want to look for a web service which maintains a constant SSL connection from the beginning to the end of your session. In addition, one which does not require the use of javascript, cookies, or any other of the privacy busting potentials.<br />
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" /><blockquote class="tr_bq"><b>"Hushmail might work with Tor pretty well"</b></blockquote><br />
+<div style="background-color: white;">Does Hushmail not require Java installed to function? Java is a big no no when using Tor, for many reasons not limited to rogue exit nodes manipulating your traffic to unmask or otherwise poison your Tor session and possibly exploit the java user's system. In the ideal Tor setup, no plugins should be installed, this is where the TBB for Linux works well, it has no plugins by default, it does have some extensions, such as Tor button, Noscript, and eff.org's HTTP-Everywhere, but no plugins. Hushmail also has a checkered history, in my opinion,&nbsp;concerning privacy and I don't approve of their methods of encryption or use of Java.</div><div style="background-color: white;"><br />
+</div><div style="background-color: white;">Wait a second... Well looky what we have here:<br />
+<br />
+<blockquote class="tr_bq">"Hushmail Turns Data Over to Government"<br />
+<a eudora="autourl" href="http://www.schneier.com/blog/archives/2007/11/hushmail_turns.html" rel="noreferrer">http://www.schneier.com/blog/archives/2007/11/hushmail_turns.html</a></blockquote></div><div style="background-color: white;"><br />
+Furthermore, you shouldn't install other extensions unless you are certain they work well with Tor, they could leak, Tor's website offers a page suggesting which plugins work well. I would stick with the three TBB contains, and configure them correctly as I mentioned earlier, Noscript is setup by default to allow everything by default which is bad. To verify no plugins (don't confuse with extensions) are installed, type about:plugins in your<br />
+browser's address bar. No plugins should be listed. I find TBB useful as I can use it for Tor only, and use another browser outside of the TBB directory, installed from Ubuntu's repositories, for non-Tor use, why mix the two in one browser? It's complicated and messy. And, unless I'm mistaken, TBB's version of Firefox (Aurora) has been tweaked by the Tor developers to address certain issues vanilla Firefox would otherwise contain.<br />
+<br />
+The preferred method of removing the possibility of any Tor leakage is to change my network settings during Tor use to list no DNS servers. If, by error, you launch an application outside of Tor, there are no DNS servers to catch the application's requests, they are stonewalled and will turn up an error. Despite what some may tell you, Tor functions well with no DNS servers listed. After you modify your network settings with DNS servers removed, check your resolv.conf file, it should look like this:<br />
+<br />
+<blockquote class="tr_bq">$cat /etc/resolv.conf<br />
+#Generated by NetworkManager</blockquote><br />
+With no DNS servers listed.<br />
+<br />
+You may also opt to block DNS during your Tor session with ufw by blocking all communication with port 53. You may also choose to, as in my thread within the Security section here details, block all ports except those you need and configure Vidalia or your torrc file if not using Vidalia, to use only port 80 and 443 for its operation.<br />
+<br />
+Lastly, get to know and love using Tor bridges:&nbsp;<a eudora="autourl" href="https://bridges.torproject.org/" rel="noreferrer">https://bridges.torproject.org/</a></div><div style="background-color: white;"><br />
+</div><div style="background-color: white;">Why tell everyone on your network you're using Tor? Tor use may stand out in other ways, but by using bridges, you're obscuring your use of Tor, instead of telling everyone on your network you're connecting to known Tor nodes. It's simple to determine you're using bridges, but it's more difficult than using the standard method of Tor connectivity.<br />
+<br />
+Has your network provider setup a honey-pot virtual Tor network and you're connecting to it rather than the genuine Tor network? How would you know? Again, this is where using bridges is the preferred method for Tor access. Clear documentation of using bridges is on Tor's official site, but made easier by using Vidalia and accessing the Tor bridges page, and copy/pasting the Tor bridges into Vidalia's GUI section under Vidalia's Settings, Network, and box tic for "My ISP blocks connections to the Tor network". If you have a legit connection to the Tor network without using bridges, how may you know whether or not your network provider is limiting the nodes you're able to access and hasn't blacklisted many in order to better monitor your Tor usage?<br />
+<br />
+The subject of a network provider setting up a fake Tor network has been documented and if memory serves me has appeared in at least one White-paper.<br />
+<br />
+If in doubt during any Tor use, Wireshark may be used to verify traffic is contained within the Tor network, it's in the Ubuntu repositories.<br />
+<br />
+I've waddled outside your request with more information than the OP requested, but it's useful information for all. (and to all a good night!)<br />
+<br />
+Bonus material: from a verified trusted and true LiveCD, run rkhunter and chkrootkit against your hard disk drives, extra points for using a tool such as hexdump or objdump to check binaries and space on the hard drive for any potential virus or trojaned software/sectors. Trojans targeting the system's BIOS are becoming more common, standard practice for any new system you obtain is to set the BIOS write protect within the BIOS options and question whether bundled system update programs which may want to update your BIOS is really required, and source verified (has your DNS been poisoned? A new project called DNSCrypt has been floating around in recent tech news as a potential solution to these attacks).<br />
+<br />
+Extra credit: Employ TEMPEST shielding techniques, never use a program which claims to keep your computer passwords safe or simply holding them for you, they are vulnerable to TEMPEST based attacks (and keeping them on any r/w medium is stupid on so many levels). Use a Frequency Counter and test for through-the-air leakage. Never use Tor on a Windows based system! Not even within a VM. If you trust it, it's closed source:<br />
+install Wine and run a freeware program called, "Zero Emission Pad" to modify/read your text documents in, as it claims (strong emphasis on claims) to prevent TEMPEST attacks. It's a Windows only freeware program which I haven't vetted for possible leaks but it is interesting, google for it and you'll eventually find it. At least one software vendor in the U.S. offers a proprietary and commercial application which does the same job, but I have no trust in commercially developed, closed source software, which is a reason why trusting GPG over PGP is a great idea.<br />
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" /><b>Related OPSEC reading:</b><br />
+<br />
+TEMPEST (or, "Hey! Who owns that van/RV/delivery truck outside? It never moves!"):<br />
+-&nbsp;<a eudora="autourl" href="http://www.eskimo.com/~joelm/tempest.html" rel="noreferrer">http://www.eskimo.com/~joelm/tempest.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/TEMPEST">http://en.wikipedia.org/wiki/TEMPEST</a><br />
+-&nbsp;<a eudora="autourl" href="http://cryptome.org/tempest-law.htm">http://cryptome.org/tempest-law.htm</a><br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/Van_Eck_phreaking">http://en.wikipedia.org/wiki/Van_Eck_phreaking</a><br />
+-&nbsp;<a eudora="autourl" href="http://packetstormsecurity.org/files/13982/tempest.txt" rel="noreferrer">http://packetstormsecurity.org/files/13982/tempest.txt</a><br />
+-&nbsp;<a eudora="autourl" href="http://packetstormsecurity.org/files/65944/tempest.pdf" rel="noreferrer">http://packetstormsecurity.org/files/65944/tempest.pdf</a>&nbsp;[PDF]<br />
+-&nbsp;<a eudora="autourl" href="http://slashdot.org/article.pl?sid=99/10/25/2039238" rel="noreferrer">http://slashdot.org/article.pl?sid=99/10/25/2039238</a><br />
+-&nbsp;<a eudora="autourl" href="http://it.slashdot.org/story/02/03/09/199242/crt-eavesdropping-optical-tempest" rel="noreferrer">http://it.slashdot.org/story/02/03/09/199242/crt-eavesdropping-optical-tempest</a><br />
+-&nbsp;<a eudora="autourl" href="http://yro.slashdot.org/story/99/11/08/093250/coming-to-a-desktop-near-you-tempest-capabilities" rel="noreferrer">http://yro.slashdot.org/story/99/11/08/093250/coming-to-a-desktop-near-you-tempest-capabilities</a><br />
+-&nbsp;<a eudora="autourl" href="http://slashdot.org/story/01/01/16/139244/NSA-Reveals-Some-Tempest-Information" rel="noreferrer">http://slashdot.org/story/01/01/16/139244/NSA-Reveals-Some-Tempest-Information</a><br />
+-&nbsp;<a eudora="autourl" href="http://it.slashdot.org/story/09/03/12/2038213/researchers-sniff-keystrokes-from-thin-air-wires" rel="noreferrer">http://it.slashdot.org/story/09/03/12/2038213/researchers-sniff-keystrokes-from-thin-air-wires</a><br />
+-&nbsp;<a eudora="autourl" href="http://tech.slashdot.org/story/99/07/19/1324207/super-shielded-pc-cases" rel="noreferrer">http://tech.slashdot.org/story/99/07/19/1324207/super-shielded-pc-cases</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.cl.cam.ac.uk/~mgk25/emsec/optical-faq.html" rel="noreferrer">http://www.cl.cam.ac.uk/~mgk25/emsec/optical-faq.html</a><br />
+<br />
+TEMPEST, Stealing Data Via Electrical Outlet<br />
+-&nbsp;<a eudora="autourl" href="http://it.slashdot.org/story/09/07/12/0259246/stealing-data-via-electrical-outlet" rel="noreferrer">http://it.slashdot.org/story/09/07/12/0259246/stealing-data-via-electrical-outlet</a><br />
+<br />
+TEMPEST, Compromising Wired Keyboards:<br />
+-&nbsp;<a eudora="autourl" href="http://hardware.slashdot.org/story/08/10/20/1248234/compromising-wired-keyboards" rel="noreferrer">http://hardware.slashdot.org/story/08/10/20/1248234/compromising-wired-keyboards</a><br />
+<br />
+TEMPEST For Eliza - demonstrate electromagnetic emissions from computer systems (it's in the Ubuntu repositories, verify the tech threat for yourself)<br />
+-&nbsp;<a eudora="autourl" href="http://www.erikyyy.de/tempest/" rel="noreferrer">http://www.erikyyy.de/tempest/</a><br />
+-&nbsp;<a eudora="autourl" href="http://cryptome.org/nsa-vaneck.htm">http://cryptome.org/nsa-vaneck.htm</a><br />
+<br />
+Frequency counter devices:<br />
+-&nbsp;<a eudora="autourl" href="https://en.wikipedia.org/wiki/Frequency_counter">https://en.wikipedia.org/wiki/Frequency_counter</a><br />
+<br />
+DNS:<br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/DNS_cache_poisoning">http://en.wikipedia.org/wiki/DNS_cache_poisoning</a><br />
+<br />
+DNSCrypt (not usable at this time AFAIK):<br />
+-&nbsp;<a eudora="autourl" href="https://www.opendns.com/technology/dnscrypt/" rel="noreferrer">https://www.opendns.com/technology/dnscrypt/</a><br />
+<br />
+ARP:<br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/ARP_spoofing">http://en.wikipedia.org/wiki/ARP_spoofing</a><br />
+<br />
+RF:<br />
+-&nbsp;<a eudora="autourl" href="http://www.amazon.com/Radio-Frequency-Interference-Amateurs-Publication/dp/0872593754/ref=sr_1_1?ie=UTF8&amp;qid=1323721603&amp;sr=8-1">http://www.amazon.com/Radio-Frequency-Interference-Amateurs-Publication/dp/0872593754/<br />
+ref=sr_1_1?ie=UTF8qid=1323721603&amp;sr=8-1</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.radioreference.com/" rel="noreferrer">http://www.radioreference.com/</a><br />
+-&nbsp;<a eudora="autourl" href="http://forums.radioreference.com/" rel="noreferrer">http://forums.radioreference.com/</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.ac6v.com/frequencies.htm" rel="noreferrer">http://www.ac6v.com/frequencies.htm</a><br />
+<br />
+AX25 (is someone being sneaky and controlling your computer remotely through the air?; the dirty hidden secret of AX25 and packet radio, or how your computer is capable of much more than you think, are we all rooted remotely?; note: has nothing to do with Wifi)<br />
+-&nbsp;<a eudora="autourl" href="http://tldp.org/HOWTO/AX25-HOWTO/index.html" rel="noreferrer">http://tldp.org/HOWTO/AX25-HOWTO/index.html</a><br />
+<br />
+Packet Radio:<br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/Packet_radio">http://en.wikipedia.org/wiki/Packet_radio</a><br />
+<br />
+Anti-malware:<br />
+-&nbsp;<a eudora="autourl" href="http://rkhunter.sourceforge.net/" rel="noreferrer">http://rkhunter.sourceforge.net/</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.chkrootkit.org/" rel="noreferrer">http://www.chkrootkit.org/</a><br />
+<br />
+Apt:<br />
+-&nbsp;<a eudora="autourl" href="http://wiki.debian.org/SecureApt" rel="noreferrer">http://wiki.debian.org/SecureApt</a><br />
+<br />
+Package Manager Security:<br />
+-&nbsp;<a eudora="autourl" href="http://www.cs.arizona.edu/stork/packagemanagersecurity/faq.html" rel="noreferrer">http://www.cs.arizona.edu/stork/packagemanagersecurity/faq.html</a><br />
+<br />
+Packet Filtering Firewalls:<br />
+-&nbsp;<a eudora="autourl" href="http://www.kuro5hin.org/story/2002/11/23/14927/477" rel="noreferrer">http://www.kuro5hin.org/story/2002/11/23/14927/477</a><br />
+<br />
+Detecting Packet Injection:<br />
+-&nbsp;<a eudora="autourl" href="https://www.eff.org/wp/detecting-packet-injection" rel="noreferrer">https://www.eff.org/wp/detecting-packet-injection</a><br />
+<br />
+Encryption: (TBB from within an encrypted Truecrypt container within an encrypted Ubuntu install?)<br />
+-&nbsp;<a eudora="autourl" href="http://www.truecrypt.org/" rel="noreferrer">http://www.truecrypt.org/</a><br />
+<br />
+DHCP OPSEC:<br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/Rogue_DHCP">http://en.wikipedia.org/wiki/Rogue_DHCP</a><br />
+-&nbsp;<a eudora="autourl" href="http://trac.secdev.org/scapy/wiki/IdentifyingRogueDHCPServers" rel="noreferrer">http://trac.secdev.org/scapy/wiki/IdentifyingRogueDHCPServers</a><br />
+<br />
+EMF:<br />
+-&nbsp;<a eudora="autourl" href="https://secure.wikimedia.org/wikipedia/en/wiki/EMF_Meter" rel="noreferrer">https://secure.wikimedia.org/wikipedia/en/wiki/EMF_Meter</a><br />
+<br />
+Tor:<br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/" rel="noreferrer">https://www.torproject.org/</a><br />
+-&nbsp;<a eudora="autourl" href="https://weather.torproject.org/" rel="noreferrer">https://weather.torproject.org/</a><br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/vidalia/" rel="noreferrer">https://www.torproject.org/vidalia/</a><br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/torbutton/" rel="noreferrer">https://www.torproject.org/torbutton/</a><br />
+-&nbsp;<a eudora="autourl" href="http://metrics.torproject.org/" rel="noreferrer">http://metrics.torproject.org</a><br />
+-&nbsp;<a eudora="autourl" href="https://bridges.torproject.org/" rel="noreferrer">https://bridges.torproject.org/</a><br />
+-&nbsp;<a eudora="autourl" href="http://torstatus.blutmagie.de/" rel="noreferrer">http://torstatus.blutmagie.de/</a><br />
+-&nbsp;<a eudora="autourl" href="https://check.torproject.org/" rel="noreferrer">https://check.torproject.org/</a><br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/docs/tor-doc-unix.html.en" rel="noreferrer">https://www.torproject.org/docs/tor-doc-unix.html.en</a><br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/docs/faq.html.en" rel="noreferrer">https://www.torproject.org/docs/faq.html.en</a><br />
+-&nbsp;<a eudora="autourl" href="https://blog.torproject.org/blog/" rel="noreferrer">https://blog.torproject.org/blog/</a><br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/docs/documentation.html.en" rel="noreferrer">https://www.torproject.org/docs/documentation.html.en</a><br />
+-&nbsp;<a eudora="autourl" href="https://lists.torproject.org/cgi-bin/mailman/listinfo/tor-talk/" rel="noreferrer">https://lists.torproject.org/cgi-bin/mailman/listinfo/tor-talk/</a><br />
+-&nbsp;<a eudora="autourl" href="https://trac.torproject.org/projects/tor/wiki/" rel="noreferrer">https://trac.torproject.org/projects/tor/wiki/</a><br />
+-&nbsp;<a eudora="autourl" href="https://trac.torproject.org/projects/tor/wiki/doc/SupportPrograms" rel="noreferrer">https://trac.torproject.org/projects/tor/wiki/doc/SupportPrograms</a><br />
+-&nbsp;<a eudora="autourl" href="http://freehaven.net/anonbib/topic.html#Anonymous_20communication" rel="noreferrer">http://freehaven.net/anonbib/topic.html#Anonymous_20communication</a><br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/projects/torbrowser.html.en" rel="noreferrer">https://www.torproject.org/projects/torbrowser.html.en</a><br />
+-&nbsp;<a eudora="autourl" href="https://trac.torproject.org/projects/tor/wiki/doc/TorifyHOWTO" rel="noreferrer">https://trac.torproject.org/projects/tor/wiki/doc/TorifyHOWTO</a><br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/docs/proxychain.html.en" rel="noreferrer">https://www.torproject.org/docs/proxychain.html.en</a><br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/download/download-easy.html.en#warning" rel="noreferrer">https://www.torproject.org/download/download-easy.html.en#warning</a><br />
+<br />
+Tor OPSEC And General Articles:<br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2011/09/tor_arms_race.html" rel="noreferrer">http://www.schneier.com/blog/archives/2011/09/tor_arms_race.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2011/03/identifying_tor.html" rel="noreferrer">http://www.schneier.com/blog/archives/2011/03/identifying_tor.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2010/12/tor_routers.html" rel="noreferrer">http://www.schneier.com/blog/archives/2010/12/tor_routers.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2007/09/anonymity_and_t_1.html" rel="noreferrer">http://www.schneier.com/blog/archives/2007/09/anonymity_and_t_1.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2007/12/maninthemiddle.html" rel="noreferrer">http://www.schneier.com/blog/archives/2007/12/maninthemiddle.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/essay-182.html" rel="noreferrer">http://www.schneier.com/essay-182.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2010/01/web_security.html" rel="noreferrer">http://www.schneier.com/blog/archives/2010/01/web_security.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2010/05/detecting_brows.html" rel="noreferrer">http://www.schneier.com/blog/archives/2010/05/detecting_brows.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2011/03/detecting_words.html" rel="noreferrer">http://www.schneier.com/blog/archives/2011/03/detecting_words.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/essay-262.html" rel="noreferrer">http://www.schneier.com/essay-262.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2009/04/identifying_peo.html" rel="noreferrer">http://www.schneier.com/blog/archives/2009/04/identifying_peo.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2010/09/real-time_nsa_e.html" rel="noreferrer">http://www.schneier.com/blog/archives/2010/09/real-time_nsa_e.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2011/09/identifying_spe.html" rel="noreferrer">http://www.schneier.com/blog/archives/2011/09/identifying_spe.html</a><br />
+- <a eudora="autourl" href="http://packetstormsecurity.nl/filedesc/Practical_Onion_Hacking.pdf.html" rel="noreferrer">http://packetstormsecurity.nl/filedesc/Practical_Onion_Hacking.pdf.html</a>&nbsp;[PDF]<br />
+<br />
+IMPORTANT, ALWAYS VERIFY SIGNATURES!:<br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/docs/verifying-signatures.html.en" rel="noreferrer">https://www.torproject.org/docs/verifying-signatures.html.en</a><br />
+<br />
+Firefox addons:<br />
+-&nbsp;<a eudora="autourl" href="https://eff.org/https-everywhere" rel="noreferrer">https://eff.org/https-everywhere</a><br />
+-&nbsp;<a eudora="autourl" href="https://addons.mozilla.org/en-US/firefox/addon/noscript/">https://addons.mozilla.org/en-US/firefox/addon/noscript/</a><br />
+-&nbsp;<a eudora="autourl" href="https://www.torproject.org/torbutton/" rel="noreferrer">https://www.torproject.org/torbutton/</a><br />
+<br />
+Acoustics:<br />
+-&nbsp;<a eudora="autourl" href="http://seclab.uiuc.edu/pubs/LeMayT06.pdf" rel="noreferrer">http://seclab.uiuc.edu/pubs/LeMayT06.pdf</a><br />
+-&nbsp;<a eudora="autourl" href="http://people.csail.mit.edu/tromer/acoustic/" rel="noreferrer">http://people.csail.mit.edu/tromer/acoustic/</a><br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/Acoustic_fingerprint">http://en.wikipedia.org/wiki/Acoustic_fingerprint</a><br />
+<br />
+Writeprint (thought your words were anonymous via Tor, right? WRONG!):<br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/essay-182.html" rel="noreferrer">http://www.schneier.com/essay-182.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2007/09/anonymity_and_t_1.html" rel="noreferrer">http://www.schneier.com/blog/archives/2007/09/anonymity_and_t_1.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.schneier.com/blog/archives/2011/08/identifying_peo_2.html" rel="noreferrer">http://www.schneier.com/blog/archives/2011/08/identifying_peo_2.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/Writeprint">http://en.wikipedia.org/wiki/Writeprint</a><br />
+<br />
+ELF:<br />
+-&nbsp;<a eudora="autourl" href="http://www.linuxforums.org/articles/understanding-elf-using-readelf-and-objdump_125.html" rel="noreferrer">http://www.linuxforums.org/articles/understanding-elf-using-readelf-and-objdump_125.html</a><br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/Executable_and_Linkable_Format">http://en.wikipedia.org/wiki/Executable_and_Linkable_Format</a><br />
+<br />
+Reverse Engineering:<br />
+-&nbsp;<a eudora="autourl" href="http://www.securityfocus.com/infocus/1637" rel="noreferrer">http://www.securityfocus.com/infocus/1637</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.securityfocus.com/infocus/1641" rel="noreferrer">http://www.securityfocus.com/infocus/1641</a><br />
+-&nbsp;<a eudora="autourl" href="http://www.openrce.org/articles/" rel="noreferrer">http://www.openrce.org/articles/</a><br />
+<br />
+Why, what a BEAUTIFUL scarf I received for the Holidays! Wait, what!?<br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/subvocal_recognition">http://en.wikipedia.org/wiki/subvocal_recognition</a><br />
+-&nbsp;<a eudora="autourl" href="http://en.wikipedia.org/wiki/Stenomask">http://en.wikipedia.org/wiki/Stenomask</a><br />
+<br />
+Why are my windows constantly vibrating? What the... !!! "You'll shoot your eye out, kid!"<br />
+-&nbsp;<a eudora="autourl" href="http://www.williamson-labs.com/laser-mic.htm" rel="noreferrer">http://www.williamson-labs.com/laser-mic.htm</a><br />
+<br />
+StegFS:<br />
+-&nbsp;<a eudora="autourl" href="http://www.cl.cam.ac.uk/~mgk25/ih99-stegfs.pdf" rel="noreferrer">http://www.cl.cam.ac.uk/~mgk25/ih99-stegfs.pdf</a>&nbsp;[PDF]<br />
+<br />
+DBAN:<br />
+-&nbsp;<a eudora="autourl" href="http://dban.sourceforge.net/" rel="noreferrer">http://dban.sourceforge.net/</a><br />
+<br />
+ENF:<br />
+-&nbsp;<a eudora="autourl" href="http://sourceforge.net/projects/nfienfcollector">http://sourceforge.net/projects/nfienfcollector</a><br />
+<br />
+Tinfoil hat reading / remote system compromise through the air on a grand scale! (omg CONSPIRACY?&nbsp;Or, I forgot to take my pills?)<br />
+-&nbsp;<a eudora="autourl" href="https://tagmeme.com/subhack/" rel="noreferrer">https://tagmeme.com/subhack/</a><br />
+<br />
+uget easy-to-use download manager written in GTK+2<br />
+-&nbsp;<a eudora="autourl" href="http://urlget.sourceforge.net/" rel="noreferrer">http://urlget.sourceforge.net/</a><br />
+-&nbsp;<a eudora="autourl" href="http://uget.visuex.com/" rel="noreferrer">http://uget.visuex.com/</a><br />
+<br />
+<blockquote class="tr_bq">uget is in the Ubuntu repositories and claims to support proxies, via:<br />
+<br />
+man uget-gtk<br />
+<br />
+from the man file:<br />
+<br />
+--proxy-type=N&nbsp; set proxy type to N. (0=Don't use)<br />
+--proxy-host=HOST set proxy host to HOST.<br />
+--proxy-port=PORT set proxy port to PORT.<br />
+--proxy-user=USER set USER as proxy username.<br />
+--proxy-password=PASS set PASS as proxy password.<br />
+<br />
+I haven't tried uget's proxy support, try it and tell us if it worked for you.</blockquote></div><div style="background-color: white;"><div style="background-color: white;"></div><hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />To conclude, Google for:<br />
+<br />
+-&nbsp;power line&nbsp;vulns (or, "Hey, my key-presses can be picked up via powerline!")<br />
+- additional through-the-air attacks (or, "What!? Someone in the other room or building can pick up my key presses?)<br />
+- temperature vulns (or, "Hey, my cpu can be compromised by temperature attacks?&nbsp;<b>Wait a minute, why WAS that cute red head spending so much time looking inside my computer when I had it open and asked me to go into the kitchen to make an elaborate meal?</b>&nbsp;How miniature modifications to hardware can escape your sight!) Don't forget Timing and Side Channel attacks!<br />
+<br />
+Walking in a winter wonderland....</div></blockquote><br />
+Source:&nbsp;<a href="http://ubuntuforums.org/showthread.php?&amp;t=1890619">http://ubuntuforums.org/showthread.php?&amp;t=1890619</a> 
+<br> 
+<br> 
+IMSIDFE45F2BA9D2D8C6A44E351627A208A0EF9BC0BB1 

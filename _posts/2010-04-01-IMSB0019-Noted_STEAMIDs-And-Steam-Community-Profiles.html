@@ -1,0 +1,100 @@
+---
+layout: post
+title: 'Noted: STEAMIDs And Steam Community Profiles'
+date: '2010-04-01T22:00:00.008+01:00'
+author: insurgencymod
+tags:
+- Insurgency Mod Scum
+- Insurgency Mod
+- OT-Noted
+- OT-PROTIP
+- INSPROTIP
+modified_time: '2013-05-02T21:37:08.759+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-3048129899280424418
+blogger_orig_url: http://insurgencymod.blogspot.com/2010/04/steamids-and-steam-community-profiles.html
+---
+
+<a href="http://koraktor.de/steam-condenser/">http://koraktor.de/steam-condenser/ </a><br />
+<span id="goog_682012482"><a href="http://steamidfinder.com/advanced.aspx">http://steamidfinder.com/advanced.aspx</a></span><span id="goog_682012483"></span><a href="http://www.blogger.com/"></a><br />
+<a href="https://partner.steamgames.com/documentation/community_data">https://partner.steamgames.com/documentation/community_data</a><br />
+<br />
+Community Data<br />
+<br />
+Steam provides access to community data in an XML format that can be  consumed by game developers and other community  sites. It is important to note that a player's data might be unavailable  if the player's privacy settings prevent the data from being exposed. <br />
+<a href="http://www.blogger.com/post-create.g?blogID=7256856399250838035" name="profile"></a><br />
+<h2>
+Player Profile</h2>
+Information presented on a player's profile page is available using the player's 64-bit Steam ID with:<br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/profiles/" title="Linkification: http://steamcommunity.com/profiles/">http://steamcommunity.com/profiles/</a><span style="color: #b6c5ca;">&lt;SteamID&gt;</span>/?xml=1</code></li>
+<li>Example: <a href="http://steamcommunity.com/profiles/76561197968575517/?xml=1" target="_new">http://steamcommunity.com/profiles/76561197968575517/?xml=1</a></li>
+</ul>
+or using their Custom URL (set by the user in their profile): <br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/id/" title="Linkification: http://steamcommunity.com/id/">http://steamcommunity.com/id/</a><span style="color: #b6c5ca;">&lt;CustomURL&gt;</span>/?xml=1</code></li>
+<li>Example: <a href="http://steamcommunity.com/id/ChetFaliszek/?xml=1" target="_new">http://steamcommunity.com/id/ChetFaliszek/?xml=1</a></li>
+</ul>
+<br />
+<a href="http://www.blogger.com/post-create.g?blogID=7256856399250838035" name="stats"></a><br />
+<h2>
+Player Game Stats</h2>
+To retrieve game stats, you will need the game's Steam Community  name. Developers can contact Valve to obtain the community name for  their game.<br />
+You can retrieve stats and achievements for a player per game using the player's 64-bit Steam ID with:<br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/profiles/" title="Linkification: http://steamcommunity.com/profiles/">http://steamcommunity.com/profiles/</a><span style="color: #b6c5ca;">&lt;SteamID&gt;</span>/stats/<span style="color: #b6c5ca;">&lt;CommunityGameName&gt;</span>/?xml=1</code></li>
+<li>Example: <a href="http://steamcommunity.com/profiles/76561197968575517/stats/L4D/?xml=1" target="_new">http://steamcommunity.com/profiles/76561197968575517/stats/L4D/?xml=1</a></li>
+</ul>
+or using their Custom URL (set by the user in their profile): <br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/id/" title="Linkification: http://steamcommunity.com/id/">http://steamcommunity.com/id/</a><span style="color: #b6c5ca;">&lt;CustomURL&gt;</span>/stats/<span style="color: #b6c5ca;">&lt;CommunityGameName&gt;</span>/?xml=1</code></li>
+<li>Example: <a href="http://steamcommunity.com/id/ChetFaliszek/stats/L4D/?xml=1" target="_new">http://steamcommunity.com/id/ChetFaliszek/stats/L4D/?xml=1</a></li>
+</ul>
+Note: For most games, the Steam Community only exposes achievements a user has received. However, a player's game play stats are exposed for games that have a custom Steam Community stats page.<br />
+For games that are configured to expose raw stats data, you can  retrieve stats for a user using their 64-bit Steam ID and the game's  Application ID with:<br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/profiles/" title="Linkification: http://steamcommunity.com/profiles/">http://steamcommunity.com/profiles/</a><span style="color: #b6c5ca;">&lt;SteamID&gt;</span>/statsfeed/<span style="color: #b6c5ca;">&lt;AppID&gt;</span>/?xml=1&amp;schema=1</code></li>
+<li>Example: <a href="http://steamcommunity.com/profiles/76561197968575517/statsfeed/500/?xml=1&amp;schema=1" target="_new">http://steamcommunity.com/profiles/76561197968575517/statsfeed/500/?xml=1&amp;schema=1</a></li>
+</ul>
+or using their Custom URL (set by the user in their profile) and the game's Application ID with: <br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/id/" title="Linkification: http://steamcommunity.com/id/">http://steamcommunity.com/id/</a><span style="color: #b6c5ca;">&lt;CustomURL&gt;</span>/statsfeed/<span style="color: #b6c5ca;">&lt;AppID&gt;</span>/?xml=1&amp;schema=1</code></li>
+<li>Example: <a href="http://steamcommunity.com/id/ChetFaliszek/statsfeed/500/?xml=1&amp;schema=1" target="_new">http://steamcommunity.com/id/ChetFaliszek/statsfeed/500/?xml=1&amp;schema=1</a></li>
+</ul>
+<br />
+<a href="http://www.blogger.com/post-create.g?blogID=7256856399250838035" name="leaderboards"></a><br />
+<h2>
+Leaderboards</h2>
+To retrieve entries for a leaderboard, you will need the  leaderboard's ID. The ID for each leaderboard is returned in the list of  leaderboards for a game.<br />
+You can retrieve the list of leaderboards for a game using the game's Steam Community name with:<br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/stats/" title="Linkification: http://steamcommunity.com/stats/">http://steamcommunity.com/stats/</a><span style="color: #b6c5ca;">&lt;CommunityGameName&gt;</span>/leaderboards/?xml=1</code></li>
+<li>Example: <a href="http://steamcommunity.com/stats/L4D/leaderboards/?xml=1" target="_new">http://steamcommunity.com/stats/L4D/leaderboards/?xml=1</a></li>
+</ul>
+You can retrieve all leaderboard entries created by friends of a player using the player's 64-bit Steam ID with: <br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/stats/" title="Linkification: http://steamcommunity.com/stats/">http://steamcommunity.com/stats/</a><span style="color: #b6c5ca;">&lt;CommunityGameName&gt;</span>/leaderboards/<span style="color: #b6c5ca;">&lt;LeaderboardID&gt;</span>/?xml=1&amp;steamid=<span style="color: #b6c5ca;">&lt;SteamID&gt;</span></code></li>
+<li>Example: <a href="http://steamcommunity.com/stats/L4D/leaderboards/30/?xml=1&amp;steamid=76561197968575517" target="_new">http://steamcommunity.com/stats/L4D/leaderboards/30/?xml=1&amp;steamid=76561197968575517</a></li>
+</ul>
+You can retrieve a global range of leaderboard entries with (<code>StartRange</code> and <code>EndRange</code> are integers): <br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/stats/" title="Linkification: http://steamcommunity.com/stats/">http://steamcommunity.com/stats/</a><span style="color: #b6c5ca;">&lt;CommunityGameName&gt;</span>/leaderboards/<span style="color: #b6c5ca;">&lt;LeaderboardID&gt;</span>/?xml=1&amp;start=<span style="color: #b6c5ca;">&lt;StartRange&gt;</span>&amp;end=<span style="color: #b6c5ca;">&lt;EndRange&gt;</span></code></li>
+<li>Example (retrieves top 10): <a href="http://steamcommunity.com/stats/L4D/leaderboards/30/?xml=1&amp;start=1&amp;end=10" target="_new">http://steamcommunity.com/stats/L4D/leaderboards/30/?xml=1&amp;start=1&amp;end=10</a></li>
+</ul>
+<br />
+<a href="http://www.blogger.com/post-create.g?blogID=7256856399250838035" name="groups"></a><br />
+<h2>
+Groups</h2>
+You can retrieve the list of members in a group by using the group's 64-bit Steam ID with: <br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/gid/" title="Linkification: http://steamcommunity.com/gid/">http://steamcommunity.com/gid/</a><span style="color: #b6c5ca;">&lt;GroupID&gt;</span>/memberslistxml/?xml=1</code></li>
+<li>Example: <a href="http://steamcommunity.com/gid/103582791429521412/memberslistxml/?xml=1" target="_new">http://steamcommunity.com/gid/103582791429521412/memberslistxml/?xml=1</a></li>
+</ul>
+or using the group's Steam Community name with: <br />
+<ul>
+<li>Format: <code><a class="linkification-ext" href="http://steamcommunity.com/groups/" title="Linkification: http://steamcommunity.com/groups/">http://steamcommunity.com/groups/</a><span style="color: #b6c5ca;">&lt;GroupName&gt;</span>/memberslistxml/?xml=1</code></li>
+<li>Example: <a href="http://steamcommunity.com/groups/Valve/memberslistxml/?xml=1" target="_new">http://steamcommunity.com/groups/Valve/memberslistxml/?xml=1</a></li>
+</ul>
+ 
+<br> 
+<br> 
+IMSID4709524790BBF1A77C59DA489110E2629CCA5977 

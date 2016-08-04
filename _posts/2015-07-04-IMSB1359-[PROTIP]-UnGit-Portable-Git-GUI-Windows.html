@@ -1,0 +1,62 @@
+---
+layout: post
+title: '[PROTIP] "UnGit" Portable Git GUI for Windows'
+date: '2015-07-04T03:23:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Tools
+- OT-PROTIP
+modified_time: '2015-07-08T03:44:16.448+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-5774165505314162310
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/07/protip-ungit-portable-git-gui-for.html
+---
+
+Portable Git GUI clients for Windows:<br />
+<br />
+GitEye (Eclipse based), piece of shit.<br />
+SourceTree, not portable.<br />
+SmartGit (Java based), OK, but command line had to be used to unfuck SmartGit a few times.<br />
+<a href="https://github.com/alberthier/git-webui">https://github.com/alberthier/git-webui</a> Too complicated, not portable.<br />
+<br />
+UnGit is a browser based (programmed in JavaScript) GUI for Git.<br />
+<br />
+UnGit<br />
+<a href="https://github.com/FredrikNoren/ungit">https://github.com/FredrikNoren/ungit</a><br />
+<br />
+Instructions:<br />
+<br />
+Download "Windows Binary" "Node.js"<br />
+<a href="https://nodejs.org/download/">https://nodejs.org/download/</a><br />
+<br />
+Download latest "npm"<br />
+http://nodejs.org/dist/npm/<br />
+<br />
+Via command line:<br />
+npm install -g ungit<br />
+ungit<br />
+<br />
+Then just open your browser to http://localhost:8448<br />
+<br />
+This really is portable. Node.js leaves some shit in AppData folder, but you can probably delete it.<br />
+<br />
+Source:<br />
+<a href="https://github.com/joyent/node/issues/3978">https://github.com/joyent/node/issues/3978</a><br />
+<br />
+<blockquote class="tr_bq">
+Frankly speaking, that ZIP (from the http://imsky.co/notes/nodejs-portable-windows-version-15 page you've given as an example) seems somewhat unnecessary complex for a portable version of Node.<br />
+Look, if you need just a portable Node.js engine, you could simply grab http://nodejs.org/dist/latest/node.exe and save it somewhere and run it whenever you want a JavaScript file executed: \path\to\saved\node.exe scriptname.js. It's that simple, and I cannot imagine a portable version simpler than a single executable file. (See the Installing without building section in the Installation article of the Node's wiki for more details, if you need them.)<br />
+<br />
+Of course, if you are not happy until the necessary command is as simple as node scriptname.js, then you have to alter the PATH variable on your system accordingly (i.e. add Node's path to that variable); and if you also need npm, you have to download npm's latest ZIP from http://nodejs.org/dist/npm/ and unpack it to the same subdirectory where your Node is.<br />
+<br />
+All of the above are relatively simple operations, they do not require any installers, everything can be easily done manually, and all the necessary files (Node's EXE file and npm's ZIP) are already provided officially.<br />
+<br />
+Contrary to the popular belief, you won't need to alter your system's registry or create the NODE_PATH variable at all.<br />
+<br />
+When you need to update your portable Node engine, just download the latest http://nodejs.org/dist/latest/node.exe and replace your former node.exe.<br />
+<br />
+When you need to update your portable npm, use the npm update npm -g command.</blockquote>
+ 
+<br> 
+<br> 
+IMSID4E09610EC309FCE3142757CBC83CF9F6BB8BC849 

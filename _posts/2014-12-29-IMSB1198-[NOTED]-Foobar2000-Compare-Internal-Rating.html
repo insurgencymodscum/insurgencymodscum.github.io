@@ -1,0 +1,21 @@
+---
+layout: post
+title: '[NOTED] Foobar2000: Compare Internal Rating (Playback Statistics) to an Actual Rating'
+date: '2014-12-29T23:07:00.000Z'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-PROTIP
+modified_time: '2015-01-01T23:08:10.198Z'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-2885128639057612348
+blogger_orig_url: http://insurgencymod.blogspot.com/2014/12/noted-foobar2000-compare-internal.html
+---
+
+This will show all the files if there's a difference between <i>"%rating%"</i> (an internal rating held in a database by the "Playback Statistics" component) and <i>"$meta(rating)"</i> (an actual rating in the file metadata). Useful if you use two or more music managers (e.g. MusicBee and Foobar2000).<br /><br />
+<blockquote>
+"$strcmp($num($meta(rating),0),$num(%rating%,0))" EQUAL 0</blockquote>
+<br /> 
+<br> 
+<br> 
+IMSIDA3C1056B43AE187509B269F6071DD40AF2927C1B 

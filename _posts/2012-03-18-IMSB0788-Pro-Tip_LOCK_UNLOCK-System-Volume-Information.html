@@ -1,0 +1,29 @@
+---
+layout: post
+title: 'Pro Tip: LOCK/UNLOCK System Volume Information'
+date: '2012-03-18T15:28:00.000Z'
+author: insmodscum
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-PROTIP
+modified_time: '2013-05-02T21:36:29.445+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-3996686653087769427
+blogger_orig_url: http://insurgencymod.blogspot.com/2012/03/pro-tip-lockunlock-system-volume.html
+---
+
+<a href="http://support.microsoft.com/kb/309531">http://support.microsoft.com/kb/309531</a><br />
+<br />
+LOCK<br />
+<br />
+<blockquote>
+cacls "<i>driveletter</i>:\System Volume Information" /E /R "%USERNAME%"</blockquote>
+<br />
+UNLOCK<br />
+<br />
+<blockquote>
+cacls "<i>driveletter</i>:\System Volume Information" /E /G "%USERNAME%":F</blockquote>
+ 
+<br> 
+<br> 
+IMSIDD521400E9B09BF2298901C9FC9C9BA0DEF65AB6F 

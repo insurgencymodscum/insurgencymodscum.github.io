@@ -1,0 +1,57 @@
+<div class="sidebar">
+
+  {% comment %}
+    <div class="site-title">
+       <a href="{{ site.baseurl }}">
+          {{ site.title }}
+       </a>
+    </div>
+    <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Archive</a>
+  {% endcomment %}
+
+  {% comment %}
+  same as in "header.html"
+  {% endcomment %}
+  <div class="trigger">
+      {% for page in site.pages %}
+        {% if page.title %}
+          {% if page.title != '404' %}
+            <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+            <br>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  <br>
+
+    {% comment %}
+    <!-- Show links to posts with specified tag -->
+    {% endcomment %}
+    <div class="trigger">
+      {% for post in site.tags.IMSSTICKY %}
+        {% if post.title %}
+        <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  {% comment %}
+    {% assign pages_list = site.pages %}
+    {% for node in pages_list %}
+      {% if node.title != null %}
+        {% if node.layout == "page" %}
+          <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endcomment %}
+
+  <br>
+
+  {% comment %}
+  actual data (text & links) to show inside the sidebar
+  {% endcomment %}
+  {% include sidebarlinks.html %}
+
+</div>

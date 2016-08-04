@@ -1,0 +1,36 @@
+---
+layout: post
+title: "[PROTIP][NOTED] Sync Time Batch File (Windows)"
+date: '2015-03-01T22:18:00.000Z'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-PROTIP
+modified_time: '2015-04-14T22:21:13.955+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-6864362273830584319
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/03/protip-noted-sync-time-batch-file.html
+---
+
+If the time is off by a&nbsp; lot, "w32tm /resync" refuses to work. "SyncTime-FixWindowsStupidity.reg" fixes this.<br />
+<br />
+SyncTime.bat<br />
+<blockquote class="tr_bq">
+<br />
+net stop w32time <br />
+net start w32time<br />
+<br />
+w32tm /resync</blockquote>
+<br />
+SyncTime-FixWindowsStupidity.reg<br />
+<br />
+<blockquote class="tr_bq">
+Windows Registry Editor Version 5.00<br />
+<br />
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W32Time\Config]<br />
+"MaxPosPhaseCorrection"="0xFFFFFFFF"<br />
+"MaxNegPhaseCorrection"="0xFFFFFFFF" </blockquote>
+ 
+<br> 
+<br> 
+IMSID7B25DAFE0EE64DF9CA019D9EFADFDDCBB05E87FB 

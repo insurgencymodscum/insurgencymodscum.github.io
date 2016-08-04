@@ -1,0 +1,33 @@
+/*
+[IMS] Img: Unvisited/Visited/Hover
+Global image border colors: unvisited: BLUE, visited: RED, hover: GRAY.
+http://www.w3schools.com/css/css_link.asp
+http://www.w3schools.com/css/css_pseudo_classes.asp
+*/
+
+/* unvisited */
+
+a:link img {
+border: 1px solid #3380b3 !important;
+/* */
+/* */
+}
+
+/* visited */
+
+a:visited img {
+border: 2px solid red !important;
+/* */
+/* */
+}
+
+/* a:hover MUST come after a:link and a:visited !!! */
+
+a:hover img {
+border: 2px solid  #333333 !important;
+/* */
+/* */
+/* */
+/* */
+/* */
+}

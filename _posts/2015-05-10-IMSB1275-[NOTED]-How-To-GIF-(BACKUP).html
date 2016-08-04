@@ -1,0 +1,423 @@
+---
+layout: post
+title: "[NOTED] How To GIF (BACKUP)"
+date: '2015-05-10T01:24:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-GIFTIP
+modified_time: '2015-06-01T01:07:01.403+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-7025376994766069144
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/05/noted-how-to-gif-backup.html
+---
+
+Source:&nbsp;<a href="https://sites.google.com/site/howtogif/home">https://sites.google.com/site/howtogif/home</a><br />
+<span style="text-align: center;"><br /></span>
+<span style="text-align: center;">Fucking Google doesn't like big images, :(.</span><br />
+<span style="text-align: center;"><br /></span>
+<span style="text-align: center;">Also see:</span><br />
+<a href="http://insurgencymod.blogspot.com/2015/04/gif-tip-gif-like-boss-how-to-gif.html">http://insurgencymod.blogspot.com/2015/04/gif-tip-gif-like-boss-how-to-gif.html</a><br />
+<a name='more'></a><blockquote class="tr_bq">
+1. Introduction</blockquote>
+<br />
+<blockquote class="tr_bq">
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Let me tell about my mother...</blockquote>
+<blockquote class="tr_bq">
+"Let me tell about my mother..." -Blade Runner</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Animated GIF files consist of a series of images that are displayed at a set interval, and when it comes to the final image, it either loops and starts over again, or it simply ends.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+The method of reducing the final file size is a combination of techniques that (among others) involves reducing the number of available colours to only 256 (colour quantization), and also by comparing the differences between each individual frame. Reducing the palette to 256 colours introduces a huge challenge of preserving image quality - while still keeping a small file size, and this is something that a lot of software out there struggles with. Including Photoshop.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This guide will show my own preferred workflow for creating animated GIF files. I do not use Photoshop due to the limitations in its GIF creating process. Instead I use a combination of VirtualDub, Adobe Premiere and Ulead Gif Animator.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This guide will show you the easy way of extracting a scene from your favorite film using VirtualDub, and how to create an animated GIF of it using Ulead Gif Animator 5.</blockquote>
+<blockquote class="tr_bq">
+The software you will need:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+VirtualDub x86 (freeware) (do not grab the 64 bit version, you don't want it as it requires 64 bit plugins)</blockquote>
+<blockquote class="tr_bq">
+http://virtualdub.sourceforge.net/</blockquote>
+<blockquote class="tr_bq">
+FFInputDriver plugin for VirtualDub (this allows importing of MKV and MP4 files)</blockquote>
+<blockquote class="tr_bq">
+http://codecpack.co/download/FFInputDriver.html</blockquote>
+<blockquote class="tr_bq">
+MPEG2 plugin for VirtualDub (this will let you import VOB files from DVDs)</blockquote>
+<blockquote class="tr_bq">
+http://sourceforge.net/projects/fcchandler/files/Virtualdub%20Mpeg2%20plugin/</blockquote>
+<blockquote class="tr_bq">
+Ulead Gif Animator 5</blockquote>
+<blockquote class="tr_bq">
+Unfortunately Ulead (now Corel) has ended support for this fantastic shareware program, and it is not available for download a their website anymore, and you can not purchase licenses. But I'm sure you can find a solution for that...</blockquote>
+<blockquote class="tr_bq">
+How to install the VirtualDub plugins:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Extract the VirtualDub zip file into a separate folder. This will be where you have "installed" your program, so make sure it's in a safe and practical place. A good place to put it would be in My Documents\VirtualDub.</blockquote>
+<blockquote class="tr_bq">
+Extract the zip files with the plugins you have downloaded, and put contents into your VirtualDub\plugins32 directory.</blockquote>
+<blockquote class="tr_bq">
+When you are done, the plugins32 directory should look like this:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+2. VirtualDub</blockquote>
+<blockquote class="tr_bq">
+Importing video files:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+When you start VirtualDub for the first time, it might be a little confusing. It should look something like this:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+If you drag and drop a video file into the VirtualDub window, you'll probably be even more confused. It might look like below. The reason its all black, might be because the very first frame of almost all films out there is... black (empty).</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Use the slider in the lower portion of the window to move around in the film . You'll notice that you might not see the whole frame (it doesnt fit inside the current size of your program window), and you're going to have to make the VirtualDub window a lot larger. And when you make it larger, you'll also notice that there are two "copies" of the film. One one the left, and one on the right. The left side is the SOURCE (original) and the right side shows the OUTPUT (after filters/resizing/etc. is applied ). This makes it easy to see the effects you apply to your video, and also makes it easy to compare with the original material.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+If you're working on a single monitor system, and you've opened a 720p or 1080p video file, there's gonna be some problem with desktop space. If you right click the left (SOURCE) video frame, a menu pops up, and you can select a new zoom. I prefer setting this to 6% to get it really tiny. Remember, this is only the view size.... this doesn't really resize the video material. When preparing material for GIF files, you don't need to see the source anyway.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Now you can resize your VirtualDub window to a more sensible and practical size:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Selecting a scene in your video file:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Use the slider to find where to start. You can fine tune your position by using the left/right arrow keys on your keyboard. To quickly skip 50 frames backward/forward you can use the pagedown/pageup keys. On slower computers, there might be some delay if you move around on the slider quickly, and especially if you move backwards in the video using the left arrow key. This is related to how the video format uses key frames.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+When you have located the first frame of your scene, you push the Mark In button, and when you locate the final frame, you push Mark Out. These two buttons look &nbsp;like this:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+If you take a close look on the slider, the area you have marked will be blue. (Might be hard to see if the slider is currently &nbsp;placed on the same location as the marked area.)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Exporting the scene as uncompressed AVI:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+VirtualDub is by default configured to export as uncompressed video, so there's no need to configure anything more at this point.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Simply press F7 (Save as AVI...). Type a filename, and the material you selected using Mark In and Mark Out will be exported to an AVI file.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Why do we use uncompressed AVI? This is to avoid compression artifacts (better image quality), and also to make the workflow faster and easier, without the need for installing and configuring intermediate codecs. If you are planning on importing the scene into a video editing program you could disable the audio by going to the menu Audio &gt; No Audio. I prefer to do this myself if I am planning on editing in Premiere, as this simplifies the workflow by not having any audio on the timeline.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Won't the uncompressed AVI files be really huge? You can delete the AVI files once you're done creating the GIF, so there's no need to worry about file sizes. Example: a 5 second 720p video clip takes only ~240MB of space.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Why do we not export as GIF directly from VirtualDub? Because VirtualDub gives you no control over palette optimization when you reduce the colours to 256, and the result is simply horrible.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Advanced features:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Most user can go directly to Ulead Gif Animator now, but if your computer is too slow to handle uncompressed 720p/1080p video at a reasonable speed, or you simply need to reduce the video data, &nbsp;here are some advanced tips to reduce the file sizes of your exported video...</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Resizing and aspect ratio</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+If your system is struggling with uncompressed video files at high resolutions such as 720p or 1080p, you could try to resize before exporting your video. Go to Video&gt;Filters&gt;Add and select resize.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+In the next window you enter the new size in the Absolute (pixels) fields. By default, if you only fill in width, it will automatically calculate height to preserve aspect ratio. If the video has incorrect aspect ratio or has letterboxes (very typical if the video comes from a DVD), you can correct it by using this filter as well.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Example: reducing the width by 50%, reduces the video data by 75% (you end up with only a quarter of the amount of data).</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Frame rate</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Go to Video&gt;Frame rate. Fill in a new frame rate in the "Convert to fps" field. Don't go too low, especially on scenes with a lot of motion. 15 fps will do fine in most cases, and you really should not go lower than this.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Example: reducing the frame rate by half, reduces the video data by 50% as well.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Deinterlacing</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+If you are using material from a DVD, there's a high chance the video is interlaced and might look like below when there's a lot of motion. (Interlaced video is for "old" CRT televisions).</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Go to Video&gt;Filters and add deinterlace. Use the default settings in this filter, and click OK.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+If you are deinterlacing, remember to add this filter before you use the resize filter. See screenshot below.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+You should get a result like below.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+3. Ulead GIF Animator</blockquote>
+<blockquote class="tr_bq">
+Importing the uncompressed AVI file into Ulead Gif Animator:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+The easiest way to do this, is simply by drag &amp; drop your newly created uncompressed AVI file onto your "Ulead GIF Animator 5" icon on your desktop.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+You will then be presented with a Duration window that lets you trim the start and end of your video clip. If you did this &nbsp;correctly in VirtualDub, there's no need to change anything here, and you simply press the OK button.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+When the AVI file has finished loading (might take a moment on slower systems), you'll get a window that looks like below. Here you can edit the material before creating the final GIF. Notice that the EDIT tab is active.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Resizing the GIF:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+If you did not use a resize filter in VirtualDub, now is the time to resize. Go to Edit &gt; Resize. The final GIF file size is highly dependent on the resolution, so you might have to try different values here before you get a file size you're happy with. Personally, I prefer keeping it at least at 700 pixels in width for /r/HighQualityGifs/.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Optimizing the colour palette:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Go to the OPTIMIZE tab. Just like in VirtualDub, the left section shows the SOURCE (original) and the right section shows the OUTPUT (optimized).</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Video material that is monochrome (i.e. "black and white" or sepia tone) will do just fine with less than a 256 colour palette. You can specify this by reducing the Colors in the main window when you're on the Optimize tab. For example you could try 32 colours. This drastically reduces the final file size without compromising any noteworthy image quality. Unless you're working with monochrome video, do not change the value from 256 colours, as the result will almost certainly look very bad.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Avoid using Lossy (leave it at 0), as this introduces a lot of unwanted noise/artifacts to keep file size down, and will reduce image quality a lot.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Also, avoid changing Dither (leave it at 100), as this will drastically affect how smooth gradients look.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+The Optimize Panel should pop up automatically when you select the OPTIMIZE tab. If not, you open it by going to View&gt;Optimize Panel. This window lets you configure how the software reduces the number of colours in your final GIF. &nbsp;Default setting should work fine in many cases.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Sometimes you might want to select a different Weight (to specify colours to favor when creating the final palette), depending on the overall hue in the scene. In the example I've used, there's a distinct green/red tone, and I would try with either Red or Green so see what produces the best result.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Using Metod: Minimum Variance creates a lot higher quality during the colour quantization (it will attempt to keep the colors as close to the original as possible), but often this results in a larger file size. Try changing it, and see what happens, as it is usually difficult to predict the outcome before testing.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Don't change Palette: Optimized or Web snap.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+The Local Palette tab is for really troublesome scenes where there is a lot of differences in colours between each frame. Example is someone dancing in a club with a lot of blinking lights in different colours. Here you can specify to Preserve Local Palette for each individual frame. This means there will be generated a new palette for each individual frame. This makes the final file size larger, but increases the image quality.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Experiment a little, try different settings, while you keep an eye on the Compressed size shown in the middle of the main window. Make sure everything looks beautiful. You don't want nasty miscoloured pixels that are standing out, or gradients that have really poor dithering. If you are uploading to IMGUR, you also have to keep the final file size below 10MB, so keep this in mind as well. Yes, I know. It's an old program, and the "Download time" is based on phone modem bandwidths :)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+If you're not able to get the final file size small enough by optimizing the palette alone, you could try resizing the image again until you reach your goal. Do not resize an image that has already been resized. Instead undo the first resize, and then resize to a smaller size than before. This is to preserve image sharpness.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Do not reduce Colors, Dither or increase Lossy. These are classic beginner errors. If you cannot get the final file size small enough, you use one (or some) of methods below:</blockquote>
+<blockquote class="tr_bq">
+reduce the length of the video clip</blockquote>
+<blockquote class="tr_bq">
+reduce the frame rate in VirtualDub (see the advanced section in the VirtualDub guide)</blockquote>
+<blockquote class="tr_bq">
+reduce the resolution</blockquote>
+<blockquote class="tr_bq">
+Here is the GIF from the example scene (Micmacs) I used in this guide. (700x292px / 24 fps / 5.8MB)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Tips and tricks</blockquote>
+<blockquote class="tr_bq">
+My GIF has too large file size. How do I reduce it?</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Try reducing the frame rate in VirtualDub before you export it. If you go from 24fps (typical film) to 15fps you reduce the total data amount with ~35%. 15fps work quite well for most scenes, but 10fps would most certainly be too low for film material.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+10fps (4.4MB) 0.10s per frame.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+15fps (6.2MB) 0.07s per frame.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Original 24fps (9.4MB) 0.05s per frame.</blockquote>
+</blockquote>
+ 
+<br> 
+<br> 
+IMSIDD84133BEA47E6FC6D92C8C9F1296E8ACFFD3C311 

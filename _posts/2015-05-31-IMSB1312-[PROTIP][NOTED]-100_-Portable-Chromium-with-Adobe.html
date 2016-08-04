@@ -1,0 +1,98 @@
+---
+layout: post
+title: "[PROTIP] [NOTED] 100% Portable Chromium with Adobe (NPSWF) and Pepper Flash
+  (pepflashplayer)"
+date: '2015-05-31T02:45:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-Tools
+- OT-PROTIP
+modified_time: '2015-06-29T12:38:04.547+01:00'
+thumbnail: http://1.bp.blogspot.com/-7X4ypM2JhMU/VWu7NpOTywI/AAAAAAAAAgE/otIFA06afeo/s72-c/chromium.portable.with.flash.png
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-6565088262945248278
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/05/protip-noted-100-portable-chromium-with.html
+---
+
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://1.bp.blogspot.com/-7X4ypM2JhMU/VWu7NpOTywI/AAAAAAAAAgE/otIFA06afeo/s1600/chromium.portable.with.flash.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="359" src="http://1.bp.blogspot.com/-7X4ypM2JhMU/VWu7NpOTywI/AAAAAAAAAgE/otIFA06afeo/s400/chromium.portable.with.flash.png" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Your Chromium 42 Portable should look like this.</td></tr>
+</tbody></table>
+This recipe is not for noobs.<br />
+<br />
+Ingredients:<br />
+<br />
+ChromiumPortable_42.0.2298.0.paf.exe<br />
+<a href="http://crportable.sourceforge.net/">http://crportable.sourceforge.net/</a><br />
+<br />
+Flash Plugins, both Adobe and Pepper<br />
+<br />
+<blockquote class="tr_bq">
+Flash_PPAPI_Portable_17.0.0.188_32-64_Plugin.exe<br />
+Flash_NPAPI_Portable_17.0.0.188_32-64_Plugin.exe<br />
+<a href="http://portableapptrash.blogspot.com/2015/04/flash-plugins.html">http://portableapptrash.blogspot.com/2015/04/flash-plugins.html</a>&nbsp;or&nbsp;<a href="http://portablewares.blogspot.com/2015/05/adobe-and-pepper-flash-browser-plugin.html">http://portablewares.blogspot.com/2015/05/adobe-and-pepper-flash-browser-plugin.html</a></blockquote>
+<br />
+NOTE: there's two flash plugins. The good old Adobe (uses NPAPI) and the newer "Pepper" (uses PPAI), made by Google.<br />
+<br />
+(Pepper Flash)<br />
+<br />
+Copy<br />
+<blockquote class="tr_bq">
+<br />
+pepflashplayer32.dll<br />
+pepflashplayer64.dll</blockquote>
+<br />
+to ChromiumPortable directory.<br />
+<br />
+Create<br />
+<br />
+chromium32.bat<br />
+<blockquote class="tr_bq">
+start ChromiumPortable.exe --ppapi-flash-path="%CD%\pepflashplayer32.dll" --ppapi-flash-version="99.0.0.0"<br />
+exit</blockquote>
+<br />
+chromium62.bat<br />
+<blockquote class="tr_bq">
+start ChromiumPortable.exe --ppapi-flash-path="%CD%\pepflashplayer64.dll" --ppapi-flash-version="99.0.0.0"<br />
+exit</blockquote>
+<br />
+(Adobe Flash)<br />
+<br />
+Copy<br />
+<br />
+NPSWF32.dll<br />
+<br />
+to ChromiumPortable\Data\PLUGINS directory.<br />
+<br />
+In Chromium go to<br />
+<br />
+chrome://flags/<br />
+<br />
+Check<br />
+<br />
+"Enable NPAPI"<br />
+<br />
+Check everything is OK:<br />
+<blockquote class="tr_bq">
+<br />
+chrome://flash/<br />
+chrome://plugins/ (you can disable "AdobeAAMDetect" and "Chromoting Viewer")</blockquote>
+<br />
+Hide ads:<br />
+<br />
+<blockquote class="tr_bq">
+ChromiumPortable.ini<br />
+DisableSplashScreen=TRUE</blockquote>
+<br />
+If you are using 64 bit Windows use chromium64.bat and if you are using 32 bit Windows use chromium32.bat.<br />
+<br />
+Also see:<br />
+<a href="http://insurgencymod.blogspot.com/2015/05/rant-google-chrome-portable-is-not.html">http://insurgencymod.blogspot.com/2015/05/rant-google-chrome-portable-is-not.html</a><br />
+<a href="http://insurgencymod.blogspot.it/2015/05/rant-google-deleted-my-gmail-address.html">http://insurgencymod.blogspot.it/2015/05/rant-google-deleted-my-gmail-address.html</a><br />
+<a href="http://insurgencymod.blogspot.it/2015/05/protip-do-not-update-to-chrome-42.html">http://insurgencymod.blogspot.it/2015/05/protip-do-not-update-to-chrome-42.html</a><br />
+and<br />
+<a href="http://insurgencymod.blogspot.com/2013/03/pro-tip-flash-player-for-iron-portable.html">http://insurgencymod.blogspot.com/2013/03/pro-tip-flash-player-for-iron-portable.html</a> 
+<br> 
+<br> 
+IMSIDEDE35039EB577C996599EE8BF3A8F74C1D555492 

@@ -1,0 +1,38 @@
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>
+        {% if page.title %}
+            {% comment %}
+            prepend "IMS:" in front of page title
+            {% endcomment %}
+            IMS:{{ page.title }}
+        {% else %}
+            {{ site.title }}
+        {% endif %}
+    </title>
+
+    <meta name="description" content="{{ site.description }}">
+    <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+    {% comment %}
+    jekyll-seo-tag plugin
+    IMS: must be before </head>!!!
+    A Jekyll plugin to add metadata tags for search engines and social networks to better index and display your site's content.
+    https://help.github.com/articles/search-engine-optimization-for-github-pages/
+    {% endcomment %}
+
+    {% seo %}
+
+    {% comment %}
+    trackers
+    {% endcomment %}
+
+    {% include spyinggoogle.html %}
+    {% include spyingstatcounter.html %}
+
+</head>

@@ -1,0 +1,141 @@
+---
+layout: post
+title: 'Noted: Red Orchestra 2 Console Commands'
+date: '2012-11-22T20:41:00.000Z'
+author: insmodscum
+tags:
+- Red Orchestra Ostfront / Killing Floor / Red Orchestra 2 HOS
+- Insurgency Mod Scum
+- OT-Noted
+- INSPROTIP
+modified_time: '2013-05-02T21:35:04.893+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-4608686732911868771
+blogger_orig_url: http://insurgencymod.blogspot.com/2012/11/noted-red-orchestra-2-console-commands.html
+---
+
+<blockquote class="tr_bq">
+RO Specific console commands:<br />
+<br />
+Listplayers (gives a list of players on the server with their hash id's default ut2004 listplayers only gave player names with a number)<br />
+Admin Restartgame (starts the game up again without having to reload the map)<br />
+<br />
+<br />
+Cheat Codes:<br />
+<br />
+CHEATSENABLED - (Allows cheating commands in single-player mode but disables unlocking characters from being obtained}<br />
+ALLAMMO<br />
+ALLWEAPONS<br />
+FLY<br />
+GHOST - (no clip basically)<br />
+GOD<br />
+LOADED - (Bestows all weapons, ammo, and 100 adrenaline)<br />
+TELEPORT - (Teleports you to wherever your crosshair is pointing)<br />
+WALK - (Stops FLY or GHOST command and drops you to the ground)<br />
+<br />
+Player/Bot Commands:<br />
+<br />
+ADDBOTS [number]<br />
+BEHINDVIEW 1 - (Changes to 3rd perspective view)<br />
+BEHINDVIEW 0 - (Changes to 1st person view)<br />
+DISCONNECT - (Disconnects from current server)<br />
+EXIT - (Quits the game)<br />
+KILLBOTS<br />
+OPEN [IP adress] - (Connects to a specific server IP)<br />
+QUIT - (Quits the game)<br />
+RECONNECT<br />
+SWITCHLEVEL [mapname]<br />
+SWITCHTEAM<br />
+SUICIDE <br />
+TEAMSAY [text] - (Displays your message in team chat)<br />
+PLAYERSONLY - (Freezes/pauses the Bots)<br />
+SAY [text] - (Displays your message in global chat)<br />
+SETNAME [playername]<br />
+SET INPUT [key] [command] - (Binds a key to a command such as "SET INPUT L LOADED")<br />
+<br />
+Statistics<br />
+<br />
+MEMSTAT - (Displays Windows memory usage)<br />
+STAT ALL - (Shows all stats)<br />
+STAT AUDIO - (Shows audio stats)<br />
+STAT FPS<br />
+STAT GAME - (Displays game stats)<br />
+STAT HARDWARE - (Shows hardware stats)<br />
+STAT NET - (Shows network game play stats)<br />
+STAT NONE - (Turns off all stats)<br />
+STAT RENDER - (Displays rendering statistics)<br />
+<br />
+Demo Commands<br />
+<br />
+DEMOPLAY [demoname]<br />
+DEMOREC [demoname]<br />
+STOPDEMO<br />
+<br />
+Admin Commands<br />
+<br />
+ADMIN SWITCHLEVEL [mapname?game= gametype?mutator= mutator] - (Changes the current level to the specified level, game type, and mutators)<br />
+ADMIN [command] - (to use other commands not in this section)<br />
+ADMINLOGIN [password] - (Logs the administrator onto the server using the specified password)<br />
+ADMINLOGOUT<br />
+ADMIN SET UWeb.Webserver bEnabled True - (Enables the remote admin check your redorchestra.ini file UWeb.Webserver is the header, bEnabled is the setting, and True is the value this can be used to change any INI file setting while ingame)<br />
+ADMIN KICK [playername]<br />
+ADMIN KICKBAN [playername]<br />
+ADMIN RESETGAME (resets the map to beginning values)<br />
+ADMIN RESTARTMAP (completely reloads the map up again)<br />
+LISTPLAYERS (gives a list of all players with hash id and player number to kick someone with a weird name you can use admin kick 2, if the number of the annoying person is 2)<br />
+<br />
+<br />
+Other Commands<br />
+<br />
+BRIGHTNESS [number] - (Changes the brightness level to a specified number)<br />
+CDTRACK [number] - (Plays the specified CD track number)<br />
+CONFIGHASH - (Displays configuration info)<br />
+CONTRAST [number]<br />
+DEBUG CRASH - (Tests crashes the game with an error)<br />
+DEBUG EATMEM - (Tests memory allocation until full)<br />
+DEBUG GPF - {Tests crashes the game with a general protection fault error)<br />
+DEBUG RECURSE - (Tests crashes the game by infinite recursion)<br />
+DUMPCACHE - (Displays the memory cache contents)<br />
+EXEC [filename] - (Executes a file in the UT2003/system/ directory by default)<br />
+FLUSH - (Flushes all cache and relights)<br />
+FOV [number] - (Changes the field of view to the specified number)<br />
+FIXEDVISIBILITY - (For testing your own level. Fixes the engine's visibility from your current point of view. You can walk around and see what exactly is being drawn, check that antiportals are working,etc.Enter it again to turn it off)<br />
+GAMMA [number]<br />
+GETCOLORDEPTHS - (Displays the maximum color depth supported by your hardware)<br />
+GETCURRENT COLORDEPTHS - (Displays your current color depth)<br />
+GETCURRENTRES - (Displays your current resolution)<br />
+GETCURRENT TICKRATE - (" " tick rate)<br />
+GETMAXTICKRATE - (Displays the maximum allowed tick rate)<br />
+MUSICORDER [number] - (Change to a current track in the song (0=ambient, 1=action, 2=suspense))<br />
+NETSPEED [number] - (Sets the net speed, default is 10,000)<br />
+OBJ CLASSES - (Displays a list of object classes)<br />
+OBJ GARBAGE - (Collects and purges objects no longer in use)<br />
+OBJ HASH – (Displays object hashing statistics)<br />
+OBJ LINKERS – (Displays a list of active linkers)<br />
+PAUSESOUNDS – (Pauses all sounds)<br />
+PREFERENCES – (Opens advanced settings)<br />
+RELAUNCH – (Relaunches the engine)<br />
+RENDEREMULATE [gf1/gf2] – (Lets you see how your level will look on different cards (e.g., if some of your shaders are to complicated and don’t have fallbacks))<br />
+REPORT – (Copies a report of the current game to clipboard)<br />
+SET [class variable value] – (Sets a specified class and specified variable with the specified value)<br />
+SETSENSITIVITY [number] <br />
+SETRES [WxHxD] – (Sets your screen resolution to the specified width, height, and color depth) <br />
+SLOMO 1 – (Sets the speed of the game back to normal speed)<br />
+SLOMO 2 – (Sets speed to double, Increase number to go faster)<br />
+SLOMO .5 – (Sets speed to half, Decrease to go slower)<br />
+SOCKETS – (Displays a list of sockets in use)<br />
+TOGGLEFULLSCREEN – (Toggles full screen mode)<br />
+TOGGLE SCREENSHOTMODE – (Removes all HUD for screenshot taking)<br />
+REMOVEHUD - (Also removes the HUD)<br />
+FREECAMERA [number] – (Allows you to move camera around player)<br />
+TYPE [text]<br />
+UNPAUSESOUNDS<br />
+MUTATE [mutator command here]<br />
+<br />
+<br />
+Spawn weapons/vehicles<br />
+<br />
+Spawn Redeemer: summon xweapons.redeemerpickup (obviously there is no redeemer in ro but you can change it to one of ro's weaponry)</blockquote>
+ 
+<br> 
+<br> 
+IMSID97298349D02A5CD2887422D6D173658B051C9B6C 

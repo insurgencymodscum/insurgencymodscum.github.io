@@ -1,0 +1,89 @@
+---
+layout: post
+title: 'Pro Tip: (Re)Installing Windows 7 Like A Boss Checklist'
+date: '2012-12-08T09:23:00.000Z'
+author: insmodscum
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-PROTIP
+modified_time: '2013-05-02T23:12:51.515+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-2059731303206871675
+blogger_orig_url: http://insurgencymod.blogspot.com/2012/12/pro-tip-reinstalling-windows-7-like.html
+---
+
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://i.imgur.com/b4Au7mc.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="354" src="http://i.imgur.com/b4Au7mc.png" width="640" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Minimalism, everything is portable, yet Microsoft's own software refuses
+ to install once again with the usual Error 1935 bullshit. Reinstalling 
+Windows 7.</td></tr>
+</tbody></table>
+<br />
+Sick and tired of Microsoft's bullshit "Error 1935", reinstalling Windows (again).<br />
+<br />
+(1)&nbsp;&nbsp;&nbsp; Activation<br />
+<br />
+slmgr.vbs -ilc cert.xrm-ms<br />
+slmgr.vbs -ipk serial<br />
+<br />
+(2)&nbsp;&nbsp;&nbsp; Fixing Microsoft Stupidity<br />
+<br />
+(a)&nbsp;&nbsp;&nbsp; Kill Windows 7 thumbnail borders / Kill Windows 7 "Action Center"/ Fix Start Menu<br />
+http://insurgencymod.blogspot.com/2012/04/pro-tips-kill-windows-7-thumbnail.html<br />
+<br />
+(b)&nbsp;&nbsp;&nbsp; How to Disable the "Open File Security Warning" in Windows (<a href="http://www.sevenforums.com/tutorials/182353-open-file-security-warning-enable-disable.html">http://www.sevenforums.com/tutorials/182353-open-file-security-warning-enable-disable.html</a>):<br />
+<br />
+Start-&gt;Run-&gt;gpedit.msc<br />
+User Configuration-&gt;Administrative Templates-&gt;Windows Components-&gt;Attachment Manager <br />
+Inclusion list for low file types: ENABLED<br />
+"Specify low risk extensions...": ".exe"<br />
+<br />
+(3)&nbsp;&nbsp;&nbsp; Drivers (Nvidia, printers)<br />
+<br />
+(4)&nbsp;&nbsp;&nbsp; Check Control Panel settings/options/preferences<br />
+<br />
+(a)&nbsp;&nbsp;&nbsp; &nbsp;"Programs and Features" -&gt; "Turn Windows features on or off" <br />
+(b)&nbsp;&nbsp;&nbsp; "Ease of Access Center" -&gt; "Make the keyboard easier to use", "Prevent windows..." and "Underline..."<br />
+(c)&nbsp;&nbsp;&nbsp; powercfg -h off" <br />
+<br />
+(5)&nbsp;&nbsp;&nbsp; Microsoft Software<br />
+<br />
+(a)&nbsp;&nbsp;&nbsp; Visual Studio<br />
+(b)&nbsp;&nbsp;&nbsp; Visual Studio SP1<br />
+(c)&nbsp;&nbsp;&nbsp; Office 2010 with SP1 (For MS OneNote "Send To OneNote" "XPS" shit must be turned ON in "Windows Features")<br />
+<br />
+(6)&nbsp;&nbsp;&nbsp; Critical, must have non-Microsoft Software<br />
+<br />
+a)&nbsp;&nbsp;&nbsp; DiskCryptor<br />
+b)&nbsp;&nbsp;&nbsp; TrueCrypt<br />
+c)&nbsp;&nbsp;&nbsp; WinCDEmu<br />
+<br />
+d)&nbsp;&nbsp;&nbsp; 7zip (both x32 and x64)<br />
+e)&nbsp;&nbsp;&nbsp; AutoHotKey<br />
+f)&nbsp;&nbsp;&nbsp; HashCheck<br />
+g)&nbsp;&nbsp;&nbsp; VirtualBox<br />
+h)&nbsp;&nbsp;&nbsp; CCPDFConverter (PDFCreator non-malware alternative)<br />
+<br />
+(7)&nbsp;&nbsp;&nbsp; Video/Audio Software<br />
+<br />
+a)&nbsp;&nbsp;&nbsp; MPC HC x32<br />
+b)&nbsp;&nbsp;&nbsp; MadVR (they say it’s the best)<br />
+c)&nbsp;&nbsp;&nbsp; Icaros<br />
+(d)&nbsp;&nbsp;&nbsp; Set MPC HC output to MadVR<br />
+(e)&nbsp;&nbsp;&nbsp; Set Icaros filetypes to: .mp4;.avi;.wmv;.flv;.mkv; and thumbnail offset inbetween 90% - 100%<br />
+<br />
+(8)&nbsp;&nbsp;&nbsp; Gaming<br />
+<br />
+(a)&nbsp;&nbsp;&nbsp; &nbsp;Steam<br />
+(b)&nbsp;&nbsp;&nbsp; "MarkC" Windows 7 Mouse Acceleration Fix or CPL Mouse Fix. (<a href="http://www.esreality.com/?a=post&amp;id=1846538">http://www.esreality.com/?a=post&amp;id=1846538</a>)<br />
+<br />
+Also see:<br />
+<br />
+How to eliminate the “Open File Security Warning” when accessing file on a network drive.<br />
+<a href="http://insurgencymod.blogspot.com/2013/02/how-to-eliminate-open-file-security.html">http://insurgencymod.blogspot.com/2013/02/how-to-eliminate-open-file-security.html</a><br />
+<br />
+Hide Windows 7 "Show Desktop" Button Hack<br />
+<a href="http://insurgencymod.blogspot.nl/2013/01/tools-windows7-hide-show-desktop-button.html">http://insurgencymod.blogspot.nl/2013/01/tools-windows7-hide-show-desktop-button.html</a> 
+<br> 
+<br> 
+IMSID18183237E6BC17A87BE53422E150DFB1F9423C6C 

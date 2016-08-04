@@ -1,0 +1,82 @@
+---
+layout: post
+title: "[PROTIP] [NOTED] Backup Tumblr Blog & Download Images with Wget"
+date: '2015-05-10T03:43:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-Tools
+- OT-PROTIP
+modified_time: '2015-05-28T03:47:26.857+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-6810538667757694804
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/05/protip-noted-backup-tumblr-blog.html
+---
+
+<div class="tr_bq">
+<b>Backup Tumblr Blog</b></div>
+<br />
+<blockquote class="tr_bq">
+wget -H -N -k -p -r -Dmedia.tumblr.com,TARGET.tumblr.com http://TARGET.tumblr.com</blockquote>
+<br />
+Source: <a href="http://techstreak.tumblr.com/post/17433669978/tumblr-backup-windows-mac-linux">http://techstreak.tumblr.com/post/17433669978/tumblr-backup-windows-mac-linux</a><br />
+<br />
+<blockquote class="tr_bq">
+-H : Span hosts.<br />
+-N : Download only if the content is newer than already present.<br />
+-k : Convert links for local viewing.<br />
+-p : Download all content (Images/CSS/JS) necessary for optimal viewing.<br />
+-r : Turn on recursive retrieval.<br />
+-D : Domains to be crawled. Note: media stores images uploaded by you.<br />
+-U : Use the specified user agent.</blockquote>
+<br />
+<b>Download Images</b><br />
+<br />
+<blockquote class="tr_bq">
+wget -rH -Dmedia.tumblr.com,TARGET.tumblr.com -R "*avatar*" -A "[0-9]" -A "*index*" -A jpeg,jpg,gif,png --level=10 -nd -nc http://TARGET.tumblr.com/</blockquote>
+<br />
+Source: <a href="http://blog.dcxn.com/2011/11/06/wget-all-recent-images-from-a-tumblr/">http://blog.dcxn.com/2011/11/06/wget-all-recent-images-from-a-tumblr/</a><br />
+<blockquote class="tr_bq">
+<br />
+<blockquote class="tr_bq">
+Explanation of the options</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+--quiet tell wget not to output what it’s doing, it’s useful because this wget is part of a cron job for me. I know it works, I don’t need to see the output. If you’re debugging or playing around, turn this off.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+-rH tells wget to recursively download (r) the site and to span hosts (-H). This means that wget can wander into hosts that aren’t http://economyofspace.tumblr.com/. This is a pretty risky thing, it’s easy to end up downloading the whole internet. This brings us to the next flag.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+-Dmedia.tumblr.com,economyofspace.tumblr.com tells wget to only visit domains that are part of media.tumblr.com and economyofspace.tumblr.com. What’s interesting is that subdomains end up on the approved list, so 29.media.tumblr.com is just fine.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+-R "*avatar*". This tells wget to download any files with avatar in them.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+-A "[0-9]" -A "*index*" -A jpeg,jpg,bmp,gif,png. -A is the counterpart to -R. This tells wget to allow files that contains jpeg, jpg, bmp, gif, or png and to allow any files that contain index and to allow files that contain 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. Why the list? We need the index page to keep spidering, we need the number to download pages from the archive, and we need the file formats to download those image types.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+--level=10 tells wget to go 10 levels deep. This would be dangerous except that we’ve restricted domains and limited the file names that can be downloaded.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+-nd tells wget not to recreate the directory structure and to instead download all of the files into the current working directory.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+-nc tells gets not to re-download files that exist. This is to keep tumblr happy with us and prevent files from being needlessly redownloaded.</blockquote>
+</blockquote>
+<br />
+SHIT<br />
+http://kiodane.tumblr.com/post/27508318036/wget-mirror-a-tumblr-site<br />
+ 
+<br> 
+<br> 
+IMSIDF79B9E395DD453895553A82771DFE0B379ADF7D9 

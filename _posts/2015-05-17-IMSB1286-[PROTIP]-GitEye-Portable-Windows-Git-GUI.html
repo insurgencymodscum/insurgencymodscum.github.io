@@ -1,0 +1,64 @@
+---
+layout: post
+title: "[PROTIP] GitEye Portable (Portable Windows Git GUI)"
+date: '2015-05-17T03:26:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Tools
+- OT-PROTIP
+modified_time: '2015-05-28T03:29:18.836+01:00'
+thumbnail: http://3.bp.blogspot.com/-xRBLz-dsRbw/VWZ8fLxeQ5I/AAAAAAAAAas/GK_eOUUMSjo/s72-c/protip.giteye.png
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-114814478737991682
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/05/protip-giteye-portable-portable-windows.html
+---
+
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container tr_bq" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://3.bp.blogspot.com/-xRBLz-dsRbw/VWZ8fLxeQ5I/AAAAAAAAAas/GK_eOUUMSjo/s1600/protip.giteye.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="242" src="http://3.bp.blogspot.com/-xRBLz-dsRbw/VWZ8fLxeQ5I/AAAAAAAAAas/GK_eOUUMSjo/s400/protip.giteye.png" width="400" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">GitEye (Eclipse based) Git GUI</td></tr>
+</tbody></table>
+<a href="http://git-scm.com/downloads/guis">http://git-scm.com/downloads/guis</a><br />
+<a href="https://git.wiki.kernel.org/index.php/Interfaces,_frontends,_and_tools">https://git.wiki.kernel.org/index.php/Interfaces,_frontends,_and_tools</a><br />
+<br />
+Quick research shows the only portable Git GUIs for Windows are SmartGit and GitEye both Java based. GitEye is based on Eclipse. INSMODSCUM doesn't like SmartGit, so here's GitEye Portable:<br />
+<br />
+One needs:<br />
+<br />
+GitEye-1.10.0-windows.x86.zip<br />
+jPortable_8_Update_45.paf.exe<br />
+<br />
+<br />
+Instructions:<br />
+<br />
+STEP 1:<br />
+<br />
+Install JPortable.<br />
+Rename Common Files\Java to JRE.<br />
+Copy JRE to GitEye.<br />
+<br />
+or if you have JRE somewhere else, edit GitEye.ini:<br />
+<br />
+<blockquote class="tr_bq">
+-vm<br />
+./jre/bin/javaw.xe</blockquote>
+<br />
+STEP 2:<br />
+<br />
+Fix "-data" in "GitEye.ini":<br />
+<br />
+<blockquote>
+GitEye.ini<br />
+-startup<br />
+plugins/org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar<br />
+--launcher.library<br />
+plugins/org.eclipse.equinox.launcher.win32.win32.x86_1.1.200.v20140603-1326<br />
+-data<br />
+./.giteye<br />
+-vmargs<br />
+-Xms128m<br />
+-Xmx512m<br />
+-XX:MaxPermSize=256m</blockquote>
+ 
+<br> 
+<br> 
+IMSID0A20ECC6551538A635BCC411866292C5D2514F69 

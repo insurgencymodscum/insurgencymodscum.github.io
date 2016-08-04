@@ -1,0 +1,115 @@
+---
+layout: post
+title: "[PROTIP][NOTED] Kill Windows 10 Advert Spam & Shit Tasks in Task Scheduler"
+date: '2015-06-06T22:15:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-PROTIP
+modified_time: '2015-06-29T21:43:01.988+01:00'
+thumbnail: http://3.bp.blogspot.com/--yrq8vxa8fg/VZGtslSucsI/AAAAAAAAAm0/TXaEZYlJCgg/s72-c/windows.10.nag.kill.png
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-345349902998923353
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/06/protipnoted-kill-windows-10-advert-spam.html
+---
+
+Source: <a href="http://www.comtek4u.com/content/2015/04/16/how-to-remove-windows-10-upgrade-updates-windows-7-and-8">http://www.comtek4u.com/content/2015/04/16/how-to-remove-windows-10-upgrade-updates-windows-7-and-8</a><br />
+<br />
+STEP A: Uninstalling<br />
+<div class="separator" style="clear: both; text-align: center;">
+</div>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://3.bp.blogspot.com/--yrq8vxa8fg/VZGtslSucsI/AAAAAAAAAm0/TXaEZYlJCgg/s1600/windows.10.nag.kill.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="366" src="http://3.bp.blogspot.com/--yrq8vxa8fg/VZGtslSucsI/AAAAAAAAAm0/TXaEZYlJCgg/s640/windows.10.nag.kill.png" width="640" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;"><br /></td></tr>
+</tbody></table>
+In "Cmder" (<a href="http://insurgencymod.blogspot.com/2015/05/tools-portable-windows-console-conemu.html">http://insurgencymod.blogspot.com/2015/05/tools-portable-windows-console-conemu.html</a>):<br />
+<blockquote class="tr_bq">
+<br />
+powershell<br />
+get-hotfix -id KB3035583, KB2952664,KB2976978,KB3021917,KB3044374,KB2990214<br />
+exit<br />
+[I had the following 4 "updates":]<br />
+wusa /uninstall /kb:2952664<br />
+wusa /uninstall /kb:2990214<br />
+wusa /uninstall /kb:3021917<br />
+wusa /uninstall /kb:3035583</blockquote>
+<br />
+STEP B: Hiding<br />
+<br />
+"Control Panel\All Control Panel Items\Windows Update\Select updates to install"<br />
+"Hide Update"<br />
+<br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://1.bp.blogspot.com/-LPL_LpiAyYs/VXS1sVp1-8I/AAAAAAAAAg4/bFiP8p6ri5Q/s1600/windows.ad.kill.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="372" src="http://1.bp.blogspot.com/-LPL_LpiAyYs/VXS1sVp1-8I/AAAAAAAAAg4/bFiP8p6ri5Q/s640/windows.ad.kill.png" width="640" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Hiding Malicious Windows 7 "Updates"</td></tr>
+</tbody></table>
+<br />
+STEP 3: Disabling<br />
+<br />
+Source:&nbsp;<a href="http://tech.slashdot.org/comments.pl?sid=7502429&amp;cid=49836637">http://tech.slashdot.org/comments.pl?sid=7502429&amp;cid=49836637</a><br />
+<blockquote class="tr_bq">
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Go to Task Scheduler.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+In the scheduler library: \Microsoft\Windows\Setup\gwx</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Disable everything.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+I also disable these tasks in scheduler library:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+\Microsoft\Windows\Customer Experience Improvement Program:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Disable task: Consolidator</blockquote>
+<blockquote class="tr_bq">
+Disable task: KernelCeipTask</blockquote>
+<blockquote class="tr_bq">
+Disable task: UsbCeip</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+\Microsoft\Windows\Application Experience:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Disable task: AitAgent</blockquote>
+<blockquote class="tr_bq">
+Disable task: Microsoft Compatibility Appraiser</blockquote>
+<blockquote class="tr_bq">
+Disable task: ProgramDataUpdater</blockquote>
+</blockquote>
+<br />
+<br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://2.bp.blogspot.com/-EkRMJKoIiCY/VXS5BuJ2VjI/AAAAAAAAAh4/Pt43pwSDzeg/s1600/fuck.blogger.1.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="372" src="http://2.bp.blogspot.com/-EkRMJKoIiCY/VXS5BuJ2VjI/AAAAAAAAAh4/Pt43pwSDzeg/s640/fuck.blogger.1.png" width="640" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Disabling "gwx" shit</td></tr>
+</tbody></table>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://3.bp.blogspot.com/-56V1dkzIMFI/VXS5uWZ7t3I/AAAAAAAAAiQ/NZTAGpR1Ivs/s1600/fuck.blogger.2.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="372" src="http://3.bp.blogspot.com/-56V1dkzIMFI/VXS5uWZ7t3I/AAAAAAAAAiQ/NZTAGpR1Ivs/s640/fuck.blogger.2.png" width="640" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Disabling "Customer Experience Improvement Program" spyware</td></tr>
+</tbody></table>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://1.bp.blogspot.com/-BAS347HCLMs/VXS52xKzNqI/AAAAAAAAAiY/j_8UjSsMn-o/s1600/fuck.blogger.3.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="372" src="http://1.bp.blogspot.com/-BAS347HCLMs/VXS52xKzNqI/AAAAAAAAAiY/j_8UjSsMn-o/s640/fuck.blogger.3.png" width="640" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Disabling "Application Experience" spyware</td></tr>
+</tbody></table>
+<br />
+Also see:<br />
+<a href="http://insurgencymod.blogspot.com/2012/03/default-windows-7-services-reference.html">http://insurgencymod.blogspot.com/2012/03/default-windows-7-services-reference.html</a><br />
+<a href="http://insurgencymod.blogspot.com/2012/02/pro-tip-minimal-windows-7-x64-services.html">http://insurgencymod.blogspot.com/2012/02/pro-tip-minimal-windows-7-x64-services.html</a><br />
+<a href="http://insurgencymod.blogspot.com/2012/02/pro-tip-minimal-windows-xp-x32-services.html">http://insurgencymod.blogspot.com/2012/02/pro-tip-minimal-windows-xp-x32-services.html</a><br />
+<style>img[src="https://3.bp.blogspot.com/-JVFgKNT0lts/VXS2zxZ5KoI/AAAAAAAAAhg/x0cK-zS3ZBA/s1600/windows.10.advert.spam.1.png"]
+{display:none !important;}</style> 
+<br> 
+<br> 
+IMSID4F61F82F926C57C5B60CA3E32814F120EC9A2441 

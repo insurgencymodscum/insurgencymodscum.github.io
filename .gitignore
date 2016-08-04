@@ -1,0 +1,9 @@
+# git repos 
+.git
+
+# jekyll
+_site
+.sass-cache
+
+
+z_imsblogtemplate_rev*.md

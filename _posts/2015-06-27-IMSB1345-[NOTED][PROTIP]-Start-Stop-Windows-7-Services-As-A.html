@@ -1,0 +1,85 @@
+---
+layout: post
+title: "[NOTED][PROTIP] Start & Stop Windows 7 Services As Administrator via Batch
+  File"
+date: '2015-06-27T20:56:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-PROTIP
+modified_time: '2015-06-29T20:58:27.414+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-7127813625082010792
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/06/notedprotip-start-stop-windows-7.html
+---
+
+Source:<br />
+Enable Disable Built In Administrator Acount<br />
+<a href="https://technet.microsoft.com/en-us/library/dd744293(v=ws.10).aspx">https://technet.microsoft.com/en-us/library/dd744293(v=ws.10).aspx</a><br />
+<br />
+<blockquote class="tr_bq">
+<blockquote class="tr_bq">
+net user administrator /active:yes</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Control Panel -&gt; Users</blockquote>
+<blockquote class="tr_bq">
+Create password for Administrator.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+EverythingServiceStart.bat</blockquote>
+<blockquote class="tr_bq">
+runas /user:administrator /savecred "cmd /c net start Everything &amp; timeout 3"&nbsp;</blockquote>
+<blockquote class="tr_bq">
+start /b %cd%\everything\everything.exe</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+EverythingServiceStop.bat</blockquote>
+<blockquote class="tr_bq">
+::runas.exe /user:administrator /savecred "cmd /c net stop Everything &amp; timeout 3"</blockquote>
+<blockquote class="tr_bq">
+::runas.exe /user:administrator /savecred "cmd /c taskkill /f /im everything.exe &amp; timeout 3"</blockquote>
+<blockquote class="tr_bq">
+runas.exe /user:administrator /savecred "cmd /c net stop Everything &amp; timeout 3 &amp; taskkill /f /im everything.exe &amp; timeout 3"</blockquote>
+</blockquote>
+<div>
+<br /></div>
+<div>
+<div>
+RTFM:</div>
+<div>
+<br /></div>
+<div>
+net</div>
+<div>
+<a href="http://ss64.com/nt/net_service.html">http://ss64.com/nt/net_service.html</a></div>
+<div>
+start</div>
+<div>
+<a href="http://ss64.com/nt/start.html">http://ss64.com/nt/start.html</a></div>
+<div>
+timeout</div>
+<div>
+<a href="http://www.robvanderwoude.com/wait.php">http://www.robvanderwoude.com/wait.php</a></div>
+<div>
+taskkill</div>
+<div>
+<a href="http://ss64.com/nt/taskkill.html">http://ss64.com/nt/taskkill.html</a></div>
+<div>
+<br /></div>
+<div>
+Source:</div>
+<div>
+<a href="https://htipe.wordpress.com/2009/07/19/multiple-commands-on-a-single-windows-command-line/">https://htipe.wordpress.com/2009/07/19/multiple-commands-on-a-single-windows-command-line/</a></div>
+</div>
+<div>
+<br /></div>
+<blockquote class="tr_bq">
+When using cmd.exe, you can put multiple commands on the same line by using ‘&amp;’ or ‘&amp;&amp;’ between commands. Using a single ampersand (&amp;) will cause the first command and then the second command to be run in sequence. Using double ampersands (&amp;&amp;) introduces error checking. The second command will run only if the first command is successful.</blockquote>
+ 
+<br> 
+<br> 
+IMSIDDAD50B5B44B3B82B09AE3541C14DF035E08E4598 

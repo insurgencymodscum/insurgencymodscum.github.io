@@ -1,0 +1,113 @@
+---
+layout: post
+title: "[NOTED][GIFTIP] VirtualDub Color Depth"
+date: '2015-05-10T01:48:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-GIFTIP
+modified_time: '2015-05-28T01:52:46.155+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-8199706747022832048
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/05/noted-giftip-virtualdub-color-depth.html
+---
+
+Also see:<br />
+<a href="http://insurgencymod.blogspot.com/2015/04/gif-tip-noted-virtualdub.html">http://insurgencymod.blogspot.com/2015/04/gif-tip-noted-virtualdub.html</a><br />
+http://insurgencymod.blogspot.com/2015/04/gif-tip-gif-like-boss-how-to-gif.html<br />
+<a href="http://insurgencymod.blogspot.nl/2015/04/gif-tip-gif-tools.html">http://insurgencymod.blogspot.nl/2015/04/gif-tip-gif-tools.html</a><br />
+<a href="http://insurgencymod.blogspot.nl/2015/04/gif-tip-virtualdub-subtitles.html">http://insurgencymod.blogspot.nl/2015/04/gif-tip-virtualdub-subtitles.html</a><br />
+<a name='more'></a><br />
+<blockquote class="tr_bq">
+16-bit RGB (555)</blockquote>
+<br />
+<blockquote class="tr_bq">
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This is a format with five bits per channel (32 levels) for each of red, green, and blue. It is a relatively low-precision format that is prone to some banding artifacts but is common on older video display hardware, as it is faster and consumes less memory than 24-bit RGB. This format is sometimes known as HiColor.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+16-bit RGB (565)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This is a slightly improved version of 16-bit RGB (555), as it uses the unused bit to improve precision in green.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+24-bit RGB (888)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This is a format with eight bits per channel (256 levels) for each of red, green, and blue. It is common for photographic images and is often known as TrueColor. This is the safest and most reliable format to use for video interchange.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+32-bit RGB (8888) (dummy alpha channel)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This is similar to 24-bit RGB, except that it has an additional unused eight bits per pixel. Picture quality is identical to 24-bit, but the additional padding makes the pixels a more convenient size for computation. This format is sometimes slightly faster than 24-bit for processing, but should be avoided for storage as it wastes one-third more space.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+4:2:2 YCbCr (UYVY)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This is a format which uses the YCbCr color space (luma, chroma-blue, chroma-red), which is closer to the way color images are perceived by the human brain. It averages only 16 bits per pixel with similar perceptual quality to 24-bit RGB by only storing color information at half horizontal resolution, producing slight color bleeding but only taking two-thirds as much space.</blockquote>
+<blockquote class="tr_bq">
+UYVY is accepted directly by many video codecs. Since many video codecs internally use color spaces similar to YCbCr, using this format with video codecs can speed up rendering.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+4:2:2 YCbCr (YUY2)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This is the same as 4:2:2 YCbCr (UYVY), except for a shuffling of data bytes. It has the same quality and performance advantages as UYVY.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+4:2:0 planar YCbCr (YV12)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This is a YCbCr format with an average of 12 bits per pixel and half resolution both horizontally and vertically in color information. It thus takes 25% less space than UYVY or YUY2, but with some vertical bleeding. "Planar" refers to the organization of data in the format, where luma, chroma-blue, and chroma-red are stored separately.</blockquote>
+<blockquote class="tr_bq">
+Some codecs accept this format directly for further increases in performance over the 4:2:2 formats. However, it should be avoided for interlaced video, where the loss of vertical color resolution can cause motion artifacts between fields.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+4:2:2 planar YCbCr (YV16)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This is a YCbCr format with an average of 16 bits per pixel and half horizontal resolution in color information.</blockquote>
+<blockquote class="tr_bq">
+The YV16 format is rare and not well supported by video codecs and playback applications, but is supported here for completeness.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+4:1:0 planar YCbCr (YVU9)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+This is a YCbCr format with an average of 9 bits per pixel and quarter resolution both horizontally and vertically in color information. YVU9 thus takes 43% less space than UYVY/YUY2 and 62% less space than 24-bit RGB, but at the cost of significant color bleeding.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Luminance only (Y8)</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Y8 is a monochrome format, and thus selecting it will cause video to be converted to grayscale. However, it only requires half of the space of UYVY or YUY2 at 8 bits per pixel.</blockquote>
+<blockquote class="tr_bq">
+Y8 uses the same luma scale as YCbCr, 16-240, so there is a very slight loss of luma precision compared to 24-bit RGB. However, conversion between Y8 and YCbCr formats is lossless in luma and extremely fast.</blockquote>
+</blockquote>
+ 
+<br> 
+<br> 
+IMSID82FD2304DD3BC663702A094AA89C0E459FC5AA7A 

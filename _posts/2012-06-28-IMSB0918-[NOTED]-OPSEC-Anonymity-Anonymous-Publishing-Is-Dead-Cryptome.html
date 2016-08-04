@@ -1,0 +1,247 @@
+---
+layout: post
+title: '[NOTED] OPSEC & Anonymity: "Anonymous Publishing Is Dead?" (Cryptome)'
+date: '2012-06-28T00:13:00.032+01:00'
+author: insmodscum
+tags:
+- Insurgency Mod Scum
+- OT-OPSEC / Anonymity
+- OT-Noted
+- OT-Tools
+modified_time: '2013-05-02T21:08:34.383+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-3621912137303043471
+blogger_orig_url: http://insurgencymod.blogspot.com/2012/06/anonymous-publishing-is-dead-cryptome.html
+---
+
+<a href="http://cryptome.org/2012/06/anon-pub-dead.htm">http://cryptome.org/2012/06/anon-pub-dead.htm</a><br />
+<br />
+There might be some truth in this. Insurgency Mod Scum tried to upload a video to Youtube over Tor. Youtube rejected the upload.<br />
+<br />
+HTML tags stripped.<br />
+<a name='more'></a><blockquote>
+I know it is dead, because I have tried to do it, and I can assure you it is dead.<br />
+<br />
+Text is easy of course I can still blast a simple email out to a mailing list, I can lay my claims out in 7bit ASCII and let the world judge the merits solely on this simple medium. But media publishing a story with supporting images, scans, video or audio, it is dead, left only to the elites. And perhaps worst of all is the promise made by all of you that if you just ... try a little harder, if you just use this service over here, if you just think about it another way that it is still possible. It is not.<br />
+<br />
+Some time ago as an experiment I began the process to publish material fully anonymously no compromises. I obtained a prepaid line of credit, paid in cash, verified with a prepaid telephone, also paid in cash, and only turned on in an ambiguous physical location. And I set about to find a Virtual Private Server I could run a Tor Hidden Service on. My requirements throughout all of this were simple: use Tor for everything, pay cash or cash-equivalent for everything, leave no account on a service run by a US/UK/AUS/NZ/CA company, have the VPS hosted outside the same, pay a reasonable sum.<br />
+<br />
+I needed an email of course. Nymservers like http://isnotmy.name/ or http://mixnym.net should have been the solution but of course they didn't work. No amount of guesswork or trial and error got me a nym. Free webmail became the next goal. The more trustworthy (gmail), the less satisfactorily anonymous it was. The easier it was to register (in.com) the less trustworthy it was deemed. After signing up for a low-trust but easy-to-get email, I narrowed down my hosting options to a group of VPS in the price range, hosted outside the 'bad' countries, and whose company itself was also outside. There aren't a lot.<br />
+<br />
+The next problem became finding a VPS I could pay for.You see, most VPS sellers are small resellers and don't process their own credit cards they outsource it to a payment processor, usually Paypal. Paypal doesn't work. Paypal or AlertPay too stringent verification; Liberty Reserve blocks Tor; CashU not easily-found online merchant able to convert from a prepaid Credit Card; one after another all online payment methods fell by the wayside.<br />
+<br />
+You might think 'Bitcoin'. You would be wrong. No bitcoin service accepts any anonymous funding source; most only accept bank transfers. Apparently people performed chargebacks on credit cards to defraud the merchants. I can't blame them for this, but it certainly kills the idea of 'anonymity'. And I don't trust the blockchain to provide anonymity.<br />
+<br />
+After finding one of three or four VPS' I thought I could pay for, I encountered the next obstacle: MaxMind. MaxMind is a fraud detector built into WHMCompleteSolution which in turn is the VPS management tool used by every budget VPS. I set off every detector it had: proxy software, low trust email account, strange addresses, no valid phone number, etc etc.<br />
+<br />
+When I inquired to one company about this, I was laughed off. Even though I was willing to let them charge my card and sit on it for a month before providing service, no such luck. At this point, I needed to find a company large enough they processed their own credit cards, didn't block Tor, and didn't use fraud detectors.<br />
+<br />
+I found one, a competitor to Amazon EC2, that I thought I could fall through the cracks of. It didn't like my low trust email address, but after enough searching, I found an ISP I could get an account on without paying.After getting that, creating and verifying an account, and finally set up to make my payment ... the prepaid card is declined. There's no explanation, it just didn't work.<br />
+<br />
+I thought at this point, perhaps there was a service that could be used. There was an announcement recently: http://karelbilek.com/anontorrent/. Supposedly this guy will seed anything until it has 20 seeders of its own. Except the file limit is 50MB. And you can't upload copyrighted material.<br />
+<br />
+How about any of the much-acclaimed 'leak sites' that spun up after Wikileaks shuttered their wiki and submission system? Well, I went through all of these: leakdirectory.org/index.php/LeakSiteDirectory and all of them seemed to be either wannabes who had never published a thing or news organizations who were security illiterate and had no way to accept content.<br />
+<br />
+Anonymous Publishing Is Dead.<br />
+<br />
+You may seek to respond with the 'right way' to do it, the company you know will let me fall through the cracks, the trick you use to white-lie your way through the process. Don't bother. If there is a way through, and I'm not convinced there is, it is so difficult to find that a technically unsavvy user would never be able to; and even technically savvy users like myself who understand all the tricks of firewalling off my machine so nothing but Tor escapes are groping blindly for it, unlikely to find it.<br />
+<br />
+What can be done about this? What compromises are 'safe'? Is a Hidden Service sufficiently trustworthy to host any material, and have it stand up to investigation when the server running it is in your name? Is the correct approach not to publish anonymously at all, as cryptome.org does? Should we rely on the Streisand effect, bittorrent, newsgroups, something else? These are mostly rhetorical questions.<br />
+<br />
+My purpose in this email is to tell you that anonymous publishing is an unsolved problem. Any solution available today is not robust: it falls down in some situation: content, capacity, anonymity, or something else. What can be done about it? What will be done about it?</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+Responses:<br />
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+<br />
+Dear Anonymous Person,<br />
+<br />
+I have to admit, it was a very interesting read, even though I am not too sure I agree completely. It seems as if your threat model has encompassed every single tiny thing that could possibly (theoretically) go wrong, without much thought given to real-world randomness and incompetence... so I thought I'd make a few observations.<br />
+<br />
+1. Your use of Tor. If you were to run, say, an instance of TAILS with tor set up to act as a relay, that would increase your anonymity greatly (in fact, I have yet to hear of a case where someone running a tor relay was identified and/or arrested solely based on that fact). If you wanted to add an additional step, you could run your whole connection through a good VPN server that allows anon payments (with bitcoin) and doesn't keep logs, like Mullvad.net, THEN run a tor relay... I'm not saying it'd be the fastest option imaginable, but it would throw a lot of obstacles in the way of anyone trying to trace your location.<br />
+<br />
+2. Email. I signed up for mailoo.org through Tor, I believe. But for all practical purposes, you could easily get a disposable e-mail address through a Firefox plugin called Bloody Vikings. Otherwise, pretty much any web mail will do... just war drive and sign up through the first open wi-fi connection you find ;)<br />
+<br />
+3. Bitcoins. Yes, block chains are not that anonymous, especially considering the difficulty of buying them legitimately in the first place. How about a coin mixing service like www.bitcoinfog.com? Their methodology is very interesting, and it seems like you'd be able to 'launder' ordinary coins, bought legitimately through an xchange... There are a few other sites like this one: http://vzpzbfwsrvhfuzop.onion.to<br />
+<br />
+4. Do you really need your own dedicated VPS?! And only in developed Western countries? Have you checked out this list of BTC-friendly servers: https://en.bitcoin.it/wiki/Trade#Dedicated.2FVirtual_Server_Hosting ?<br />
+<br />
+This guy, for example, will register a wide range of domains, with fees starting from 1 BTC per year, and you can provide pretty much any e-mail address you want: http://jetstarforever.com/hosting/ In other words, it's never in your name... His hosting costs 0.5 BTC/month, though he is dependant on his provider's T&amp;C...<br />
+<br />
+Anyway, my point is that there are ways to acquire BTC, randomised enough not to be a concern, after which you can buy all the hosting (and related) services your heart desires. And if your threat model encompasses an organisation with vast resources, like the NSA for example, consider that they haven't yet managed to track down the guys running the Silk Road drug site (http://silkroadvb5piz3r.onion)... ;)<br />
+<br />
+That's my 0.001 BTC worth :)</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+<br />
+May i give you some hints about the future scenarios for which we could see diffusion in 2013 about the two topic you underlined:<br />
+<br />
+- Anonymous Publishing<br />
+<br />
+One of the new frontieer of Anonymous Publishing is given by the Tor2web Project that is growing and making important progress, has a plan (https://github.com/globaleaks/Tor2web-3.0/issues/milestones) and people working on it (https://github.com/globaleaks/Tor2web-3.0/commits/master).<br />
+<br />
+With Tor2web you can setup a Tor Hidden Service on your own PC and be online in matter of minutes, exposed to the internet under *.tor2web.org (or other domains such as Tor2web.is and other will come).<br />
+<br />
+You may even place in front of your TorHS, internet-exposed via Tor2web, a CloudFare.net frontend or other "cloudizer" to improve performance improved caches.<br />
+<br />
+Additionally, i hope that we will see a new wave of "anonymous applications" that can be setup easily on your own desktop computer and easily exposed via TorHS.<br />
+<br />
+This should be enabled by APAF project, now in development as a GSoc on http://github.com/mmaker/APAF .<br />
+<br />
+Think when we'll see "AnonymousBlog.exe", a self-contained APAF application that let you securely and automatically publish your own blog on TorHS in a dumb-end-user-proof way, having it automatically exposed via Tor2web.<br />
+<br />
+When we'll reach that in a scalable way, i think we'll have setup a new enabled way to use anonymous technology, opening it to end-user also for anonymous publishing in a "easy and cheap way" .<br />
+<br />
+On 6/30/12 10:15 PM, Anonymous Person wrote:<br />
+<br />
+&gt; Well, I went through all of these: leakdirectory.org/index.php/LeakSiteDirectory and all of them seemed to be either wannabes who had never published a thing or news organizations who were security illiterate and had no way to accept content.Anonymous Publishing Is Dead.<br />
+<br />
+Please consider that "public disclosure" is the least path that one should follow in order to make wrongdoing/justice done.<br />
+<br />
+Most "activism" WB sites just born on the Wikileaks-hype but never organized themselves really well.<br />
+<br />
+With the upcoming GlobaLeaks 0.2 (http://wiki.globaleaks.org) for Windows and OSX we want to remove the requirements to be a "technical guy" or to require the "support of a technical guy" to be able to implement an anonymous whistleblowing system.<br />
+<br />
+That way we expect that transparency activism community (mostly composed by non-techy guys) will be able to engage mostly on the important tasks of making that job:<br />
+<br />
+- campaigning to sollicitate, promote the whistleblowing initiative<br />
+<br />
+- handling submitted material trough investigative journalism practices<br />
+<br />
+- "act" on the basis of the result of investigations<br />
+<br />
+Then "the public disclosure" things is something to be to make cautious reflection, to handle it responsibly, mostly because you may seriously harms some innocent reputation.<br />
+<br />
+Public disclosure is a powerful tool, is required, but to be used with care.</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+<br />
+Apologies and Thank You for reading even though the line breaks were lost. Apparently even 7bit ASCII is difficult to publish in. In case it happens again, I will include paragraph breaks at the #, and repeat the initial email between.<br />
+<br />
+[Repeat of original message omitted.]<br />
+<br />
+#To address specific points:<br />
+<br />
+# Bitcoin Mixing is promising, but infantile at this stage. Tor disables options like optimistic data initially because it reduces the anonymity set. I'd consider bitcoin, but having to link my bank account to get them in the first place? Or meet someone in person? A strongly non-anonymous link followed by a maybe-anonymous link makes a weak chain.<br />
+<br />
+# VPS. Part of the exercise is also takedown resistance. The only affordable service I would consider takedown resistant today is Tor Hidden Services. Other providers, dedicated hosts, may be takedown resistant but they are not cheap. Their monthly cost was my yearly budget. AFAIK there is no Hidden Service hosting provider willing to host content rather than text.<br />
+<br />
+# tor2web. This is nice, and enables ordinary people to reach Hidden Services, but doesn't solve my problem of deploying a Hidden Service anonymously. I think it's an important question to ask: Are Tor Hidden Services trustworthy enough to run on a box in your own name? The level of exploitation necessary to root a box is much higher than the level of exploitation required to trick a server (web server, SSL library, or application code) into revealing its IP address. At that point, the anonymity is dead. Perhaps APAF problem will solve that to the point where a Tor Hidden Service is safe enough.</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+<br />
+On Sun, Jul 1, 2012, at 14:20, Edward Thompson wrote:<br />
+<br />
+&gt; 2. Email. I signed up for mailoo.org through Tor, I believe. But for all<br />
+&gt; practical purposes, you could easily get a disposable e-mail address<br />
+&gt; through a Firefox plugin called Bloody Vikings. Otherwise, pretty much<br />
+&gt; any web mail will do... just war drive and sign up through the first<br />
+&gt; open wi-fi connection you find ;)<br />
+<br />
+Hmm... I already do something like that. And I tell you that most free providers are a pain to work with. And that includes all the major players. They are all going to punish you with a long annoying reidentification which will prove zero security just because you change location. And they do have the time and computing power just to try to locate you any other possible way as their business model is tightly integrated with tracking and selling private data.<br />
+<br />
+Disposable email is good for accessing some resource once. Otherwise is a pain in the rear.<br />
+<br />
+&gt; 3. Bitcoins. Yes, block chains are not that anonymous, especially<br />
+&gt; considering the difficulty of buying them legitimately in the first<br />
+&gt; place. How about a coin mixing service like www.bitcoinfog.com? Their<br />
+&gt; methodology is very interesting, and it seems like you'd be able to<br />
+&gt; 'launder' ordinary coins, bought legitimately through an exchange...<br />
+&gt; There are a few other sites like this one:<br />
+&gt; http://vzpzbfwsrvhfuzop.onion.to<br />
+<br />
+I spent some time reading about bitcoin. It's a miracle discovery. It's a proof about non-conventional methods being able to compete with the conventional financial transaction type. But I fail to see the anonymity side of things. It's so nice. It's sooo geeky. It employs silly terms to scare the layman like mining. Or worse, it has terms with a clear equivalent in conventional finance like wallet. My grandma knows she can watch over her wallet and things would be all right. And if someone forces her she can go to the police station and declare the theft. Till version 0.6 there was no protection from theft with BC. Crap concept with junk application from the point of view of anonymity. Each time some conspiracy theorist starts making sense I remind myself that people (programmers are people, aren't they?) are above all stupid followed closely by lazy. Just take a look at the way FF is developed: in the era of Facebook developers are doing their best to shed MORE data instead of patching up the holes. By holes I don't mean Secunia security holes, but privacy holes.<br />
+<br />
+&gt; 4. Do you really need your own dedicated VPS?! And only in developed<br />
+&gt; Western countries? Have you checked out this list of BTC-friendly<br />
+&gt; servers:<br />
+<br />
+Actually any service should be checked for its origin or place of doing business. Always remember the case of Hide My Ass which proved to be full of Holes if you allow such a gross joke. They weren't keeping logs till pressured. Than they said everybody is obliged under law to keep logs. And to prove the indolence of their users: they are still in business, trapping flies for the government. On the other hand, servers hosted outside the reach of certain totalitarian governments are blocked on the crime of spam or copyright infringement. If these were anything but hassle (see the problems with the free webmail above) yahoo and google would have offered email only between their users.<br />
+<br />
+&gt; Anyway, my point is that there are ways to acquire BTC, randomised<br />
+&gt; enough not to be a concern, after which you can buy all the hosting (and<br />
+&gt; related) services your heart desires. And if your threat model<br />
+&gt; encompasses an organisation with vast resources, like the NSA for<br />
+&gt; example, consider that they haven't yet managed to track down the guys<br />
+&gt; running the Silk Road drug site (http://silkroadvb5piz3r.onion)... ;)<br />
+<br />
+Usually this kind of traffic is tolerated because they want to catch a bigger fish. Sometimes services like that are set up by the investigating authorities. And some other times they set it up independently just for the sake of compensating the budget restrictions (those drones are mighty expensive, mind you).</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+<br />
+On Sun, Jul 1, 2012, at 12:34, Fabio Pietrosanti (naif) wrote:<br />
+<br />
+&gt; You may even place in front of your TorHS, internet-exposed via Tor2web,<br />
+&gt; a CloudFare.net frontend or other "cloudizer" to improve performance<br />
+&gt; improved caches.<br />
+<br />
+What is cloudfare? I tried and got pushed to some facebook page so I closed the tab. There should be some hosting platform. Because no matter how private people have a hard time keeping a small server online 24/7. To make things worse readers are expecting instant gratification. During the BBS era there was some mystique associated with virtual places. And you tried and tried till it worked. Today, once they get a 404 they never come back.<br />
+<br />
+&gt; Additionally, i hope that we will see a new wave of "anonymous<br />
+&gt; applications" that can be setup easily on your own desktop computer and<br />
+&gt; easily exposed via TorHS.<br />
+<br />
+It would be wonderful to have Thunderbird too, although the users are only a few. Also some more privacy with Tor Browser — like a unique screen resolution or the inability to probe for extensions from outside.</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+<br />
+On Sat, Jun 30, 2012 at 4:15 PM, Anonymous Person &lt;anonymousperson90@in.com&gt; wrote:<br />
+<br />
+&gt; I know it is dead, because I have tried to do it, and I can assure you it is dead.<br />
+<br />
+I had a similar experience. When I decided to publish a large collection (30gb) of previously paywalled (but public domain) JSTOR documents[1] I initially planned to do so anonymously— simply to mitigate the risk of harassmennt via the courts. Ultimately, after more consideration I decided to publish with my name attached and I think it made more of an impact because I did so (even though quite a few journalists reported it as though it were a pseudonym)— though if I didn't have even the prospect that I could publish anonymously I can't say for sure that I would have started down that road at all.<br />
+<br />
+I perused anonymous publication for some days prior to deciding to not publish anonymously and I encountered many of the same issues that Anonymous Person above named at every juncture I hit roadblocks— though in my case I already had bitcoins, but I couldn't find anyone to take them in exchange for actually anonymous hosting especially without access to freenode. If I'd wanted to emit a few bytes of text fine— but large amount of data, no.<br />
+<br />
+It's also the case that non-text documents can trivially break your anonymity -- overtly in the case of things like pdf or exif metadata, or more subtly through noise/defect fingerprints in images. I think I can fairly count myself among the most technically sophisticated parties, and yet even I'm not confident that I could successfully publish anything but simple text anonymously.<br />
+<br />
+The related problems span even further than just the anonymity part of it. Even once I'd decided to be non-anonymous I needed hosting that wouldn't just take the material down (for weeks, if not forever) at the first bogus DMCA claim (or even in advance of a claim because the publication was 'edgy'). I ended up using the pirate bay— which turned out pretty well, though there were some issues where discussion of my release was silently suppressed on sites such as facebook because they were hiding messages with links to the pirate bay, and it was blocked on some corporate networks that utilized commercial filtering.<br />
+<br />
+So I think that the problems for anonymous publication on the Internet are actually a subset of a greater problem that there is little independence and autonomy in access to publishing online. You can't _effectively_ publish online without the help of other people, and they're not very interested in helping anonymous people, presumably because the ratio of trouble to profit isn't good enough.<br />
+<br />
+About the only solutions I can see are:<br />
+<br />
+(1) Provide stronger abuse resistant nymservices so that things like freenode don't have to block anonymous parties, thus facilitating person to person interactions.<br />
+(2) Improve the security and useability of things like freenet and hidden services, so that they are usable for publication directly and provide strong anonymity.<br />
+<br />
+I'm disappointed to see some of the naysaying in this thread. It really is hard to publish anything more than short text messages anonymously, at least if you care about the anonymity not being broken and you want to reach a fairly large audience.<br />
+<br />
+[1] https://thepiratebay.se/torrent/6554331/</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+<br />
+Avoiding Echelon &amp; DMCA<br />
+<br />
+( response to http://cryptome.org/2012/06/anon-pub-dead.htm and I assume the reader is in USA )<br />
+<br />
+TL;DR: Emulate spammer ecom hosting techniques and/or look at the Privly project<br />
+<br />
+To resist echelon style wire tapping one must use strong non-AES/DES crypto. Stego is a good idea, too. To resist DMCA style censorship and legal liabilities, publish on servers hosted in one of the BRIC countries (Brazil, Russia, India, China) -- China being the most resistant unless material is related to China. This should be a linux based webserver with a non-AES encrypted file system.<br />
+<br />
+Set up a ‘workstation’ in a different BRIC country than where you publish. For less technical people, a MS windows VPS is easiest -- just connect with a remote desktop client. Then run your tools in the remote environment to manage the publishing server. Or just run a ssh server on linux, perhaps with port forwarding. ALWAYS delete the 'workstation' VPS instance when you are finished and create a new one for each use. ISP’s do not retain this type of log data for long and constantly restarting the VPS makes it hard to track because MAC and IP address info can change.<br />
+<br />
+To connect to your ‘workstaion’, start at an internet cafe outside of the district you live in. From there get an account at a Canadian ISP to be your VPN server. Avoid accessing this VPN server from the same cafe/place twice or within 20 miles of your home. Follow published VPN server setup howtos.<br />
+<br />
+On the publishing server, create a fake but plausible cover website for the casual browser. Create a sub-folder that is not linked to or indexed and publish your content here. Hide your content using public key non-AES/DES algorithms with non-standard key length.<br />
+<br />
+Publishing with stego inside of image files is one example. Publish links to your stego encrypted files on public classified ad sites like craig’s list. Publish info on how to find the craigslist.org ads on forums your audience reads. Research ‘fast flux DNS’ as a way of mapping urls to your published content and/or use a publishing server that is configured via DHCP if possible. Configure the firewall to block all IP addresses on the 'anti-P2P' and government lists that are published.<br />
+<br />
+Payment is tricky, but not impossible. Look into USPS international money orders as a form of payment. The longer a pre-paid cell phone number is active in the system, the more it is trusted by automated fraud services.<br />
+<br />
+Use your ‘workstation’ and pre-paid cell phones to create free email accounts as needed, avoiding major services like hotmail, yahoo, and google.<br />
+<br />
+One could also publish by uploading stego’d pictures to a free porn site via one’s ‘workstation’. The high volume of porn traffic is useful chaff.<br />
+<br />
+Ideally, boot your mobile PC from a Linux live CD and use that environment to work from. Any stored data should be on removable media that has a non-AES encrypted filesystem like Trucryp. Consider hiring forum spammers to publish links to your content. These folks will not be picky about your debit cards or friendly to law enforcement.<br />
+<br />
+Four layer encrypted connection diagram as proposed:<br />
+<br />
+[mobile PC at cafe, vpn &amp; remote desktop clients] &gt;&gt;&gt; [VPN server at outside USA ISP] &gt;&gt;&gt; [‘workstation’ VPS at BRIC ISP] &gt;&gt;&gt; [publishing server at Chinese ISP]<br />
+<br />
+Essentially each legal jurisdiction one crosses makes government action very difficult. Beware, government corruption can be exploited in these countries if your opponents have enough resources!</blockquote>
+<hr style="-webkit-border-horizontal-spacing: 2px; -webkit-border-vertical-spacing: 2px;" />
+<blockquote>
+</blockquote>
+ 
+<br> 
+<br> 
+IMSID964F51E15B30273A3B858D3BB2E2F75819A1C243 

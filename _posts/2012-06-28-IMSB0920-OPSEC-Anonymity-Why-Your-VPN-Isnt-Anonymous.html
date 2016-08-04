@@ -1,0 +1,68 @@
+---
+layout: post
+title: 'OPSEC/Anonymity: " Why Your VPN Isn''t Anonymous"'
+date: '2012-06-28T00:06:00.001+01:00'
+author: insmodscum
+tags:
+- Insurgency Mod Scum
+- OT-OPSEC / Anonymity
+- OT-Noted
+- OT-Pastebin
+- OT-Tools
+modified_time: '2013-05-02T21:09:07.664+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-1746305872388274708
+blogger_orig_url: http://insurgencymod.blogspot.com/2012/06/pastebin-why-your-vpn-isnt-anonymous.html
+---
+
+<a href="http://pastebin.com/9hcJvfbW">http://pastebin.com/9hcJvfbW</a><br />
+<a name='more'></a><br />
+<blockquote>
+WHY YOUR VPN ISN’T ANONYMOUS<br />
+<br />
+Virtual Private Network connections will not stealth your activities online.  In fact, the trail back to a user’s point of origin is more obvious than surfing with a standard, unencrypted proxy server.<br />
+<br />
+WHAT A VPN DOES<br />
+<br />
+A Virtual Private Network allows an external user to connect to a private network securely across an open, untrusted network.  The typical scenario involves a remote user that connects to his internal corporate network across the Internet.  Through a VPN, all of a user’s packets with a destination on the corporate network are encrypted and encapsulated.  Not only is an attacker unable to read any of the data sent by the user, they are also unable to determine even what services are being accessed, or protocols are being used.<br />
+<br />
+A VPN uses a tunneling protocol as a wrapper for all of the user’s packets.  Imagine that you ordered an embarrassing or obscene product from a catalog.  You want the product to be delivered to your home, but you want to be spared the scrutiny and judgment of your neighbors and postman.  If the parcel is addressed to you from “Gay Animal Sex Club International” with pictures of your product stamped on the box, it is obvious what you are receiving.  More realistically, a non-descript brown box will arrive, with a return address of “Shipping Department”, keeping your privacy and dignity intact.<br />
+<br />
+VPNs use the same technique to keep eavesdroppers unaware of what data is sent over a secure connection.  The entire packet, header and all, is placed into a non-descript box for shipment on the Internet.  Technically, the original packet is placed into a tunneling packet (such as Point-to-Point Tunneling Protocol or Layer 2 Tunneling Protocol) before it is placed on the wire.<br />
+<br />
+While a standard packet will give clues to an attacker about the conversation, those in a VPN tunnel do not.  The new tunnel packet has a new header.  Although the original packet may have been from the user's public IP address to port 80 of an internal web server’s IP, the tunnel packet is always from the IP and a fixed port of the client to the VPN server’s IP and a fixed port.  The only thing an attacker can figure out is that the user is connected to the VPN server.  There is no clue pointing to the internal destination.  There is no way to distinguish an ICMP Ping packet from a TELNET session or FTP connection.<br />
+<br />
+Another layer of security is necessary.  The original packet needs to be encrypted.  This is to stop an eavesdropper from opening the tunnel packet and reading the original packet from the data field.  VPNs treat the entire original packet as data, so everything, including headers, is encrypted.<br />
+<br />
+At no point from when the user puts the packet on the wire to when the VPN server receives it, is the data ever unencrypted or exposed to anyone watching the transmission.<br />
+<br />
+Let’s back up a bit and fill in another detail about session between the VPN client and server.  Through the VPN connection to the corporate network, the client can use LAN protocols, like RPCs.  He may also use non-routable protocols, like NETBIOS.  This is because the original packet doesn’t need to be able to route across the Internet.  The tunneling protocol takes care of all the routing requirements.  Not only can the client use LAN protocols and technologies, he is also given a private LAN address.<br />
+<br />
+When the client authenticates, the VPN server assigns the client a local IP address.  This looks like an ordinary LAN address to the clients and servers on the corporate network.  In fact, it can be in private address space.  This IP is granted from either a static pool maintained by the VPN server or from a LAN DHCP server.  There is a one-to-one, logged relationship between this private address and the client’s real IP address. This is the address used in the encrypted, encapsulated packets.<br />
+<br />
+When a packet arrives from the client, the VPN server strips off the tunneling wrapper, unencrypts the original packet and releases it on the Local Area Network.  The servers on the internal network are unaware that the packets they are receiving were protected by VPN.  They receive a plain text packet from a LAN IP address.  The server responds with plain text.  When the packet passes through the VPN server on its way back to the VPN client, the VPN server encrypts and encapsulates the response, addressing the VPN packet to the public IP address of the client.<br />
+<br />
+CORRECT ROLE FOR VPN TECHNOLOGY<br />
+<br />
+A Virtual Private Network is an excellent solution for secure connections into networks.  They were not, however, designed to provide security on connections to public, Internet-accessible resources.  This is because after the VPN server receives the VPN packet, it releases the original packet, with real header in PLAIN TEXT to the network behind it.  If the user is connecting to IRC on the Internet “through a VPN”, his packets are arriving in plain text from the dynamic IP assigned by the VPN server.  If he is launching a DDOS attack, those packets trace back neatly to his VPN connection, where there is a neat one-for-one mapping to his real IP address.<br />
+<br />
+Even if his packet passes through a NAT server when exiting the VPN’s private network, there is still a straight and obvious path back to your his public IP address.<br />
+<br />
+From the time his packets exit the VPN server, there is an unprotected trail, with no encryption.  If he is trying to cover his tracks or obfuscate his activities, VPN offers less protection than a simple SOCKS proxy.<br />
+<br />
+On the other hand, there are some good things about VPN.  First, VPN protects all packets—ICMP, DNS, HTTP, RPC.  Any data moving from the client to the server are protected.  Secondly, no one, not even the ISP, can see what the user is doing from his machine to the VPN server.  Directly afterwards, everything is available for inspection, but if the user only needs security up the VPN private network, he couldn’t get better security.<br />
+<br />
+CONCLUSION<br />
+<br />
+Virtual Private Networking is a valuable tool, providing unparalleled security when put to the task for which they were developed.  But they are not “Internet Activity Anonymizers”.  Collecting and analyzing online activity post-VPN is trivial.  In fact, it’s the perfect storm of easy attribution, consistent path and plain text raw packets that make subpoenas to providers easy to obtain.<br />
+<br />
+Be safe out there!<br />
+<br />
+Version 1.1 (current version)<br />
+Made non-technical style corrections.  Added Section Headings.  Changed to third person voice. Released as plain text.<br />
+<br />
+Version 1.0<br />
+Original PDF version of article.</blockquote>
+ 
+<br> 
+<br> 
+IMSID696921EE2631C998509D4B9843FADEE7BDFA9464 

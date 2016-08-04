@@ -1,0 +1,263 @@
+---
+layout: post
+title: '[NOTED] Metadata Rating Compatablity'
+date: '2014-08-17T01:25:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+modified_time: '2014-12-01T01:29:11.100Z'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-1969984254884132260
+blogger_orig_url: http://insurgencymod.blogspot.com/2014/08/noted-metadata-rating-compatablity.html
+---
+
+From: <a href="http://forums.mp3tag.de/index.php?showtopic=16116">http://forums.mp3tag.de/index.php?showtopic=16116</a><br />
+<br />
+<a name='more'></a><br />
+<blockquote class="tr_bq">
+Scheme for multi-player compatible Rating tags, as much as is possible anyway<br />
+Options V<br />
+&nbsp;HansBKK<br />
+&nbsp;post Aug 20 2012, 17:28<br />
+Post #1<br />
+<br />
+<br />
+Member<br />
+<br />
+<br />
+Group: Full Members<br />
+Posts: 82<br />
+Joined: 20-August 12<br />
+Member No.: 16827<br />
+Mp3tag Version: 2.52<br />
+<br />
+<br />
+<br />
+Bear with a relative noob here please.<br />
+<br />
+I've done a fair bit of research behind why MP3Tag has implemented player-specific Rating tags for ID3 POPM fields, and it does seem an ugly but necessary state of affairs, as much as we'd like to have a Rating tag that worked across the main players that just doesn't seem possible without a dedicated coding effort that probably isn't merited by the apparent lack of general interest.<br />
+<br />
+However in my little bit of noodling around I seem to have come across something that works for at least a couple of decent players, at least for FLAC files, and I'm posting what I've done so far not only so that it might help others interested in the topic, but perhaps MP3Tag could continue to lead the way in pushing this tech subculture forward towards greater interoperability.<br />
+<br />
+In checking out various players, I've come across two Rating-capable free apps that are "portable" in the windoze sense of not requiring installation to the registry, just copy the folder to a removable HDD or flash drive whatever and all your settings come with you. The first is Foobar2000, and the other is MusicBee; these are on opposite sides of the spectrum for philosophy, intended audience, customizability vs bells-and-whistle features, but both seem pretty darn good.<br />
+<br />
+In checking out how Rating is implemented, MusicBee is fairly straightforward at least with FLAC - it creates a Rating field and uses a 0/20/40/60/80/100 scale for 1-to-5 stars. I seem to have come across this scheme before, if anyone knows where please inform, it seems cleaner to me than the ones based on 255 - does it correspond to any of MP3Tag's options? <br />
+(as a side note MB replaced my ALBUMARTIST tags with ALBUM ARTIST ones and inserted an ENCODING field without asking, but that was easily worked around with MP3Tag's great mapping and scripting features.)<br />
+<br />
+In looking at Foobar2000, that's got quite a few very flexible and therefore confusing options for implementing Ratings, and the trend there seems to favor library/database storage rather than in-file tagging, but I came across a "quicktags" plugin that uses tags and is simple and flexible. The standard howto recommended a simple 1-5 scheme, but I adapted it for MusicBee's fixed 20/40 etc one. In case anyone's interested here's the column display formula (those are unicode stars in there in case they don't display right on your screen):<br />
+<br />
+$pad($repeat(★,$div(%rating%,20)), 5,☆)<br />
+<br />
+I bound updating the field to keystrokes Ctrl-0 through Ctrl-5 for FB2K; unfortunately MusicBee seems to require using the mouse.<br />
+<br />
+Now comes something at least tangentially relevant to MP3Tag - a display formula to do the same thing as the above:<br />
+<br />
+$repeat($char(9733),$div(%rating%,20))$repeat($char(9734),$sub(5,$div(%rating%,20)))<br />
+<br />
+I could of course just display the numeric value of the tag, but that would be too easy and therefore boring 8-)<br />
+<br />
+If anyone feels even a tiny fraction of my excitement about this - a Rating tag that works in multiple mainstream quality player apps as well as being simple and straightforward enough to lend itself to easy conversion to the more screwy ones - then do please feel free to extend on this with suggestions.<br />
+<br />
+I will at some point need to convert my FLAC files to MP3 for portable-hardware use, and of course it would be way cool if I could continue to apply and make use of ratings from there, so if anyone has any ideas for that, especially in the Android environment, that would be very very cool.<br />
+<br />
+Much as I hate the Big Brother Apple has become in the music scene, an iTunes/iOS conversion routine would probably have the greatest appeal to the community in general, but it seems that'll have to be done via a one-time import from the WMP/MM formats (they are compatible right?) and generic Windows Explorer compatibility would be most useful (even if read-only). <br />
+<br />
+I doubt if I'll ever go back to Winamp.<br />
+<br />
+Finally, thanks to the dev(s) for such a wonderful project as this, MP3Tag's a tremendously useful and even elegant tool, refreshingly respectful of the end user in a pretty wild-wild-west area of software.<br />
+Go to the top of the page<br />
+<br />
++Quote Post<br />
+&nbsp;HansBKK<br />
+&nbsp;post Aug 23 2012, 15:28<br />
+Post #2<br />
+<br />
+<br />
+Member<br />
+<br />
+<br />
+Group: Full Members<br />
+Posts: 82<br />
+Joined: 20-August 12<br />
+Member No.: 16827<br />
+Mp3tag Version: 2.52<br />
+<br />
+<br />
+<br />
+Hope y'all don't mind me talking to myself here, maybe even if there's no practical solution, it'll help later googlers from wasting as much time as I have on the issue.<br />
+<br />
+So far the only player that actually seems (from a brief look, not much realistic testing) to follow the POPM spec's intent AFAICT is Quod Libet / Mutagen.<br />
+<br />
+(Off topic note Mutagen's MID3V2 script is the bee's knees for dumping a nicely formatted literal representation of tag contents out for diffing purposes or when you need as in this case to get away from MP3Tag's usually helpful masking of literal values behind its interpretations)<br />
+<br />
+QL lets the user specify an identifying string (which the spec intended to be a unique email address) which at least in theory should allow multiple users to each have their own Ratings stored in files' tags. In practice many apps will silently wipe out any "foreign" POPM tags leaving only their own.<br />
+<br />
+So at this point I don't have much of a solution for the cross-application compatibility problem, but I do have some vague suggestions on improving MP3Tag's POPM handling that may make it easier for people to understand what's going on. Keep in mind I'm pretty noob and am first to admit there may be many strong reasons to completely ignore the below, so feel free to do so.<br />
+<br />
+First I'll (re-)state the problem as I see it. I'm going to assume that MP3Tag is 100% accurately following the latest-stable release behaviour of MediaMonkey, Win7/WMP and Winamp in how they format their "proprietary" POPM rating tags in converting to the 1-5 star-values.<br />
+<br />
+One problem with this approach is that there are apps like MusicBee's with hard-coded behaviour that apparently are trying to follow one of the "standards" here, but don't quite match up with MP3Tag's, and entering the no@email or other app-identifier strings into the nicely flexible QL also doesn't result in any consistency in the MP3Tag's interpretation when you try different star-value ratings (1-5).<br />
+<br />
+People who don't understand that "Popularimeter" is just the non-interpreted display version of "Rating MM" etc quite justifiably get confused at MP3Tag's display when they see the values jumping around from one "field" to another depending on the rating.<br />
+<br />
+I'd first like to suggest an easy solution - a user option to globally disable the POPM interpretation feature, to simply display the "raw" Populimeter value of identifier_string followed by Rating (and the playcount if it's present).<br />
+<br />
+As for my real wishlist item, I'm not sure how it could be implemented in practical detail, I'm just thinking out loud here tossing an idea out there based on QL's nicely flexible behavior, which I have to believe the communities around QL and other "tweaker" players like Foobar who happen to care about Ratings may be able to take advantage of.<br />
+<br />
+In addition to the generic display as above, allow the user to specify the "identifier string" and the 0-255 "break points" that match up with their 1-5 (or 1-10 for half-star supporting systems).<br />
+<br />
+The currently supported MM/WMP/WINAMP functionality could be a default shipping set of three profiles, similar to what you're doing now with fieldname mapping.<br />
+<br />
+But then MusicBee and QL and playerX users who care enough to reverse-engineer their player's POPM spec can configure MP3Tag themselves to display the 1-5 or 1-10 number, or even as stars in the column if so inclined.<br />
+<br />
+Finally, put in a few example Actions that will allow a generic FLAC/Vorbis RATING field (IMO 0-100 with breakpoints at 20/40/60/80/100 is "generic") to be converted to the POPM field appropriate for their MP3 player of choice.<br />
+<br />
+Getting that far would be pretty darn close to Rating Nirvana AFAIC, so I won't even start to speculate how one would approach 2-way syncing of ratings between formats based on file timestamps or a whichever is higher rule or. . . <br />
+<br />
+If you bothered reading all this, thanks for your patience!<br />
+<br />
+8-)<br />
+Go to the top of the page<br />
+<br />
++Quote Post<br />
+&nbsp;ohrenkino<br />
+&nbsp;post Aug 23 2012, 20:48<br />
+Post #3<br />
+<br />
+<br />
+Member<br />
+<br />
+<br />
+Group: Full Members<br />
+Posts: 4901<br />
+Joined: 9-December 09<br />
+From: Norddeutschland / Northern Germany<br />
+Member No.: 11458<br />
+Mp3tag Version: 2.65a<br />
+<br />
+<br />
+<br />
+ZITAT(HansBKK @ Aug 23 2012, 16:28) *<br />
+... there's no practical solution...<br />
+Players like iTunes simply ignore any ratings that is stored inside a file and only relies on the ratings stroed in its own database ... and refuses to export any of it.<br />
+Or WMP reads the rating of a file but does not update it there...<br />
+So what do you do with data that is hardly used and if of no use.<br />
+<br />
+<br />
+--------------------<br />
+Go to the top of the page<br />
+<br />
++Quote Post<br />
+&nbsp;HansBKK<br />
+&nbsp;post Aug 24 2012, 12:24<br />
+Post #4<br />
+<br />
+<br />
+Member<br />
+<br />
+<br />
+Group: Full Members<br />
+Posts: 82<br />
+Joined: 20-August 12<br />
+Member No.: 16827<br />
+Mp3tag Version: 2.52<br />
+<br />
+<br />
+<br />
+QUOTE (ohrenkino @ Aug 24 2012, 02:48) *<br />
+Players like iTunes simply ignore any ratings that is stored inside a file and only relies on the ratings stroed in its own database ... and refuses to export any of it.<br />
+Or WMP reads the rating of a file but does not update it there...<br />
+So what do you do with data that is hardly used and if of no use.<br />
+<br />
+That attitude is IMO overly pessimistic; but if ratings data aren't important to you I can see where you would consider all this more trouble than it's worth.<br />
+<br />
+However they are very important to lots of people, which is easy to see by their cries of dismay all over the intertubes when they've lose them all when switching from one player/manager to another, or even just moving their collection to a new computer. <br />
+<br />
+That of course is the worst-case scenario I'm planning to avoid and while I'm at it, trying to help others avoid by raising awareness of the issues involved.<br />
+<br />
+I agree the best-case scenario, of many mainstream player/managers supporting a transparent tag standard is at this point a pipe dream.<br />
+<br />
+However if the issue is important, with a bit of knowledge one can understand how the various players work, and do your ratings consistently with one that either handles it the way you want, or is popular enough that people have written tools to support conversion/import/export, and then store the ratings in a way that ensure they won't get lost and so they can get converted to be used by other players. iTunes is a great example of an app for which there are many great conversion scripts out there to bring the playcount/rating information into Slimserver, MonkeyMedia, Winamp, Songbird, maybe even Foobar.<br />
+<br />
+Which type of project obviously MP3Tag goes a long way towards helping with - I'm just suggesting it wouldn't take much effort to go a bit further and actually enable POPM to be a more useful standard, as pseudo as it is. Quot Libet just happens to provide a great example of how it can be done and I can't imagine it would take that much effort to make MP3Tag as flexible to allow for easy conversion between many more players without having to hardcode new "virtual tags" for each one.<br />
+<br />
+Go to the top of the page<br />
+<br />
++Quote Post<br />
+&nbsp;Raff<br />
+&nbsp;post Sep 20 2012, 19:18<br />
+Post #5<br />
+<br />
+<br />
+Member<br />
+<br />
+<br />
+Group: Members<br />
+Posts: 1<br />
+Joined: 20-September 12<br />
+Member No.: 16950<br />
+Mp3tag Version: 2.5.2<br />
+<br />
+<br />
+<br />
+Thanks for taking the time to look into this. As somebody who (i) uses ratings a lot and (ii) uses android, Windows and Linux players, the issue of rating portability is high on my agenda. Also, I agree with your opinion that the previous reply was overly pessimistic: the fact that the most popular media players implement stupidly selfish rating schemes, doesn't mean that it's impossible to work around. I use neither iTunes nor WMP, so their daft schemes are of no interest to me. Like yourself, I'm using MusicBee, so I'd be very interested in any advances you make. I'll be sure to report back if I find anything interesting myself.<br />
+<br />
+Go to the top of the page<br />
+<br />
++Quote Post<br />
+&nbsp;HansBKK<br />
+&nbsp;post Sep 23 2012, 04:43<br />
+Post #6<br />
+<br />
+<br />
+Member<br />
+<br />
+<br />
+Group: Full Members<br />
+Posts: 82<br />
+Joined: 20-August 12<br />
+Member No.: 16827<br />
+Mp3tag Version: 2.52<br />
+<br />
+<br />
+<br />
+QUOTE (Raff @ Sep 21 2012, 01:18) *<br />
+Thanks for taking the time to look into this. As somebody who (i) uses ratings a lot and (ii) uses android, Windows and Linux players, the issue of rating portability is high on my agenda. Also, I agree with your opinion that the previous reply was overly pessimistic: the fact that the most popular media players implement stupidly selfish rating schemes, doesn't mean that it's impossible to work around. I use neither iTunes nor WMP, so their daft schemes are of no interest to me. Like yourself, I'm using MusicBee, so I'd be very interested in any advances you make. I'll be sure to report back if I find anything interesting myself.<br />
+<br />
+Excellent, thanks for continuing the conversation, and will do.<br />
+<br />
+I like Android as a platform generally, but apparently most MP3 players there are still pretty rudimentary. However I've heard good things about PlayerPro though, and although they have their (yet another proprietary) own ratings scheme, they also (most amazingly) let you choose to use from<br />
+- Windows Media Player<br />
+- Winamp<br />
+- Media Monkey<br />
+as well (not sure if concurrently or just one of the four, the latter would be ideal, and perhaps a possible model for MP3Tag*)<br />
+<br />
+Apparently they also let you export their playstats (+ratings?) to iTunes or Songbird via XML.<br />
+<br />
+All this is likely old news to you, especially if you've been following this thread on the MB forum, but thought some cross-pollination might be useful for others googling later. . .<br />
+<br />
+Regarding MB itself, I found it a bit frustrating that they claim to support a standard POPM field spec (WMPs?) but apparently don't to the extent that their tag data causes MP3Tag to jump around in its interpretation between the different internal mapping definitions, not clear to me who's at fault but at this point I assume it's MusicBee not quite following whatever "standard" they intend.<br />
+<br />
+*brainstorming feature idea - let MP3Tag be configured to allow multiple concurrent POPM "standards" (ideally in addition to a user-defined mapping, e.g. my "RATING" field which is 5-stars mapped to 0-20-40-60-80-100).<br />
+<br />
+And then allow for an Action that does something like:<br />
+- make all the fields of type Rating match based on <br />
+- a selected field is "master"<br />
+- majority wins<br />
+- highest rating wins<br />
+- lowest rating wins<br />
+then then also:<br />
+- if there is a single field of type Rating that has a different value from all the others, make all the others match that single field.<br />
+<br />
+This would in effect enable two-way syncing to any/all of the players that support any one of the standards supported by MP3Tag.<br />
+<br />
+Workflow:<br />
+- get all the rating-type fields in sync per track, as per the first group above<br />
+- use your device/player to listen to and rate your tracks<br />
+- bring them into MP3Tag and run the last action discussed above to get them all back in sync<br />
+<br />
+Probably a job for a dedicated applet, not necessarily MP3Tag, but one can always dream. . .</blockquote>
+ 
+<br> 
+<br> 
+IMSIDA984F7D41620D93A288797AADA8745625A3B24F0 

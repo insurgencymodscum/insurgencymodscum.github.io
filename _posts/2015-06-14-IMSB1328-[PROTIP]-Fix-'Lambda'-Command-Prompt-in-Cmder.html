@@ -1,0 +1,27 @@
+---
+layout: post
+title: '[PROTIP] Fix "Lambda" Command Prompt in Cmder'
+date: '2015-06-14T02:28:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-PROTIP
+modified_time: '2015-06-17T02:32:03.190+01:00'
+thumbnail: http://3.bp.blogspot.com/-AIBv2CZ_Rck/VYDNn7SiqOI/AAAAAAAAAkY/eETubvIZs3A/s72-c/protip.unfuck.cmder.png
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-5956572089624192295
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/06/protip-fix-lambda-command-prompt-in.html
+---
+
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://3.bp.blogspot.com/-AIBv2CZ_Rck/VYDNn7SiqOI/AAAAAAAAAkY/eETubvIZs3A/s1600/protip.unfuck.cmder.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="378" src="http://3.bp.blogspot.com/-AIBv2CZ_Rck/VYDNn7SiqOI/AAAAAAAAAkY/eETubvIZs3A/s640/protip.unfuck.cmder.png" width="640" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Cmder with unfucked command prompt.</td></tr>
+</tbody></table>
+<br />
+cmder\vendor\init.bat<br />
+<br />
+<blockquote class="tr_bq">
+:: Change the prompt style<br />:: IMS 2015.06.16<br />:: https://kb.iu.edu/d/aamm<br />:: https://msdn.microsoft.com/en-us/library/cc722862.aspx<br />:: original:@prompt $E[1;32;40m$P$S{git}$S$_$E[1;30;40m{lamb}$S$E[0m<br />:: $e[x;xx;xx0m is the color, $d date $t time $p path $$ dollar sign<br />:: with date and time @prompt $e[1;33;40m $d $e[1;34;40m $t $e[1;32;40m $p $$<br />@prompt $e[1;32;40m$p$e[1;31;40m$$</blockquote>
+ 
+<br> 
+<br> 
+IMSIDFBA666D4AA960AD4A69DCF241D418DCCCFD74510 

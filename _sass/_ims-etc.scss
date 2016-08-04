@@ -1,0 +1,10 @@
+/*
+email address obfuscation
+https://www.jayway.com/2012/11/30/smart-email-obfuscation-using-css/
+*/
+
+.changedirection {
+    unicode-bidi: bidi-override; // enable bidirectioinal text
+    direction: rtl;
+    text-align:left;
+    }

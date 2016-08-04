@@ -1,0 +1,216 @@
+---
+layout: post
+title: "[GIFTIP] Jasc Animation Shop Optimization"
+date: '2015-05-03T02:02:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-GIFTIP
+modified_time: '2015-05-28T03:37:39.152+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-1108694534253645575
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/05/gif-tip-jasc-animation-shop-optimization.html
+---
+
+TLDR:<br />
+<br />
+###<br />
+<br />
+Optimized Median Cut<br />
+Less accurate (5 bit), Better weighting color importance.<br />
+<br />
+Optimized Octree<br />
+More accurate (8 bit), Worse weighting color importance.<br />
+<br />
+###<br />
+<br />
+Error Diffusion<br />
+Reduces colors by a mmethond similar to "nearest Color", except it spreads out the inaccuracy in representing a pixel's color to the surrounding pixels. This method produces a natural looking image.<br />
+<br />
+Nearest Color<br />
+Reduces colors by replacing a pixel's original color with the nearest matching color in the newly generated palette. This method roduces a high-contrast image.<br />
+<br />
+Ordered Dither<br />
+Images may appear to be composed of cross-hatches and dots.<br />
+<br />
+###<br />
+<br />
+"Nearest" significantly smaller file size than "Error".<br />
+<br />
+"Octree" quality slightly better than "Median".<br />
+<br />
+"Ordered" is shitty quality, small file size.<br />
+<br />
+<b>"Octree" &amp; "Nearest" is best.</b><br />
+<b><br /></b>
+###<br />
+<div>
+<br /></div>
+From Jasc Animation Shop 3.11 HLP:<br />
+<br />
+<blockquote class="tr_bq">
+<blockquote class="tr_bq">
+Use the Colors tab as described below.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+·<span class="Apple-tab-span" style="white-space: pre;"> </span>In the “Number of Colors” drop down box, choose the number of colors you want available in the animation. The current number of colors is displayed to the right of the drop down box. Note that one color number is reserved to utilize the Optimization Wizard’s ability to handle transparency; this is why the options are “3 colors” instead of 4, “7 colors” instead of 8, etc.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+In the “Create palette by” area:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+·<span class="Apple-tab-span" style="white-space: pre;"> </span>Choose “Optimized Octree” to use an 8-bits per channel palette. This palette is not as good at weighting color importance as the Optimized Median Cut palette.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+·<span class="Apple-tab-span" style="white-space: pre;"> </span>Choose “Optimized Median Cut” to use a palette that uses occurrence of colors as weighting, and ranks these colors accordingly. It is accurate only to 5-bits per channel.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+·<span class="Apple-tab-span" style="white-space: pre;"> </span>Choose “Standard palette” to use a generic palette that contains a balanced number of colors.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+·<span class="Apple-tab-span" style="white-space: pre;"> </span>Choose “Browser palette” to a pre-defined, web-safe palette.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+·<span class="Apple-tab-span" style="white-space: pre;"> </span>Choose “Custom palette” and then click the Browse button to use a custom palette not listed here.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+In the “Reduce colors by” area:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+·<span class="Apple-tab-span" style="white-space: pre;"> </span>Choose “Ordered Dithering” to reduce colors by adjusting adjacent pixels of different colors to give the illusion of a third color. It uses set patterns based on a known palette to adjust the pixels. This method can result in distinct patterns of light and dark areas.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+·<span class="Apple-tab-span" style="white-space: pre;"> </span>Choose “Error Diffusion” to reduce colors by a method similar to “Nearest color”, except that it spreads out the inaccuracy in representing a pixel’s color to the surrounding pixels. When it replaces a color, the inaccuracy, or “error,” is carried to the next pixel, where the error is added to the color before selecting the nearest color. This process is repeated for every pixel in the image.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+·<span class="Apple-tab-span" style="white-space: pre;"> </span>Choose “Nearest Color” to reduce colors by replacing a pixel’s original color with the nearest matching color in the newly generated palette.</blockquote>
+</blockquote>
+<br />
+&nbsp;From Paint Shop Pro 8 User Guide (<a href="http://www.corel.com/6763/psp_downloads/pub/psp8gid.pdf">http://www.corel.com/6763/psp_downloads/pub/psp8gid.pdf</a>):<br />
+<blockquote class="tr_bq">
+<br />
+<blockquote class="tr_bq">
+About Palette Options</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+When you decrease an image’s color depth, you must select a palette</blockquote>
+<blockquote class="tr_bq">
+option. Depending upon the color depth you select, two or three of</blockquote>
+<blockquote class="tr_bq">
+these methods are available:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Optimized Median Cut Measures and ranks each color by how</blockquote>
+<blockquote class="tr_bq">
+frequently it occurs in the image, then uses the most frequently</blockquote>
+<blockquote class="tr_bq">
+occurring colors to determine the new palette. Even if your image</blockquote>
+<blockquote class="tr_bq">
+contains fewer colors than the palette that is generated, this method</blockquote>
+<blockquote class="tr_bq">
+may not represent each color exactly. The method, therefore, is not</blockquote>
+<blockquote class="tr_bq">
+as accurate as the Optimized Octree method, but it is better at</blockquote>
+<blockquote class="tr_bq">
+weighting color importance.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Optimized Octree Creates an eight-level “tree” with eight branching</blockquote>
+<blockquote class="tr_bq">
+nodes totaling 256 individual “leaves” or colors to determine the</blockquote>
+<blockquote class="tr_bq">
+new palette. This method attempts to reproduce each color in the</blockquote>
+<blockquote class="tr_bq">
+original image, so if your image contains fewer colors than the</blockquote>
+<blockquote class="tr_bq">
+palette that is generated, every color in the image is represented.</blockquote>
+<blockquote class="tr_bq">
+This method is faster and more accurate than Optimized Median Cut,</blockquote>
+<blockquote class="tr_bq">
+but it is not as good at weighting color importance.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Windows Changes each pixel’s color to the nearest color in the</blockquote>
+<blockquote class="tr_bq">
+Windows palette.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Standard/Web-Safe Palette Changes each pixel’s color to the nearest</blockquote>
+<blockquote class="tr_bq">
+color in the standard Web-safe palette. Use this method to create</blockquote>
+<blockquote class="tr_bq">
+images for the Web that can be viewed without color distortion on</blockquote>
+<blockquote class="tr_bq">
+most monitors.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+About Color Reduction Methods</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+When you decrease an image’s color depth, you must select a color</blockquote>
+<blockquote class="tr_bq">
+reduction method. Depending upon the color depth you select, two</blockquote>
+<blockquote class="tr_bq">
+or three of these methods are available:</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Nearest Color Replaces the original color of a pixel with the color in</blockquote>
+<blockquote class="tr_bq">
+the newly generated palette that is closest to the original RGB value.</blockquote>
+<blockquote class="tr_bq">
+This method eliminates dithering and produces a high-contrast</blockquote>
+<blockquote class="tr_bq">
+image. Simple graphics may look better with this method.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Error Diffusion Replaces the original color of a pixel with the most</blockquote>
+<blockquote class="tr_bq">
+similar color in the palette, but spreads the discrepancy between the</blockquote>
+<blockquote class="tr_bq">
+original and new color to the surrounding pixels. As it replaces a</blockquote>
+<blockquote class="tr_bq">
+color (working from the top left to the bottom right of the image), it</blockquote>
+<blockquote class="tr_bq">
+adds the “error,” or discrepancy to the next pixel, before selecting</blockquote>
+<blockquote class="tr_bq">
+the most similar color. This method produces a natural looking</blockquote>
+<blockquote class="tr_bq">
+image and often works best for photographs or complex graphics.</blockquote>
+<blockquote class="tr_bq">
+<br /></blockquote>
+<blockquote class="tr_bq">
+Ordered Dither Adjusts adjacent pixels so that two colors give the</blockquote>
+<blockquote class="tr_bq">
+illusion of a third color and intermingles pixels to produce patterns</blockquote>
+<blockquote class="tr_bq">
+based on a known palette. Use this method to give the image the</blockquote>
+<blockquote class="tr_bq">
+appearance of containing more colors than it actually does. Images</blockquote>
+<blockquote class="tr_bq">
+may appear to be composed of cross-hatches and dots and may have</blockquote>
+<blockquote class="tr_bq">
+distinct patterns of light and dark areas.&nbsp;</blockquote>
+</blockquote>
+ 
+<br> 
+<br> 
+IMSIDF6538367F7C8778EECE01A38E5B693099112BEE9 

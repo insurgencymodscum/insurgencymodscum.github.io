@@ -1,0 +1,33 @@
+---
+layout: post
+title: 'Noted: Using Regex'
+date: '2010-03-28T21:28:00.006+01:00'
+author: insurgencymod
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+modified_time: '2013-05-02T21:22:38.261+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-7172337877847622164
+blogger_orig_url: http://insurgencymod.blogspot.com/2010/03/using-regex.html
+---
+
+<blockquote>
+<b><span class="Apple-style-span" style="font-family: inherit; font-weight: normal;"></span></b><br />
+<table style="color: black; padding-bottom: 0.5em; padding-left: 2.2em; padding-right: 2.2em; padding-top: 0.5em;"><tbody>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">|</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">A vertical bar separates alternatives. For example,&nbsp;<code>gray|grey</code>&nbsp;can match "<i>gray</i>" or "<i>grey</i>".</span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">()</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">Parentheses are used to define the scope and precedence of the operators (among other uses). For example,&nbsp;<code>gray|grey</code>&nbsp;and&nbsp;<code>gr(a|e)y</code>&nbsp;are equivalent patterns which both describe the set of "<i>gray</i>" and "<i>grey</i>".</span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">?</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">The question mark indicates there is&nbsp;<i>zero or one</i>&nbsp;of the preceding element. For example,<code>colou?r</code>&nbsp;matches both "<i>color</i>" and "<i>colour</i>".</span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">*</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">The asterisk indicates there are&nbsp;<i>zero or more</i>&nbsp;of the preceding element. For example,&nbsp;<code>ab*c</code>matches "<i>ac</i>", "<i>abc</i>", "<i>abbc</i>", "<i>abbbc</i>", and so on.</span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">+</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">The plus sign indicates that there is&nbsp;<i>one or more</i>&nbsp;of the preceding element. For example,&nbsp;<code>ab+c</code>matches "<i>abc</i>", "<i>abbc</i>", "<i>abbbc</i>", and so on, but not "<i>ac</i>".</span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">.</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">Matches any single character except newlines (exactly which characters are considered newlines is flavor, character encoding, and platform specific, but it is safe to assume that the line feed character is included). Within POSIX bracket expressions, the dot character matches a literal dot. For example,&nbsp;<code>a.c</code>&nbsp;matches "<i>abc</i>", etc., but&nbsp;<code>[a.c]</code>&nbsp;matches only "<i>a</i>", "<i>.</i>", or "<i>c</i>".</span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">[ ]</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">A bracket expression. Matches a single character that is contained within the brackets. For example,&nbsp;<code>[abc]</code>&nbsp;matches "<i>a</i>", "<i>b</i>", or "<i>c</i>".&nbsp;<code>[a-z]</code>&nbsp;specifies a range which matches any lowercase letter from "<i>a</i>" to "<i>z</i>". These forms can be mixed:&nbsp;<code>[abcx-z]</code>&nbsp;matches "<i>a</i>", "<i>b</i>", "<i>c</i>", "<i>x</i>", "<i>y</i>", and "<i>z</i>", as does&nbsp;<code>[a-cx-z]</code></span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">[^ ]</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">Matches a single character that is not contained within the brackets. For example,&nbsp;<code>[^abc]</code>matches any character other than "<i>a</i>", "<i>b</i>", or "<i>c</i>".&nbsp;<code>[^a-z]</code>&nbsp;matches any single character that is not a lowercase letter from "<i>a</i>" to "<i>z</i>". As above, literal characters and ranges can be mixed.</span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">^</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">Matches the starting position within the string. In line-based tools, it matches the starting position of any line.</span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">$</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">Matches the ending position of the string or the position just before a string-ending newline. In line-based tools, it matches the ending position of any line.</span></td></tr>
+<tr valign="top"><td width="3em"><code><span class="Apple-style-span" style="font-family: inherit;">{m,n}</span></code></td><td><span class="Apple-style-span" style="font-family: inherit;">Matches the preceding element at least&nbsp;<i>m</i>&nbsp;and not more than&nbsp;<i>n</i>&nbsp;times. For example,&nbsp;<code>a{3,5}</code>matches only "<i>aaa</i>", "<i>aaaa</i>", and "<i>aaaaa</i>". This is not found in a few, older instances of regular expressions.</span></td></tr>
+</tbody></table>
+</blockquote>
+ 
+<br> 
+<br> 
+IMSID979BDDE0830145CE2AFF386ADD1DC20577CB773F 

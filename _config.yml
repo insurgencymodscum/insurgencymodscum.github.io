@@ -1,0 +1,41 @@
+# https://jekyllrb.com/docs/configuration/
+# http://kramdown.gettalong.org/rdoc/Kramdown/Options.html
+
+# plugins used on github pages
+# https://pages.github.com/versions/
+
+# Site settings
+
+description: "Insurgency Mod Scum (InsModScum [INSMODSCUM])"
+title: "InsModScum"
+url: "http://insurgencymodscum.github.io"
+author:
+  twitter:
+
+# Build settings
+
+# disable syntax highlighting on github pages
+# http://mycyberuniverse.com/web/disable-rouge-syntax-highlighter.html
+
+# "smart quotes" turns single & double quotes to curly ones
+# http://stackoverflow.com/questions/25596792/how-do-i-turn-off-smart-quotes-in-jekyll
+
+markdown: kramdown
+kramdown:
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  syntax_highlighter_opts:
+    disable : true
+
+excerpt_separator: <!--more-->
+excerpt_separator: <!-- more -->
+
+# sitemaps
+# https://help.github.com/articles/sitemaps-for-github-pages/
+# seo
+# https://help.github.com/articles/search-engine-optimization-for-github-pages/
+# https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
+
+# AKA "gems"
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag

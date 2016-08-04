@@ -1,0 +1,26 @@
+---
+layout: post
+title: "[PROTIP][NOTED] Deleting All Previous Commits in Git"
+date: '2015-07-04T03:20:00.000+01:00'
+author: insurgencymodscum2
+tags:
+- Insurgency Mod Scum
+- OT-Noted
+- OT-Tools
+- OT-PROTIP
+modified_time: '2015-07-08T03:21:27.195+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-6116051680530639186
+blogger_orig_url: http://insurgencymod.blogspot.com/2015/07/protipnoted-deleting-all-previous.html
+---
+
+Source:<br />
+<a href="http://stackoverflow.com/questions/9683279/make-the-current-commit-the-only-initial-commit-in-a-git-repository">http://stackoverflow.com/questions/9683279/make-the-current-commit-the-only-initial-commit-in-a-git-repository</a><br />
+<br />
+git checkout --orphan newBranch<br />
+git add -A &nbsp;# Add all files and commit them<br />
+git commit<br />
+git branch -D master &nbsp;# Deletes the master branch<br />
+git branch -m master &nbsp;# Rename the current branch to master 
+<br> 
+<br> 
+IMSIDE20F0DDB0EF2930C8DC19E5449A7291573495E3D 

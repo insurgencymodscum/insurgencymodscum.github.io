@@ -1,0 +1,69 @@
+---
+layout: post
+title: 'Pro Tip: Minimal Windows 7 x64 Services'
+date: '2012-02-14T03:08:00.006Z'
+author: insurgencymod
+tags:
+- Insurgency Mod Scum
+- OT-OPSEC / Anonymity
+- OT-Noted
+- OT-Links
+- OT-Tools
+- OT-PROTIP
+modified_time: '2013-05-02T21:36:29.502+01:00'
+blogger_id: tag:blogger.com,1999:blog-7256856399250838035.post-6502669941361954714
+blogger_orig_url: http://insurgencymod.blogspot.com/2012/02/pro-tip-minimal-windows-7-x64-services.html
+---
+
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://i.imgur.com/yB38nMS.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="640" src="http://i.imgur.com/yB38nMS.png" width="195" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Default Services</td></tr>
+</tbody></table>
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://i.imgur.com/vYm3Jg9.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="640" src="http://i.imgur.com/vYm3Jg9.png" width="195" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">Default Services</td></tr>
+</tbody></table>
+<br />
+<table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody>
+<tr><td style="text-align: center;"><a href="http://i.imgur.com/PrzYiWo.png" imageanchor="1" style="margin-left: auto; margin-right: auto;"><img border="0" height="640" src="http://i.imgur.com/PrzYiWo.png" width="570" /></a></td></tr>
+<tr><td class="tr-caption" style="text-align: center;">MINIMAL Services</td></tr>
+</tbody></table>
+<br />
+&nbsp;&nbsp;&nbsp; RUNNING / AUTOMATIC STARTUP <br />
+<br />
+&nbsp;&nbsp;&nbsp; REQ = required<br />
+&nbsp; &nbsp; OPT = optional<br />
+<br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; Background Intelligent Transfer Service (OPT Windows Update)</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; CNG Key Isolation (OPT WIFI)</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; COM+ Event System (OPT Windows Update)</span><br />
+<span style="color: red;">&nbsp;&nbsp;&nbsp; DCOM Server Process Launcher (REQ)</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; DHCP Client (OPT INTERNET)</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; Extensible Authentication Protocol (OPT WIFI)</span><br />
+<span style="color: red;">&nbsp;&nbsp;&nbsp; Group Policy Client (REQ)</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; Multimedia Class Scheduler (OPT AUDIO)</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; Network Store Interface Service (OPT DHCP)</span><br />
+&nbsp;&nbsp;&nbsp; <span style="color: red;">Plug and Play (REQ)<br />&nbsp;&nbsp;&nbsp; Power (REQ)<br />&nbsp;&nbsp;&nbsp; Remote Procedure Call (RPC) (REQ)<br />&nbsp;&nbsp;&nbsp; RPC Endpoint Mapper (REQ)<br />&nbsp;&nbsp;&nbsp; Security Accounts Manager (REQ)</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; Software Protection (OPT - NAG SCREEN IF DISABLED)</span><br />
+&nbsp;&nbsp;&nbsp;<span style="color: #38761d;"> Task Scheduler (REQ)<br />&nbsp;&nbsp;&nbsp; User Profile Service (REQ)</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; Windows Audio (OPT AUDIO)<br />&nbsp;&nbsp;&nbsp; Windows Audio Endpoint Builder (OPT AUDIO)</span><br />
+<span style="color: red;">&nbsp;&nbsp;&nbsp; Windows Event Log (REQ)</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; Windows Installer (OPT Windows Update)<br />&nbsp;&nbsp;&nbsp; Windows Update (OPT Windows Update)<br />&nbsp;&nbsp;&nbsp; WLAN AutoConfig (OPT WIFI)</span><br />
+&nbsp;&nbsp;&nbsp; <br />
+&nbsp;&nbsp;&nbsp; MANUAL / AS NEEDED<br />
+&nbsp;&nbsp;&nbsp; <br />
+&nbsp;&nbsp;&nbsp; Optional "Performance" Services :<br />
+<br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; Windows Font Cache Service:</span><br />
+<span style="color: #38761d;">&nbsp;&nbsp;&nbsp; Superfetch</span><br />
+&nbsp;&nbsp;&nbsp; <br />
+&nbsp;&nbsp;&nbsp; Also see:<br />
+<br />
+&nbsp;&nbsp;&nbsp; <a href="http://insurgencymod.blogspot.com/2012/03/default-windows-7-services-reference.html">http://insurgencymod.blogspot.com/2012/03/default-windows-7-services-reference.html</a><br />
+&nbsp;&nbsp;&nbsp; <a href="http://insurgencymod.blogspot.com/2012/06/outpost-firewall-pro-753-base-filtering.html">http://insurgencymod.blogspot.com/2012/06/outpost-firewall-pro-753-base-filtering.html&nbsp;</a><br />
+&nbsp;&nbsp;&nbsp; <a href="http://insurgencymod.blogspot.com/2012/02/pro-tip-minimal-windows-xp-x32-services.html">http://insurgencymod.blogspot.com/2012/02/pro-tip-minimal-windows-xp-x32-services.html</a><br />
+&nbsp;&nbsp;&nbsp; ServiWin (<a href="http://www.nirsoft.net/utils/serviwin.html">http://www.nirsoft.net/utils/serviwin.html</a>) <br />
+&nbsp;&nbsp;&nbsp; Turbo Service Manager (<a href="http://www.turboirc.com/tsm/">http://www.turboirc.com/tsm/</a>) [UPDATE: DOESN'T WORK] 
+<br> 
+<br> 
+IMSIDEBB488265BD867C97F57C8A8E150B67B653305A5 
